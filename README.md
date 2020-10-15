@@ -1,2 +1,2 @@
-# inf554-project
+# inf552-project
 Data visualization project
