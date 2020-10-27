@@ -1,0 +1,69 @@
+Codigo DI: a) 0 - Etapa Regular
+           b) 2 - Etapa Extra
+           c) 3 - Etapa de Retorno
+           d) 4 - Inclusão de Etapa
+           e) 6 - Etapa Não Remunerada Sem Transporte de Objetos
+           f) 7 - Etapa de Voo de Fretamento
+           g) 9 - Etapa de Voo Charter
+           h) 10 - Etapa de Voo Duplicada (was D)
+           i) 11 - Etapa Não Remunerada Com Transporte de Objetos (was E)
+           j) NaN - Outro
+
+Codigo Tipo Linha: a) 1 (was N) - Doméstica Mista: para operações de transporte aéreo de passageiros ou mistas, em que todos os aeródromos envolvidos estejam situados simultaneamente em território brasileiro;
+                   b) 2 (was C) - Doméstica Cargueira: para operações de transporte aéreo exclusivo de carga e/ou mala postal em que todos os aeródromos envolvidos estejam situados simultaneamente em território brasileiro;
+                   c) 3 (was I) - Internacional Mista: para operações de transporte aéreo de passageiros ou mistas, em que ao menos um dos aeródromos envolvidos esteja situado em território estrangeiro;
+                   d) 4 (was G) - Internacional Cargueira: para operações de transporte aéreo exclusivo de carga e/ou rede postal em que ao menos um dos aeródromos envolvidos esteja situado em território estrangeiro;
+                   e) NaN (was X, H, L, R, E) - Outro
+
+Situacao Voo: a) 1 - REALIZADO
+              b) 2 - NAO REALIZADO
+              b) 3 - CANCELADO
+              c) 4 - NAO INFORMADO
+
+Codigo Justificativa:
+    AA	ATRASO AEROPORTO DE ALTERNATIVA ¿ ORDEM TÉCNICA
+    AF	FACILIDADES DO AEROPORTO - RESTRIÇÕES DE APOIO
+    AG	MIGRAÇÃO/ALFÂNDEGA/SAÚDE
+    AI	AEROPORTO DE ORIGEM INTERDITADO
+    AJ	AEROPORTO DE DESTINO INTERDITADO
+    AM	ATRASO AEROPORTO DE ALTERNATIVA ¿ CONDIÇÕES METEOROLÓGICAS
+    AR	AEROPORTO COM RESTRIÇÕES OPERACIONAIS
+    AS	SEGURANÇA/PAX/CARGA/ALARME
+    AT	LIBERAÇÃO SERV. TRAFEGO AÉREO/ANTECIPAÇÃO
+    DF	AVARIA DURANTE OPERAÇÕES EM VÔO
+    DG	AVARIA DURANTE OPERAÇÕES EM SOLO
+    FP	PLANO DE VÔO -  APROVAÇÃO
+    GF	ABASTECIMENTO/DESTANQUEIO
+    HA	AUTORIZADA
+    HB	OPERAÇÃO DE VÔO COM MAIS DE 04 HORAS DE ATRASO PANE AERONAVE
+    HD	ANTECIPAÇÃO DE HORÁRIO AUTORIZADA
+    HI	ANTECIPAÇÃO DE HORÁRIO AUTORIZADA ¿ ESPECÍFICO VÔOS INTERNACIONAIS
+    IR	INCLUSÃO DE ETAPA (AEROPORTO DE ALTERNATIVA) DEVIDO A UM VÔO ESPECIAL RETORNO
+    MA	FALHA EQUIPO AUTOMOTIVO E DE ATENDIMENTO DE PAX
+    MX	ATRASOS NÃO ESPECÍFICOS ¿ OUTROS
+    OA	AUTORIZADO
+    RA	CONEXÃO DE AERONAVE
+    RI	CONEXÃO AERONAVE/VOLTA ¿ VÔO DE IDA NÃO PENALIZADO AEROPORTO INTERDITADO
+    RM	CONEXÃO AERONAVE/VOLTA ¿ VÔO DE IDA NÃO PENALIZADO CONDIÇÕES METEOROLÓGICAS
+    ST	INCLUSÃO DE ETAPA DEVIDO CANCELAMENTO DE ESCALAS PREVISTAS ¿ ( EXCLUSIVO PARA LINHAS SUPLEMENTADAS)
+    TC	TROCA DE AERONAVE
+    TD	DEFEITOS DA AERONAVE
+    VE	ESPECÍFICO PARA VÔO ESPECIAL DE EXPERIÊNCIA
+    VI	ESPECÍFICO PARA VÔO ESPECIAL DE INSTRUÇÃO
+    VR	VÔO ESPECIAL DE RETORNO (EXCLUSIVO PARA RETORNO AO AEROPORTO DE ORIGEM)
+    WA	ALTERNATIVA ABAIXO DOS LIMITES
+    WI	DEGELO E REMOÇÃO DE NEVE E/OU LAMA EM AERONAVE
+    WO	AEROPORTO ORIGEM ABAIXO DOS LIMITES
+    WR	ATRASO DEVIDO RETORNO ¿ CONDIÇÕES METEOROLÓGICAS
+    WS	REMOÇÃO GELO/ÁGUA/LAMA/AREIA - EM AEROPORTO
+    WT	AEROPORTO DESTINO ABAIXO DOS LIMITES
+    XA	PROGRAMADO ¿ FERIADO NACIONAL
+    XB	AUTORIZADO
+    XI	DEVIDO AEROPORTO DE ORIGEM INTERDITADO
+    XJ	DEVIDO AEROPORTO DE DESTINO INTERDITADO
+    XL	FALTA PAX COM PASSAGEM MARCADA ¿ ( APENAS PARA AS LINHAS AÉREAS DOMÉSTICAS REGIONAIS)
+    XM	CANCELAMENTO ¿ CONEXÃO AERONAVE/VOLTA ¿ VÔO DE IDA CANCELADO ¿ AEROPORTO INTERDITADO
+    XN	CANCELAMENTO POR MOTIVOS TÉCNICOS ¿ OPERACIONAIS
+    XO	CANCELAMENTO ¿ AEROPORTO ORIGEM ABAIXO LIMITES
+    XS	CANCELAMENTO ¿ CONEXÃO AERONAVE/VOLTA ¿ VÔO DE IDA CANCELADO ¿ CONDIÇÕES METEOROLÓGICAS
+    XT	CANCELAMENTO ¿ AEROPORTO DESTINO ABAIXO LIMITES

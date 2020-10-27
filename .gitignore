@@ -3,6 +3,7 @@
 data/*
 !data/urls.csv
 !data/br-airports.csv
+!data/variables.txt
 
 # dependencies
 node_modules/
