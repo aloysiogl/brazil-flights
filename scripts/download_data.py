@@ -1,76 +1,85 @@
-from io import BytesIO
 import numpy as np
 import os
 import pandas as pd
-from urllib.request import urlopen
-import xlrd
-from zipfile import ZipFile
+import re
 
 
 data_dir = os.path.dirname(os.path.abspath(__file__)) + '/../data/'
 df_urls = pd.read_csv(data_dir + 'urls.csv')
 df_urls = df_urls.set_index(['year', 'month'])
 
-dtypes = {'ICAO Empresa Aerea': str, 'Numero Voo': str, 'Codigo DI': str,
-          'Grupo DI': str, 'Codigo Tipo Linha': str, 'ICAO Aerodromo Origem': str,
-          'ICAO Aerodromo Destino': str, 'Partida Prevista': str,
-          'Partida Real': str, 'Chegada Prevista': str, 'Chegada Real': str,
-          'Situacao Voo': str, 'Codigo Justificativa': str}
-df_final = pd.DataFrame(columns=dtypes.keys())
+df_final = pd.DataFrame(dtype=str)
 
-i = 0
+columns_mapping = {
+    'Sigla  da Empresa': 'ICAO Empresa Aerea',
+    'ICAO Empresa Area': 'ICAO Empresa Aerea',
+    'sgempresaicao': 'ICAO Empresa Aerea',
+    'Nmero Voo': 'Numero Voo',
+    'NUmero Voo': 'Numero Voo',
+    'Nmero do Voo': 'Numero Voo',
+    'nrvoo': 'Numero Voo',
+    'Cdigo DI': 'Codigo DI',
+    'Cdigo Autorizao DI': 'Codigo DI',
+    'D I': 'Codigo DI',
+    'cddi': 'Codigo DI',
+    'Tipo de Linha': 'Codigo Tipo Linha',
+    'Cdigo Tipo Linha': 'Codigo Tipo Linha',
+    'cdtipolinha': 'Codigo Tipo Linha',
+    'ICAO Aerdromo Origem': 'ICAO Aerodromo Origem',
+    'ICAO Aerdromo Destino': 'ICAO Aerodromo Destino',
+    'sgicaoorigem': 'ICAO Aerodromo Origem',
+    'sgicaodestino': 'ICAO Aerodromo Destino',
+    'Aeroporto Origem': 'ICAO Aerodromo Origem',
+    'Aeroporto Destino': 'ICAO Aerodromo Destino',
+    'Data Partida Prevista': 'Partida Prevista',
+    'Data Partida Real': 'Partida Real',
+    'Data Chegada Prevista': 'Chegada Prevista',
+    'Data Chegada Real': 'Chegada Real',
+    'dtpartidaprevista': 'Partida Prevista',
+    'dtpartidareal': 'Partida Real',
+    'dtchegadaprevista': 'Chegada Prevista',
+    'dtchegadareal': 'Chegada Real',
+    'Situao Voo': 'Situacao Voo',
+    'Situacao': 'Situacao Voo',
+    'situacao': 'Situacao Voo',
+    'Situao': 'Situacao Voo',
+    'Cdigo Justificativa': 'Codigo Justificativa',
+    'Justificativa': 'Codigo Justificativa',
+    'CdigoJustificativa': 'Codigo Justificativa',
+    'cdjustificativa': 'Codigo Justificativa'
+}
+
+drop_columns = ['Unnamed 0', 'Grupo DI', 'Data Prevista']
+drop_first_row = set([(2015, 11), (2015, 12)])
+
+i = 1
 for index, row in df_urls.iterrows():
     year, month = index
     print(str(i) + '/' + str(df_urls.shape[0]) + ':', year, month)
     i += 1
-    url = row['url']
-    if i > 9:
-        break
 
+    url = row['url']
     if os.path.isfile(data_dir + str(year) + str(month) + '.csv'):
         df = pd.read_csv(data_dir + str(year) + str(month) + '.csv')
     else:
-        response = urlopen(url)
-        if url[-3:] == '.zip':
-            zf = ZipFile(BytesIO(response.read()))
-            path = '/tmp/' + str(year) + str(month)
-            zf.extractall(path=path)
-            zf.close()
-            df = pd.read_csv(path, sep=';', encoding='mac_roman')
-        elif url[-4:] == '.xlsx':
+        if url[-4:] == 'xlsx':
             df = pd.read_excel(url)
         else:
-            df = pd.read_csv(url, sep=';', encoding='mac_roman')
+            if (year, month) in drop_first_row:
+                df = pd.read_csv(url, sep=',|;|\t', encoding='latin1', skiprows=[0])
+            else:
+                df = pd.read_csv(url, sep=',|;|\t', encoding='latin1')
 
         df.to_csv(data_dir + str(year) + str(month) + '.csv')
 
-    df = df.rename(columns={'ICAO Aeródromo Origem': 'ICAO Aerodromo Origem',
-                            'ICAO Aeródromo Destino': 'ICAO Aerodromo Destino',
-                            'Sigla  da Empresa': 'ICAO Empresa Aerea',
-                            'N˙mero do Voo': 'Numero Voo',
-                            'D I': 'Codigo DI',
-                            'Aeroporto Origem': 'ICAO Aerodromo Origem',
-                            'Aeroporto Destino': 'ICAO Aerodromo Destino',
-                            'SituaÁ„o': 'Situacao Voo',
-                            'Justificativa': 'Codigo Justificativa',
-                            'Tipo de Linha': 'Codigo Tipo Linha',
-                            'ICAO Empresa AÈrea': 'ICAO Empresa Aerea',
-                            'N˙mero Voo': 'Numero Voo',
-                            'CÛdigo DI': 'Codigo DI',
-                            'CÛdigo Tipo Linha': 'Codigo Tipo Linha',
-                            'ICAO AerÛdromo Origem': 'ICAO Aerodromo Origem',
-                            'ICAO AerÛdromo Destino': 'ICAO Aerodromo Destino',
-                            'SituaÁ„o Voo': 'Situacao Voo',
-                            'CÛdigo Justificativa': 'Codigo Justificativa'})
-    df_final = pd.concat([df_final, df]).astype(dtypes)
+    df.columns = [re.sub(r'[^A-Za-z0-9 ]+', '', s) for s in df.columns]
+    df = df.rename(columns=columns_mapping).drop(drop_columns, axis=1, errors='ignore')
+    df_final = pd.concat([df_final, df])
 
     if (year, month) == (2020, 8):
         df_final.to_csv(data_dir + 'flights2020.csv')
     elif (year, month) == (2019, 12):
         df_final.to_csv(data_dir + 'flights2019-20.csv')
-    print(df_final.columns)
 
-del df_final['Unnamed: 0']
 print(df_final.columns)
-print(df_final.dtypes)
 df_final.to_csv(data_dir + 'flights.csv')
