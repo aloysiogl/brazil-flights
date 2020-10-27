@@ -2,6 +2,7 @@
 
 data/*
 !data/urls.csv
+!data/br-airports.csv
 
 # dependencies
 node_modules/
