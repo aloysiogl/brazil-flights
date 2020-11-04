@@ -51,6 +51,7 @@ columns_mapping = {
 
 drop_columns = ['Unnamed 0', 'Grupo DI', 'Data Prevista']
 drop_first_row = set([(2015, 11), (2015, 12)])
+drop_last_rows = { (2005, 5): 27, (2002, 1): 27 }
 
 i = 1
 for index, row in df_urls.iterrows():
@@ -65,14 +66,19 @@ for index, row in df_urls.iterrows():
         if url[-4:] == 'xlsx':
             df = pd.read_excel(url)
         else:
-            if (year, month) in drop_first_row:
-                df = pd.read_csv(url, sep=',|;|\t', encoding='latin1', skiprows=[0])
-            else:
-                df = pd.read_csv(url, sep=',|;|\t', encoding='latin1')
+            df = pd.read_csv(url, sep=',|;|\t', encoding='latin1')
 
         df.to_csv(data_dir + str(year) + str(month) + '.csv')
 
+    drop_rows = []
+    if (year, month) in drop_first_row:
+        drop_rows = [0]
+    if (year, month) in drop_last_rows:
+        for d in range(df.shape[0] - drop_last_rows[year, month], df.shape[0]):
+            drop_rows.append(d)
+
     df.columns = [re.sub(r'[^A-Za-z0-9 ]+', '', s) for s in df.columns]
+    df.drop(drop_rows)
     df = df.rename(columns=columns_mapping).drop(drop_columns, axis=1, errors='ignore')
     df_final = pd.concat([df_final, df])
 

@@ -7,20 +7,26 @@ Codigo DI: a) 0 - Etapa Regular
            g) 9 - Etapa de Voo Charter
            h) 10 - Etapa de Voo Duplicada (was D)
            i) 11 - Etapa Não Remunerada Com Transporte de Objetos (was E)
-           j) NaN - Outro
+           j) 12, 13, 14, 15 (was A, B, C, F) - Outros
 
 Codigo Tipo Linha: a) 1 (was N) - Doméstica Mista: para operações de transporte aéreo de passageiros ou mistas, em que todos os aeródromos envolvidos estejam situados simultaneamente em território brasileiro;
                    b) 2 (was C) - Doméstica Cargueira: para operações de transporte aéreo exclusivo de carga e/ou mala postal em que todos os aeródromos envolvidos estejam situados simultaneamente em território brasileiro;
                    c) 3 (was I) - Internacional Mista: para operações de transporte aéreo de passageiros ou mistas, em que ao menos um dos aeródromos envolvidos esteja situado em território estrangeiro;
                    d) 4 (was G) - Internacional Cargueira: para operações de transporte aéreo exclusivo de carga e/ou rede postal em que ao menos um dos aeródromos envolvidos esteja situado em território estrangeiro;
-                   e) NaN (was X, H, L, R, E) - Outro
+                   e) 5, 6, 7, 8, 9 (was X, H, L, R, E) - Outros
 
 Situacao Voo: a) 1 - REALIZADO
               b) 2 - NAO REALIZADO
-              b) 3 - CANCELADO
-              c) 4 - NAO INFORMADO
+              c) 3 - CANCELADO
 
 Codigo Justificativa:
+Mapped to: {'AA': 0, 'AF': 1, 'AG': 2, 'AI': 3, 'AJ': 4, 'AM': 5, 'AR': 6, 'AS': 7, 'AT': 8, 'DF': 9,
+            'DG': 10, 'FP': 11, 'GF': 12, 'HA': 13, 'HB': 14, 'HD': 15, 'HI': 16, 'IR': 17, 'MA': 18, 'MX': 19,
+            'OA': 20, 'RA': 21, 'RI': 22, 'RM': 23, 'ST': 24, 'TC': 25, 'TD': 26, 'VE': 27, 'VI': 28, 'VR': 29,
+            'WA': 30, 'WI': 31, 'WO': 32, 'WR': 33, 'WS': 34, 'WT': 35, 'XA': 36, 'XB': 37, 'XI': 38, 'XJ': 39,
+            'XL': 40, 'XM': 41, 'XN': 42, 'XO': 43, 'XS': 44, 'XT': 45, 'cc': 46, 'WP': 47, 'XR': 48, 'HC': 49,
+            'M': 50}
+
     AA	ATRASO AEROPORTO DE ALTERNATIVA ¿ ORDEM TÉCNICA
     AF	FACILIDADES DO AEROPORTO - RESTRIÇÕES DE APOIO
     AG	MIGRAÇÃO/ALFÂNDEGA/SAÚDE
