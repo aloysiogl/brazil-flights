@@ -5,8 +5,15 @@ import re
 
 
 data_dir = os.path.dirname(os.path.abspath(__file__)) + '/../data/'
+raw_data_dir = data_dir + 'raw/raw/'
+divided_data_dir = data_dir + 'raw/divided/'
 df_urls = pd.read_csv(data_dir + 'urls.csv')
 df_urls = df_urls.set_index(['year', 'month'])
+
+if not os.path.isdir(raw_data_dir):
+    os.makedirs(raw_data_dir)
+if not os.path.isdir(divided_data_dir):
+    os.makedirs(divided_data_dir)
 
 df_final = pd.DataFrame(dtype=str)
 
@@ -51,24 +58,25 @@ columns_mapping = {
 
 drop_columns = ['Unnamed 0', 'Grupo DI', 'Data Prevista']
 drop_first_row = set([(2015, 11), (2015, 12)])
-drop_last_rows = { (2005, 5): 27, (2002, 1): 27 }
+drop_last_rows = {(2005, 5): 27, (2002, 1): 27}
 
 i = 1
+cur_year = 2020
 for index, row in df_urls.iterrows():
     year, month = index
     print(str(i) + '/' + str(df_urls.shape[0]) + ':', year, month)
     i += 1
 
     url = row['url']
-    if os.path.isfile(data_dir + str(year) + str(month) + '.csv'):
-        df = pd.read_csv(data_dir + str(year) + str(month) + '.csv')
+    if os.path.isfile(raw_data_dir + str(year) + str(month) + '.csv'):
+        df = pd.read_csv(raw_data_dir + str(year) + str(month) + '.csv')
     else:
         if url[-4:] == 'xlsx':
             df = pd.read_excel(url)
         else:
             df = pd.read_csv(url, sep=',|;|\t', encoding='latin1')
 
-        df.to_csv(data_dir + str(year) + str(month) + '.csv')
+        df.to_csv(raw_data_dir + str(year) + str(month) + '.csv')
 
     drop_rows = []
     if (year, month) in drop_first_row:
@@ -79,13 +87,12 @@ for index, row in df_urls.iterrows():
 
     df.columns = [re.sub(r'[^A-Za-z0-9 ]+', '', s) for s in df.columns]
     df.drop(drop_rows)
-    df = df.rename(columns=columns_mapping).drop(drop_columns, axis=1, errors='ignore')
+    df = df.rename(columns=columns_mapping).drop(
+        drop_columns, axis=1, errors='ignore')
+
+    if cur_year != year:
+        df_final.to_csv(divided_data_dir + 'flights' + str(year) + '.csv', index=False)
+        cur_year = year
+        del df_final
+        df_final = pd.DataFrame(dtype=str)
     df_final = pd.concat([df_final, df])
-
-    if (year, month) == (2020, 8):
-        df_final.to_csv(data_dir + 'flights2020.csv')
-    elif (year, month) == (2019, 12):
-        df_final.to_csv(data_dir + 'flights2019-20.csv')
-
-print(df_final.columns)
-df_final.to_csv(data_dir + 'flights.csv')
