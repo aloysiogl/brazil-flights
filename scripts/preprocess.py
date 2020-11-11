@@ -10,8 +10,7 @@ def rename_columns(df):
                        'Codigo Tipo Linha': 'type',
                        'ICAO Aerodromo Origem': 'origin_airport',
                        'ICAO Aerodromo Destino': 'destination_airport',
-                       'Partida Prevista': 'scheduled_departure',
-                       'Partida Real': 'real_departure',
+                       'Partida Prevista': 'scheduled_departure', 'Partida Real': 'real_departure',
                        'Chegada Prevista': 'scheduled_arrival',
                        'Chegada Real': 'real_arrival',
                        'Situacao Voo': 'status',
@@ -82,23 +81,31 @@ def parse_dates(df):
 
 def add_coordinates(df, airports_data_path):
     airports_df = pd.read_csv(airports_data_path)
-    airports_df = airports_df[['icao', 'latitude_deg', 'longitude_deg']]
-    airports_df.set_index('icao', inplace=True)
+    airports_df = airports_df[['code', 'latitude', 'longitude']]
+    airports_df.set_index('code', inplace=True)
     columns = list(df.columns) + ['origin_latitude', 'origin_longitude',
                                   'destination_latitude', 'destination_longitude']
 
     df = df.join(airports_df, on='origin_airport', rsuffix='_origin')
     df = df.join(airports_df, on='destination_airport', rsuffix='_destination')
-    df.rename(columns={'latitude_deg': 'origin_latitude',
-                       'longitude_deg': 'origin_longitude',
-                       'latitude_deg_destination': 'destination_latitude',
-                       'longitude_deg_destination': 'destination_longitude'}, inplace=True)
+    df.rename(columns={'latitude': 'origin_latitude',
+                       'longitude': 'origin_longitude',
+                       'latitude_destination': 'destination_latitude',
+                       'longitude_destination': 'destination_longitude'}, inplace=True)
     return df[columns]
+
+
+def remove_nan_coordinates(df):
+    not_found = {0, '0', 'X', 'MUMC', '0GMM', 'XBGR', 'KMIS', 'SBXX', 'SBGE', 'SBSU',
+                 'ABEG', 'SBEB', 'SBJK', 'SMPJ', 'SBGF', 'KJSU', 'SBGY', 'SARZ', 'ABKP', 'SBVA'}
+    df = df[~df['origin_airport'].isin(not_found)]
+    df = df[~df['destination_airport'].isin(not_found)]
+    return df
 
 
 def preprocess(year):
     data_path = os.path.dirname(os.path.abspath(__file__)) + '/../data/'
-    airports_data_path = data_path + 'br-airports.csv'
+    airports_data_path = data_path + 'airports.csv'
     raw_path = data_path + 'raw/divided/flights' + str(year) + '.csv'
     save_path = data_path + 'preprocessed/'
 
@@ -111,7 +118,9 @@ def preprocess(year):
     df.drop('Numero Voo', axis=1, inplace=True)
 
     # Remove leading or trailing quotes and spaces
-    df = df.apply(lambda x: x.str.strip('" '))
+    for col in df.columns:
+        if df.dtypes[col] == 'object':
+            df[col] = df[col].str.strip('" ')
     df.replace('', np.nan, inplace=True)
 
     rename_columns(df)
@@ -119,6 +128,7 @@ def preprocess(year):
     df = encode_values(df)
     df = parse_dates(df)
     df = add_coordinates(df, airports_data_path)
+    df = remove_nan_coordinates(df)
 
     df.sort_values(by=['scheduled_departure',
                        'scheduled_arrival'], inplace=True)
@@ -126,4 +136,6 @@ def preprocess(year):
 
 
 if __name__ == '__main__':
-    preprocess(2020)
+    for y in range(2000, 2021):
+        print(y)
+        preprocess(y)

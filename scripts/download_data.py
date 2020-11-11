@@ -22,9 +22,11 @@ columns_mapping = {
     'Nmero Voo': 'Numero Voo',
     'NUmero Voo': 'Numero Voo',
     'Nmero do Voo': 'Numero Voo',
+    'Numero do Voo': 'Numero Voo',
     'nrvoo': 'Numero Voo',
     'Cdigo DI': 'Codigo DI',
     'Cdigo Autorizao DI': 'Codigo DI',
+    'Código Autorização (DI)': 'Codigo DI',
     'D I': 'Codigo DI',
     'cddi': 'Codigo DI',
     'Tipo de Linha': 'Codigo Tipo Linha',
@@ -56,7 +58,7 @@ columns_mapping = {
 
 drop_columns = ['Unnamed 0', 'Grupo DI', 'Data Prevista']
 drop_first_row = set([(2015, 11), (2015, 12)])
-drop_last_rows = {(2005, 5): 27, (2002, 1): 27}
+drop_last_rows = {(2005, 5): 24, (2002, 1): 24}
 
 i = 1
 cur_year = 2020
@@ -80,17 +82,23 @@ for index, row in df_urls.iterrows():
     drop_rows = []
     if (year, month) in drop_first_row:
         drop_rows = [0]
+        drop_columns += ['d1', 'd2', 'd3']
+        df.columns = ['ICAO Empresa Aerea', 'Numero Voo', 'Codigo DI', 'Codigo Tipo Linha',
+                      'ICAO Aerodromo Origem', 'ICAO Aerodromo Destino', 'Partida Prevista',
+                      'Partida Real', 'Chegada Prevista', 'Chegada Real', 'Situacao Voo',
+                      'Codigo Justificativa', 'd1', 'd2', 'd3']
     if (year, month) in drop_last_rows:
         for d in range(df.shape[0] - drop_last_rows[year, month], df.shape[0]):
             drop_rows.append(d)
 
     df.columns = [re.sub(r'[^A-Za-z0-9 ]+', '', s) for s in df.columns]
-    df.drop(drop_rows)
+    df.drop(drop_rows, inplace=True)
     df = df.rename(columns=columns_mapping).drop(
         drop_columns, axis=1, errors='ignore')
 
     if cur_year != year:
-        df_final.to_csv(divided_data_dir + 'flights' + str(cur_year) + '.csv', index=False)
+        df_final.to_csv(divided_data_dir + 'flights' +
+                        str(cur_year) + '.csv', index=False)
         cur_year = year
         del df_final
         df_final = pd.DataFrame(dtype=str)
