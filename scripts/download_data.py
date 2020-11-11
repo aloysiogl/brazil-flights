@@ -15,8 +15,6 @@ if not os.path.isdir(raw_data_dir):
 if not os.path.isdir(divided_data_dir):
     os.makedirs(divided_data_dir)
 
-df_final = pd.DataFrame(dtype=str)
-
 columns_mapping = {
     'Sigla  da Empresa': 'ICAO Empresa Aerea',
     'ICAO Empresa Area': 'ICAO Empresa Aerea',
@@ -62,6 +60,7 @@ drop_last_rows = {(2005, 5): 27, (2002, 1): 27}
 
 i = 1
 cur_year = 2020
+df_final = pd.DataFrame(dtype=str)
 for index, row in df_urls.iterrows():
     year, month = index
     print(str(i) + '/' + str(df_urls.shape[0]) + ':', year, month)
@@ -91,8 +90,10 @@ for index, row in df_urls.iterrows():
         drop_columns, axis=1, errors='ignore')
 
     if cur_year != year:
-        df_final.to_csv(divided_data_dir + 'flights' + str(year) + '.csv', index=False)
+        df_final.to_csv(divided_data_dir + 'flights' + str(cur_year) + '.csv', index=False)
         cur_year = year
         del df_final
         df_final = pd.DataFrame(dtype=str)
     df_final = pd.concat([df_final, df])
+
+df_final.to_csv(divided_data_dir + 'flights' + str(2000) + '.csv', index=False)

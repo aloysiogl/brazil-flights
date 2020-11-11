@@ -31,6 +31,7 @@ def fix_column_orders(df):
     df.loc[locs, 'destination_airport'] = df.loc[locs, 'scheduled_departure']
     df.loc[locs, 'scheduled_departure'] = df.loc[locs, 'real_departure']
     df.loc[locs, 'real_departure'] = temp
+    return df
 
 
 def encode_values(df):
@@ -45,14 +46,13 @@ def encode_values(df):
     df['status'].replace(not_informed, np.nan, inplace=True)
     df['status'] = pd.Series(df['status'], dtype='Int8')
 
-    df['di'].replace(
-        {'D': 10, 'E': 11, 'A': 12, 'B': 13, 'C': 14, 'F': 15}, inplace=True)
+    df['di'].replace({'D': 10, 'E': 11, 'A': 12, 'B': 13,
+                      'C': 14, 'F': 15}, inplace=True)
     df['di'] = pd.Series(df['di'], dtype='Int8')
 
-    df['type'].replace(
-        {'N': 1, 'C': 2, 'I': 3, 'G': 4, 'X': 5, 'H': 6, 'L': 7, 'R': 8, 'E': 9, 'N/I': np.nan}, inplace=True)
-    df['type'] = pd.Series(
-        df['type'], dtype='Int8')
+    df['type'].replace({'N': 1, 'C': 2, 'I': 3, 'G': 4, 'X': 5,
+                        'H': 6, 'L': 7, 'R': 8, 'E': 9, 'N/I': np.nan}, inplace=True)
+    df['type'] = pd.Series(df['type'], dtype='Int8')
 
     df['reason'].replace({'AA': 0, 'AF': 1, 'AG': 2, 'AI': 3, 'AJ': 4, 'AM': 5, 'AR': 6, 'AS': 7, 'AT': 8, 'DF': 9,
                           'DG': 10, 'FP': 11, 'GF': 12, 'HA': 13, 'HB': 14, 'HD': 15, 'HI': 16, 'IR': 17, 'MA': 18, 'MX': 19,
@@ -61,8 +61,8 @@ def encode_values(df):
                           'XL': 40, 'XM': 41, 'XN': 42, 'XO': 43, 'XS': 44, 'XT': 45, 'cc': 46, 'WP': 47, 'XR': 48, 'HC': 49,
                           'M': 50}, inplace=True)
     df['reason'].replace('<!--', np.nan, inplace=True)
-    df['reason'] = pd.Series(
-        df['reason'], dtype='Int8')
+    df['reason'] = pd.Series(df['reason'], dtype='Int8')
+    return df
 
 
 def parse_dates(df):
@@ -77,10 +77,28 @@ def parse_dates(df):
             df.loc[locs, column] = pd.to_datetime(
                 df.loc[locs, column], format=f)
         df[column].replace(not_informed, np.nan, inplace=True)
+    return df
+
+
+def add_coordinates(df, airports_data_path):
+    airports_df = pd.read_csv(airports_data_path)
+    airports_df = airports_df[['icao', 'latitude_deg', 'longitude_deg']]
+    airports_df.set_index('icao', inplace=True)
+    columns = list(df.columns) + ['origin_latitude', 'origin_longitude',
+                                  'destination_latitude', 'destination_longitude']
+
+    df = df.join(airports_df, on='origin_airport', rsuffix='_origin')
+    df = df.join(airports_df, on='destination_airport', rsuffix='_destination')
+    df.rename(columns={'latitude_deg': 'origin_latitude',
+                       'longitude_deg': 'origin_longitude',
+                       'latitude_deg_destination': 'destination_latitude',
+                       'longitude_deg_destination': 'destination_longitude'}, inplace=True)
+    return df[columns]
 
 
 def preprocess(year):
     data_path = os.path.dirname(os.path.abspath(__file__)) + '/../data/'
+    airports_data_path = data_path + 'br-airports.csv'
     raw_path = data_path + 'raw/divided/flights' + str(year) + '.csv'
     save_path = data_path + 'preprocessed/'
 
@@ -88,9 +106,6 @@ def preprocess(year):
         os.makedirs(save_path)
 
     df = pd.read_csv(raw_path, low_memory=False)
-
-    # Reset index
-    df.drop(df.columns[0], axis=1, inplace=True)
 
     # Remove flight number column
     df.drop('Numero Voo', axis=1, inplace=True)
@@ -100,21 +115,15 @@ def preprocess(year):
     df.replace('', np.nan, inplace=True)
 
     rename_columns(df)
-    fix_column_orders(df)
-    encode_values(df)
-    parse_dates(df)
+    df = fix_column_orders(df)
+    df = encode_values(df)
+    df = parse_dates(df)
+    df = add_coordinates(df, airports_data_path)
 
-    df.to_csv(save_path + 'flighs' + str(year) + '_preprocessed.csv', index=False)
+    df.sort_values(by=['scheduled_departure',
+                       'scheduled_arrival'], inplace=True)
+    df.to_csv(save_path + 'flights' + str(year) + '.csv', index=False)
 
 
 if __name__ == '__main__':
     preprocess(2020)
-
-
-# # Add airports coordinates
-# df_flights = df_flights.set_index('origin_airport').join(df_airports)
-# df_flights = df_flights.rename(columns={'latitude_deg': 'Latitude Aerodromo Origem',
-#                                         'longitude_deg': 'Longitude Aerodromo Origem'})
-
-# print(df_flights.columns)
-# print(df_flights.head())
