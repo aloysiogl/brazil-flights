@@ -81,13 +81,13 @@ def parse_dates(df):
 
 def add_coordinates(df, airports_data_path):
     airports_df = pd.read_csv(airports_data_path)
-    airports_df = airports_df[['code', 'latitude', 'longitude']]
     airports_df.set_index('code', inplace=True)
     columns = list(df.columns) + ['origin_latitude', 'origin_longitude',
-                                  'destination_latitude', 'destination_longitude']
+                                  'destination_latitude', 'destination_longitude', 'brazilian']
 
     df = df.join(airports_df, on='origin_airport', rsuffix='_origin')
     df = df.join(airports_df, on='destination_airport', rsuffix='_destination')
+    df['brazilian'] = df['brazilian'].astype(bool) | df['brazilian_destination'].astype(bool)
     df.rename(columns={'latitude': 'origin_latitude',
                        'longitude': 'origin_longitude',
                        'latitude_destination': 'destination_latitude',
@@ -95,12 +95,24 @@ def add_coordinates(df, airports_data_path):
     return df[columns]
 
 
-def remove_nan_coordinates(df):
+def filter_bad_data(df):
+    # Remove airports that don't exist
     not_found = {0, '0', 'X', 'MUMC', '0GMM', 'XBGR', 'KMIS', 'SBXX', 'SBGE', 'SBSU',
                  'ABEG', 'SBEB', 'SBJK', 'SMPJ', 'SBGF', 'KJSU', 'SBGY', 'SARZ', 'ABKP', 'SBVA'}
-    df = df[~df['origin_airport'].isin(not_found)]
-    df = df[~df['destination_airport'].isin(not_found)]
-    return df
+    mask = df['origin_airport'].isin(
+        not_found) | df['destination_airport'].isin(not_found)
+
+    # Remove flights without dates
+    mask |= df['scheduled_departure'].isna() & df['real_departure'].isna()
+    mask |= df['scheduled_arrival'].isna() & df['real_arrival'].isna()
+
+    # Remove dates that don't make sense
+    mask |= df['scheduled_departure'] > df['scheduled_arrival']
+    mask |= df['real_departure'] > df['real_arrival']
+
+    print('Filtered', mask.sum(), 'values')
+
+    return df[~mask]
 
 
 def preprocess(year):
@@ -128,14 +140,14 @@ def preprocess(year):
     df = encode_values(df)
     df = parse_dates(df)
     df = add_coordinates(df, airports_data_path)
-    df = remove_nan_coordinates(df)
+    df = filter_bad_data(df)
 
-    df.sort_values(by=['scheduled_departure',
-                       'scheduled_arrival'], inplace=True)
+    df.sort_values(by=['scheduled_departure', 'scheduled_arrival',
+                       'real_departure', 'real_arrival'], inplace=True)
     df.to_csv(save_path + 'flights' + str(year) + '.csv', index=False)
 
 
 if __name__ == '__main__':
     for y in range(2000, 2021):
-        print(y)
+        print(y, ':', end=' ')
         preprocess(y)

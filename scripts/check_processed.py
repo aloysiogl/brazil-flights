@@ -15,7 +15,8 @@ def read_preprocessed(year):
                                   'origin_latitude': 'Float32',
                                   'origin_longitude': 'Float32',
                                   'destination_latitude': 'Float32',
-                                  'destination_longitude': 'Float32'},
+                                  'destination_longitude': 'Float32',
+                                  'brazilian': bool},
                      parse_dates=['scheduled_departure', 'real_departure', 'scheduled_arrival', 'real_arrival'])
     return df
 
@@ -58,6 +59,6 @@ def print_info(df):
 
 
 if __name__ == '__main__':
-    # for y in range(2000, 2021):
-    df = read_preprocessed(2004)
-    print_info(df)
+    for y in range(2000, 2021):
+        df = read_preprocessed(y)
+        print_info(df)
