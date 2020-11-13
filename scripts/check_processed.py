@@ -16,15 +16,17 @@ def read_preprocessed(year):
                                   'origin_longitude': 'Float32',
                                   'destination_latitude': 'Float32',
                                   'destination_longitude': 'Float32',
-                                  'brazilian': bool},
+                                  'domestic': bool},
                      parse_dates=['scheduled_departure', 'real_departure', 'scheduled_arrival', 'real_arrival'])
     return df
 
 
 def print_info(df):
     df.info(memory_usage='deep')
-    print('Year distribution:', dict(
-        df['scheduled_departure'].dt.year.value_counts(dropna=False)))
+    year = df['scheduled_departure'].copy()
+    year.loc[year.isna()] = df.loc[year.isna(), 'real_departure']
+    year.loc[year.isna()] = df.loc[year.isna(), 'real_arrival']
+    print('Year distribution:', dict(year.dt.year.value_counts(dropna=False)))
     print()
 
     # Check if the length of the icao codes are correct

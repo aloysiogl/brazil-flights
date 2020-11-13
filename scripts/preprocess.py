@@ -83,15 +83,17 @@ def add_coordinates(df, airports_data_path):
     airports_df = pd.read_csv(airports_data_path)
     airports_df.set_index('code', inplace=True)
     columns = list(df.columns) + ['origin_latitude', 'origin_longitude',
-                                  'destination_latitude', 'destination_longitude', 'brazilian']
+                                  'destination_latitude', 'destination_longitude', 'domestic']
 
     df = df.join(airports_df, on='origin_airport', rsuffix='_origin')
     df = df.join(airports_df, on='destination_airport', rsuffix='_destination')
-    df['brazilian'] = df['brazilian'].astype(bool) | df['brazilian_destination'].astype(bool)
+    df['brazilian'] = df['brazilian'].astype(
+        bool) | df['brazilian_destination'].astype(bool)
     df.rename(columns={'latitude': 'origin_latitude',
                        'longitude': 'origin_longitude',
                        'latitude_destination': 'destination_latitude',
-                       'longitude_destination': 'destination_longitude'}, inplace=True)
+                       'longitude_destination': 'destination_longitude',
+                       'brazilian': 'domestic'}, inplace=True)
     return df[columns]
 
 
@@ -103,8 +105,8 @@ def filter_bad_data(df):
         not_found) | df['destination_airport'].isin(not_found)
 
     # Remove flights without dates
-    mask |= df['scheduled_departure'].isna() & df['real_departure'].isna()
-    mask |= df['scheduled_arrival'].isna() & df['real_arrival'].isna()
+    mask |= df['scheduled_departure'].isna() & df['real_departure'].isna(
+    ) & df['scheduled_arrival'].isna() & df['real_arrival'].isna()
 
     # Remove dates that don't make sense
     mask |= df['scheduled_departure'] > df['scheduled_arrival']
