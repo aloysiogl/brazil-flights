@@ -25,7 +25,7 @@ def merge_files(files):
                 new_df = pd.concat(
                     [read_df[c], read_df[info[1]].str.split(',', expand=True)], axis=1)
                 new_df = new_df.rename(
-                    columns={c: 'code', info[0]: 'brazilian', 0: 'latitude', 1: 'longitude'})
+                    columns={c: 'code', info[0]: 'brazilian', 1: 'latitude', 0: 'longitude'})
 
             df = pd.concat([df, new_df])
             df = df.drop_duplicates(subset='code')
@@ -90,6 +90,9 @@ if __name__ == '__main__':
     ]
 
     df = merge_files(files)
+
+    # Fix a data point identified on test
+    df.loc[df['code'] == 'SCSN', 'brazilian'] = False
 
     for airport in more_airports:
         df = df.append(dict(zip(df.columns, airport)), ignore_index=True)
