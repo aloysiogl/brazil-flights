@@ -79,11 +79,12 @@ def parse_dates(df):
     return df
 
 
-def add_coordinates(df, airports_data_path):
+def add_airports_data(df, airports_data_path):
     airports_df = pd.read_csv(airports_data_path)
     airports_df.set_index('code', inplace=True)
     columns = list(df.columns) + ['origin_latitude', 'origin_longitude',
-                                  'destination_latitude', 'destination_longitude', 'domestic']
+                                  'destination_latitude', 'destination_longitude',
+                                  'origin_state', 'destination_state', 'domestic']
 
     df = df.join(airports_df, on='origin_airport', rsuffix='_origin')
     df = df.join(airports_df, on='destination_airport', rsuffix='_destination')
@@ -93,6 +94,8 @@ def add_coordinates(df, airports_data_path):
                        'longitude': 'origin_longitude',
                        'latitude_destination': 'destination_latitude',
                        'longitude_destination': 'destination_longitude',
+                       'state': 'origin_state',
+                       'state_destination': 'destination_state',
                        'brazilian': 'domestic'}, inplace=True)
     return df[columns]
 
@@ -112,12 +115,34 @@ def filter_bad_data(df):
     mask |= df['scheduled_departure'] > df['scheduled_arrival']
     mask |= df['real_departure'] > df['real_arrival']
 
-    print('Filtered', mask.sum(), 'values')
+    print('Filtered', mask.sum(), 'flights with wrong data', end='... ')
+    df = df[~mask]
+
+    # Remove flights that don't involve Brazil
+    mask = df['origin_state'].isna() & df['destination_state'].isna()
+    print('Removed', mask.sum(), 'flights that didnt involve Brazil...')
 
     return df[~mask]
 
 
-def preprocess(year):
+def organize_misplaced(df, correct_y, misplaced):
+    year = df['scheduled_departure'].copy()
+    year.loc[year.isna()] = df.loc[year.isna(), 'real_departure']
+    year.loc[year.isna()] = df.loc[year.isna(), 'real_arrival']
+    year = pd.to_datetime(year).dt.year
+
+    for y in year.unique():
+        if y != correct_y:
+            if y in misplaced:
+                misplaced[y] = pd.concat([misplaced[y], df[year == y]])
+            else:
+                misplaced[y] = df[year == y]
+
+    df = df[year == correct_y]
+    return df, misplaced
+
+
+def preprocess_year(year, misplaced):
     data_path = os.path.dirname(os.path.abspath(__file__)) + '/../data/'
     airports_data_path = data_path + 'airports.csv'
     raw_path = data_path + 'raw/divided/flights' + str(year) + '.csv'
@@ -141,15 +166,35 @@ def preprocess(year):
     df = fix_column_orders(df)
     df = encode_values(df)
     df = parse_dates(df)
-    df = add_coordinates(df, airports_data_path)
+    df = add_airports_data(df, airports_data_path)
     df = filter_bad_data(df)
-
-    df.sort_values(by=['scheduled_departure', 'scheduled_arrival',
-                       'real_departure', 'real_arrival'], inplace=True)
+    df, misplaced = organize_misplaced(df, year, misplaced)
     df.to_csv(save_path + 'flights' + str(year) + '.csv', index=False)
+
+    return misplaced
+
+
+def fix_misplaced(years, misplaced):
+    save_path = os.path.dirname(os.path.abspath(
+        __file__)) + '/../data/preprocessed/'
+    for y in misplaced:
+        if y in years:
+            path = save_path + 'flights' + str(y) + '.csv'
+            misplaced[y].to_csv(path, header=False, index=False, mode='a')
+        else:
+            print('There are', misplaced[y].shape[0],
+                  'misplaced flights from', y, 'that will be ignored.')
+
+
+def preprocess(years):
+    misplaced = {}
+
+    for y in years:
+        print(y, ':', end=' ')
+        misplaced = preprocess_year(y, misplaced)
+
+    fix_misplaced(years, misplaced)
 
 
 if __name__ == '__main__':
-    for y in range(2000, 2021):
-        print(y, ':', end=' ')
-        preprocess(y)
+    preprocess(range(2000, 2021))

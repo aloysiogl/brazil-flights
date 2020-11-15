@@ -5,17 +5,19 @@ import os
 def read_preprocessed(year):
     path = os.path.dirname(os.path.abspath(
         __file__)) + '/../data/preprocessed/flights' + str(year) + '.csv'
-    df = pd.read_csv(path, dtype={'airline': str,
+    df = pd.read_csv(path, dtype={'airline': 'category',
                                   'di': 'Int8',
                                   'type': 'Int8',
-                                  'origin_airport': str,
-                                  'destination_ariport': str,
+                                  'origin_airport': 'category',
+                                  'destination_airport': 'category',
                                   'status': 'Int8',
                                   'reason': 'Int8',
                                   'origin_latitude': 'Float32',
                                   'origin_longitude': 'Float32',
                                   'destination_latitude': 'Float32',
                                   'destination_longitude': 'Float32',
+                                  'origin_state': 'category',
+                                  'destination_state': 'category',
                                   'domestic': bool},
                      parse_dates=['scheduled_departure', 'real_departure', 'scheduled_arrival', 'real_arrival'])
     return df
@@ -39,6 +41,16 @@ def print_info(df):
     if (df['destination_airport'].str.len() == 4).sum() != df.shape[0]:
         print('destination_airport lengths frequency:', dict(
             df['destination_airport'].str.len().value_counts(dropna=False)))
+
+    # Check if the length of the states are correct
+    not_na = df['origin_state'].dropna()
+    if (not_na.str.len() == 2).sum() != not_na.shape[0]:
+        print('not NaN origin_state lengths frequency:',
+              dict(not_na.str.len().value_counts()))
+    not_na = df['destination_state'].dropna()
+    if (not_na.str.len() == 2).sum() != not_na.shape[0]:
+        print('not NaN destination_state lengths frequency:',
+              dict(not_na.str.len().value_counts()))
 
     # Check if dates make sense
     x = (df['scheduled_departure'] > df['scheduled_arrival']).sum()
