@@ -38,7 +38,8 @@ def encode_values(df):
     complete = ['REALIZADO', 'Realizado']
     not_complete = ['NAO REALIZADO', 'NÃO REALIZADO', 'Nao Realizado']
     canceled = ['CANCELADO', 'Cancelado']
-    not_informed = ['NAO INFORMADO', 'NíO INFORMADO', 'NÕO INFORMADO', 'NaN']
+    not_informed = ['NAO INFORMADO', 'NíO INFORMADO',
+                    'NÕO INFORMADO', 'NÃO INFORMADO', 'NaN']
     df['status'].replace(complete, 1, inplace=True)
     df['status'].replace(not_complete, 2, inplace=True)
     df['status'].replace(canceled, 3, inplace=True)
@@ -65,7 +66,8 @@ def encode_values(df):
 
 
 def parse_dates(df):
-    not_informed = ['NAO INFORMADO', 'NíO INFORMADO', 'NÕO INFORMADO', 'NaN']
+    not_informed = ['NAO INFORMADO', 'NíO INFORMADO',
+                    'NÕO INFORMADO', 'NÃO INFORMADO', 'NaN']
     date_columns = ['scheduled_arrival', 'real_arrival',
                     'scheduled_departure', 'real_departure']
     formats = ['%d/%m/%Y %H:%M', '%Y-%m-%d %H:%M:%S']

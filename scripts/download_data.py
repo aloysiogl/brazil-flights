@@ -19,6 +19,7 @@ columns_mapping = {
     'Sigla  da Empresa': 'ICAO Empresa Aerea',
     'ICAO Empresa Area': 'ICAO Empresa Aerea',
     'sgempresaicao': 'ICAO Empresa Aerea',
+    'sgempresa': 'ICAO Empresa Aerea',
     'Nmero Voo': 'Numero Voo',
     'NUmero Voo': 'Numero Voo',
     'Nmero do Voo': 'Numero Voo',
@@ -38,6 +39,8 @@ columns_mapping = {
     'sgicaodestino': 'ICAO Aerodromo Destino',
     'Aeroporto Origem': 'ICAO Aerodromo Origem',
     'Aeroporto Destino': 'ICAO Aerodromo Destino',
+    'sgorigem': 'ICAO Aerodromo Origem',
+    'sgdestino': 'ICAO Aerodromo Destino',
     'Data Partida Prevista': 'Partida Prevista',
     'Data Partida Real': 'Partida Real',
     'Data Chegada Prevista': 'Chegada Prevista',
@@ -50,13 +53,15 @@ columns_mapping = {
     'Situacao': 'Situacao Voo',
     'situacao': 'Situacao Voo',
     'Situao': 'Situacao Voo',
+    'tpsituacao': 'Situacao Voo',
     'Cdigo Justificativa': 'Codigo Justificativa',
     'Justificativa': 'Codigo Justificativa',
     'CdigoJustificativa': 'Codigo Justificativa',
     'cdjustificativa': 'Codigo Justificativa'
 }
 
-drop_columns = ['Unnamed 0', 'Grupo DI', 'Data Prevista']
+drop_columns = ['Unnamed 0', 'Grupo DI', 'Data Prevista',
+                'Unnamed 11', 'Unnamed 12', 'Unnamed 13', 'Unnamed 14']
 drop_first_row = set([(2015, 11), (2015, 12)])
 drop_last_rows = {(2005, 5): 24, (2002, 1): 24}
 

@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 import os
 
@@ -42,16 +43,6 @@ def print_info(df):
         print('destination_airport lengths frequency:', dict(
             df['destination_airport'].str.len().value_counts(dropna=False)))
 
-    # Check if the length of the states are correct
-    not_na = df['origin_state'].dropna()
-    if (not_na.str.len() == 2).sum() != not_na.shape[0]:
-        print('not NaN origin_state lengths frequency:',
-              dict(not_na.str.len().value_counts()))
-    not_na = df['destination_state'].dropna()
-    if (not_na.str.len() == 2).sum() != not_na.shape[0]:
-        print('not NaN destination_state lengths frequency:',
-              dict(not_na.str.len().value_counts()))
-
     # Check if dates make sense
     x = (df['scheduled_departure'] > df['scheduled_arrival']).sum()
     if x > 0:
@@ -67,6 +58,18 @@ def print_info(df):
               ['origin_airport'].value_counts())
         print(df[df['destination_latitude'].isna()]
               ['destination_airport'].value_counts(), end='\n\n')
+
+    # Check if states make sense
+    states = [np.nan, 'RO', 'AC', 'AM', 'RR', 'PA', 'AP', 'TO', 'MA', 'PI', 'CE', 'RN', 'PB', 'PE',
+              'AL', 'SE', 'BA', 'MG', 'ES', 'RJ', 'SP', 'PR', 'SC', 'RS', 'MS', 'MT', 'GO', 'DF']
+    not_in = ~df['origin_state'].isin(states)
+    if not_in.sum() > 0:
+        print('Wrong origin_state frequency:',
+              {k: v for k, v in dict(df.loc[not_in, 'origin_state'].value_counts()).items() if v > 0})
+    not_in = ~df['destination_state'].isin(states)
+    if not_in.sum() > 0:
+        print('Wrong destination_state frequency:',
+              {k: v for k, v in dict(df.loc[not_in, 'destination_state'].value_counts()).items() if v > 0})
 
     print()
     print('============================================')
