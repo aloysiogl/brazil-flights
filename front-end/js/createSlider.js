@@ -56,6 +56,11 @@ const configureEventListener = view => {
         const startDate = item ? item[0].toISOString().substring(0, 10) : null
         const endDate = item ? item[1].toISOString().substring(0, 10) : null
 
+        ctx.currentDateSelection = {
+            start: startDate,
+            end: endDate
+        }
+
         updateMap(startDate, endDate)
     }, 300)
     view.addSignalListener('brush_date', (_, item) => {

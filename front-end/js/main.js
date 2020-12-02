@@ -2,7 +2,11 @@
 
 var ctx = {
     w: 960,
-    h: 484
+    h: 484,
+    currentDateSelection: {
+        start: "2020-03-02",
+        end: "2020-10-26"
+    }
 };
 
 var createViz = () => {

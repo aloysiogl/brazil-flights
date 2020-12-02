@@ -7,7 +7,7 @@ const drawTrajectories = (routesCountsList) => {
         const destinationAirport = ctx.airports.find(airport => airport.code == route.destination_airport)
         const originCoordinates = [originAirport.longitude, originAirport.latitude]
         const destinationCoordinates = [destinationAirport.longitude, destinationAirport.latitude]
-        
+
         return {
             type: "LineString", 
             coordinates: [originCoordinates, destinationCoordinates],  
@@ -24,15 +24,14 @@ const drawTrajectories = (routesCountsList) => {
     routes.enter()
           .append("path")
           .transition()
-          .delay(100)
-          .duration(100)
+          .duration(800)
           .attr("class", "route")
           .attr("d", ctx.geoPathGenerator)
           .attr("opacity", d => 0.15+d.strokeIntensity)
 
     routes.exit()
           .transition()
-          .duration(100)
+          .duration(800)
           .attr("opacity", 0)
           .remove()
 }
@@ -57,6 +56,19 @@ const filterTrajectoriesByDate = (start, end) => {
     }))
 }
 
+const filterTrajectoriesByStates = (routes) => {
+    return routes.filter(route => {
+        const originState = ctx.airports.find(airport => airport.code == route.origin_airport).state
+        const destinationState = ctx.airports.find(airport => airport.code == route.destination_airport).state
+
+        var selection = ctx.selectedStates
+
+        if (selection.length == 0 || (selection.find(s => s == originState) && selection.find(s => s == destinationState)))
+            return true
+        return false
+    })
+}
+
 const updateMap = (start, end) => {
-    drawTrajectories(filterTrajectoriesByDate(start, end))
+    drawTrajectories(filterTrajectoriesByStates(filterTrajectoriesByDate(start, end)))
 }

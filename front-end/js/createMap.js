@@ -96,6 +96,9 @@ const addStates = (generator) => {
                     ctx.statesGroup.selectAll("path")
                                    .data(ctx.states)
                                    .attr("class", stateClass)
+
+                    // Redrawing trajectories
+                    updateMap(ctx.currentDateSelection.start, ctx.currentDateSelection.end)
                })
             
     ctx.routesGroup = ctx.mapG.append("g").attr("id", "routes")
