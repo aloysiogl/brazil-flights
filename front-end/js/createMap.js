@@ -4,8 +4,8 @@ const makeMap = svgEl => {
                     .attr("id", "map")
 
     // Setting up the geopath generator
-    // TODO create everything here
-    const geoPathGenerator = d3.geoPath().projection(getCurrentProjection())
+    const projection = d3.geoEquirectangular().scale(ctx.h / Math.PI)
+    const geoPathGenerator = d3.geoPath().projection(projection)
 
     // Adding the background elements
     addBackground(geoPathGenerator)
@@ -15,6 +15,12 @@ const makeMap = svgEl => {
 
     // Adding states
     addStates(geoPathGenerator)
+
+    // const zoom = d3.zoom()
+    //   .scaleExtent([1, 8])
+    //   .on('zoom', zoomed);
+    
+    // svgEl.call(zoom);
 
     // // Panning and zooming
     // svgEl.append("rect")
@@ -34,52 +40,38 @@ const makeMap = svgEl => {
 };
 
 const addBackground = (generator) => {
-    
+    // Add other countries
+    ctx.mapG.selectAll("path")
+        .data(ctx.countries)
+        .enter()
+        .append("path")
+        .attr("class", "country")
+        .attr("d", generator)
 
-    // ctx.mapG.selectAll("path")
-    //     .data(ctx.countries)
-    //     .enter()
-    //     .append("path")
-    //     .attr("class", "country")
-    //     .attr("d", generator)
-    //     .style("fill", "white")
+    // Adding oceans
+    var defs = d3.select("svg").insert("defs", "#map");
+    defs.append("path")
+        .datum({type: "Sphere"})
+        .attr("id", "sphere")
+        .attr("d", generator);
+    d3.select("svg")
+        .insert("use", "#map")
+        .attr("class", "oceans")
+        .attr("xlink:href", "#sphere")
+        .attr("opacity", 1);
 };
 
 const addStates = (generator) => {
+    // Adding the group that'll contain all the states
     ctx.statesGroup = ctx.mapG.append("g").attr("id", "states");
-    // d3.select("svg").on("click", function(e,d) {
-    //     console.log(e);
-    // });
 
+    // Adding states in the group
     ctx.statesGroup.selectAll("path")
                .data(ctx.states)
                .enter()
                .append("path")
                .attr("d", generator)
-               
-             // d3.select("div#info").text(d.callsign)
-             // countries = d3.select("svg").select("g#countries")
-
-             // origin = d.origin
-             
-             // // Color coutnries based on origin flight
-             // var recolor = (data) => {
-             //     name = data.properties.brk_name
-
-             //     if (name == origin)
-             //         return "red"
-             //     return "white"
-             // }
-             
-             // // Recoloring countries
-             // ctx.countryG.selectAll("path.country")
-             //             .data(ctx.countries)
-             //             .style("fill", recolor)
-        //  })
-               .attr("class", "country")
-            //    .attr("teset", d => console.log(d))
-               
-               .style("fill", "yellow")
+               .attr("class", "brazil_state")
                .on("click", (e,d) => {
                     // Getting current selection
                     const state = d.properties.sigla
@@ -94,17 +86,17 @@ const addStates = (generator) => {
                         ctx.selectedStates.push(state)
                     
                     // Function that defines the states colors
-                    const colorState = (d) => {
+                    const stateClass = (d) => {
                         const selection = d.properties.sigla
                         if (ctx.selectedStates.includes(selection))
-                            return "green"
-                        return "yellow"
+                            return "selected_state"
+                        return "brazil_state"
                     }
 
                     // Redrawing the states map with highlight colors
                     ctx.statesGroup.selectAll("path")
                                    .data(ctx.states)
-                                   .style("fill", colorState)
+                                   .attr("class", stateClass)
                })
                
 }
