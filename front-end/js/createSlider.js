@@ -43,6 +43,9 @@ const makeSlider = () => {
         view.addSignalListener('brush_date', (_, item) => {
             const startDate = item ? item[0] : null
             const endDate = item ? item[1] : null
+            
+            const fileteredTrajectories = filterTrajectoriesByDate(startDate, endDate)
+            
         })
     })
 }

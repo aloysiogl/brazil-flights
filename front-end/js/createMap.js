@@ -62,7 +62,7 @@ const addBackground = (generator) => {
 
 const addStates = (generator) => {
     // Adding the group that'll contain all the states
-    ctx.statesGroup = ctx.mapG.append("g").attr("id", "states");
+    ctx.statesGroup = ctx.mapG.append("g").attr("id", "states")
 
     // Adding states in the group
     ctx.statesGroup.selectAll("path")
@@ -97,5 +97,30 @@ const addStates = (generator) => {
                                    .data(ctx.states)
                                    .attr("class", stateClass)
                })
-               
+            
+    ctx.routesGroup = ctx.mapG.append("g").attr("id", "routes")
+    
+
+    const projection = d3.geoEquirectangular()
+                         .center(ctx.mapParams.center)
+                         .scale(ctx.mapParams.scale)
+    var path = d3.geoPath().projection(projection);
+     console.log(ctx.states)
+
+    
+    da = {type: "LineString", coordinates: [[-48.476299285900005, -1.3792500495900002], [-46.47305679321289, -23.435556411743164]]}
+    // console.log(da)
+
+    ctx.routesGroup.selectAll("path")
+    .data([da])
+    .enter()
+    .append("path")
+    .attr("class", "route")
+    .attr("d", generator)
+    // .classed("route")
+    
+    // .style("stroke", "red")
+    // .style("fill", "transparent")
+
+    console.log(ctx.airports)
 }

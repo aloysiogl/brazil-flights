@@ -1,3 +1,4 @@
+/* Map styles */
 .country {
     fill: rgb(52,51,50);
     stroke: rgb(71, 71, 71);
@@ -16,14 +17,22 @@
     vector-effect: non-scaling-stroke;
 }
 
+.oceans {
+    fill: rgb(24,26,27);
+    stroke: #333;
+    stroke-width: 1px;
+}
+
+.route {
+    fill: transparent;
+    stroke: rgb(9, 255, 243);
+    opacity: 0.2;
+    stroke-width: 1px;
+}
+
 svg {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-.oceans {
-    fill: rgb(24,26,27);
-    stroke: #333;
-    stroke-width: 1px;
-}
