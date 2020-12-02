@@ -4,7 +4,16 @@ const makeMap = svgEl => {
                     .attr("id", "map")
 
     // Setting up the geopath generator
-    const projection = d3.geoEquirectangular().scale(ctx.h / Math.PI)
+
+    // var projection = d3.geoMercator()
+    // .center([0, 5 ])
+    // .scale(200)
+    // .rotate([-180,0]);
+    const projection = d3.geoEquirectangular()
+                        //  .center([0,100])
+                         .scale(500)
+    const center = d3.geoCentroid(ctx.countries);
+    console.log(center)
     const geoPathGenerator = d3.geoPath().projection(projection)
 
     // Adding the background elements
@@ -16,27 +25,47 @@ const makeMap = svgEl => {
     // Adding states
     addStates(geoPathGenerator)
 
-    // const zoom = d3.zoom()
+    // var zoom = d3.zoom()
     //   .scaleExtent([1, 8])
-    //   .on('zoom', zoomed);
-    
-    // svgEl.call(zoom);
+    //   .on('zoom', function() {
+    //       ctx.mapG.selectAll('path')
+    //        .data(ctx.countries)
+    //        .attr('transform', d3.event.transform);
+    //     });     
+    // svgEl.call(zoom)
 
-    // // Panning and zooming
-    // svgEl.append("rect")
-    //      .attr("width", ctx.w)
-    //      .attr("height", ctx.h)
-    //      .style("fill", "none")
-    //      .style("pointer-events", "all")
-    //      .call(d3.zoom()
-    //              .scaleExtent([1, 8])
-    //              .on("zoom", zoomed)
-    //      );
-    // function zoomed(event, d) {
-    //     if (ctx.panZoomMode){
-    //         ctx.mapG.attr("transform", event.transform);
-    //     }
-    // }
+    const zoom = d3.zoom()
+      .scaleExtent([0.5, 8])
+      .on('zoom', zoomed);
+    
+    svgEl.call(zoom);
+
+    // Panning and zooming
+    svgEl.append("rect")
+         .attr("width", ctx.w)
+         .attr("height", ctx.h)
+         .style("fill", "none")
+         .style("pointer-events", "auto")
+         .call(d3.zoom()
+                 .scaleExtent([1, 8])
+                 .on("zoom", zoomed)
+         );
+    ctx.tr = false
+    function zoomed(event, d) {
+        if (ctx.panZoomMode){
+            if (!ctx.tr){
+                var trans = event.transform
+                // trans.x = trans.x+487
+                // trans.y = trans.y-120
+                ctx.mapG.attr("transform", trans);
+                ctx.tr = true
+            }
+            else {
+                var trans = event.transform
+                ctx.mapG.attr("transform", trans);
+            }
+        }
+    }
 };
 
 const addBackground = (generator) => {
@@ -59,6 +88,8 @@ const addBackground = (generator) => {
         .attr("class", "oceans")
         .attr("xlink:href", "#sphere")
         .attr("opacity", 1);
+    
+    // ctx.mapG.attr("transform", "translate(487, -120)")
 };
 
 const addStates = (generator) => {
