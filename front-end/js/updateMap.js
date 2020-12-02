@@ -1,5 +1,6 @@
 const drawTrajectories = (routesCountsList) => {
-    console.log(routesCountsList)
+    const maxTraffic = d3.max(routesCountsList.map(r => r.count))
+
     // Transform a list of origina and destinations in a listt of LineString
     linesStrings = routesCountsList.map(route => {
         const originAirport = ctx.airports.find(airport => airport.code == route.origin_airport)
@@ -7,20 +8,34 @@ const drawTrajectories = (routesCountsList) => {
         const originCoordinates = [originAirport.longitude, originAirport.latitude]
         const destinationCoordinates = [destinationAirport.longitude, destinationAirport.latitude]
 
-        return {type: "LineString", coordinates: [originCoordinates, destinationCoordinates]}
+        console.log(route.count/maxTraffic*100)
+
+        return {
+            type: "LineString", 
+            coordinates: [originCoordinates, destinationCoordinates],  
+            id: route.origin_airport+route.destination_airport,
+            strokeIntensity: route.count/maxTraffic*0.85
+            }
     })
 
     // Draw trajectories
     var routes = ctx.routesGroup.selectAll("path")
-                   .data(linesStrings)
+                   .data(linesStrings, d => d.id)
 
     
     routes.enter()
           .append("path")
+          .transition()
+          .delay(100)
+          .duration(100)
           .attr("class", "route")
           .attr("d", ctx.geoPathGenerator)
+          .attr("opacity", d => 0.15+d.strokeIntensity)
 
     routes.exit()
+          .transition()
+          .duration(100)
+          .attr("opacity", 0)
           .remove()
 }
 
