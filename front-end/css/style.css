@@ -29,9 +29,8 @@
     stroke-width: 0.5px;
 }
 
-svg {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
