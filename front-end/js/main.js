@@ -37,5 +37,6 @@ var loadData = svgEl => {
         // Drawing map
         makeMap(svgEl)
         makeSlider()
+        updateMap(null, null)
     })
 }

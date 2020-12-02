@@ -1,5 +1,7 @@
 const makeSlider = () => {
     const HEIGHT = 100
+    const AXIS_WIDTH = 49
+    const AXIS_HEIGHT = 36
 
     // Create map with dates and counts
     var weeksCounts = new Map()
@@ -16,40 +18,47 @@ const makeSlider = () => {
     var vlSpec = {
         $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
         data: { values: weeksCounts },
-        width: ctx.w,
-        height: HEIGHT,
+        width: ctx.w - AXIS_WIDTH,
+        height: HEIGHT - AXIS_HEIGHT,
         mark: 'area',
         selection: { brush: { type: 'interval', encodings: ['x'] } },
         encoding: {
             x: {
                 field: 'date',
                 type: 'temporal',
+                title: null,
                 axis: { grid: false },
             },
             y: {
                 field: 'count',
                 type: 'quantitative',
-                axis: { tickCount: 4 },
+                title: 'Count',
+                axis: { tickCount: 4, format: '~s' },
             },
             color: { value: 'rgb(71, 69, 67)' },
         },
     }
 
     // Create element
-    sliderG = d3.select('#main').append('g').attr('id', 'slider')
-    var vlOpts = { width: ctx.w, height: HEIGHT, actions: false }
+    sliderG = d3
+        .select('#main')
+        .append('g')
+        .attr('id', 'slider')
+    var vlOpts = { autosize: { type: 'fit', contains: 'padding' }, actions: false }
     vegaEmbed('#slider', vlSpec, vlOpts).then(({ _, view }) => {
-        // Listen to changes in interval, with a 300 ms debounce
-        const debounceInterval = this._.debounce(item => {
-            const startDate = item
-                ? item[0].toISOString().substring(0, 10)
-                : null
-            const endDate = item ? item[1].toISOString().substring(0, 10) : null
+        configureEventListener(view)
+    })
+}
 
-            updateMap(startDate, endDate)
-        }, 300)
-        view.addSignalListener('brush_date', (_, item) => {
-            debounceInterval(item)
-        })
+const configureEventListener = view => {
+    // Listen to changes in interval, with a 300 ms debounce
+    const debounceInterval = this._.debounce(item => {
+        const startDate = item ? item[0].toISOString().substring(0, 10) : null
+        const endDate = item ? item[1].toISOString().substring(0, 10) : null
+
+        updateMap(startDate, endDate)
+    }, 300)
+    view.addSignalListener('brush_date', (_, item) => {
+        debounceInterval(item)
     })
 }
