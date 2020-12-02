@@ -15,16 +15,16 @@ const makeMap = svgEl => {
                          .scale(ctx.mapParams.scale)
 
     // Setting up the projection
-    const geoPathGenerator = d3.geoPath().projection(projection)
+    ctx.geoPathGenerator = d3.geoPath().projection(projection)
 
     // Adding the background elements
-    addBackground(geoPathGenerator)
+    addBackground(ctx.geoPathGenerator)
 
     // Setting the as empty the list of selected states
     ctx.selectedStates = []
 
     // Adding states
-    addStates(geoPathGenerator)
+    addStates(ctx.geoPathGenerator)
 
     // Setting up the zoom
     const zoomTransform = (e, d) => ctx.mapG.attr("transform", e.transform)
@@ -105,22 +105,4 @@ const addStates = (generator) => {
                          .center(ctx.mapParams.center)
                          .scale(ctx.mapParams.scale)
     var path = d3.geoPath().projection(projection);
-     console.log(ctx.states)
-
-    
-    da = {type: "LineString", coordinates: [[-48.476299285900005, -1.3792500495900002], [-46.47305679321289, -23.435556411743164]]}
-    // console.log(da)
-
-    ctx.routesGroup.selectAll("path")
-    .data([da])
-    .enter()
-    .append("path")
-    .attr("class", "route")
-    .attr("d", generator)
-    // .classed("route")
-    
-    // .style("stroke", "red")
-    // .style("fill", "transparent")
-
-    console.log(ctx.airports)
 }

@@ -1,5 +1,27 @@
-const drawTrajectories = (airportsPairListWithCounts) => {
+const drawTrajectories = (routesCountsList) => {
+    console.log(routesCountsList)
+    // Transform a list of origina and destinations in a listt of LineString
+    linesStrings = routesCountsList.map(route => {
+        const originAirport = ctx.airports.find(airport => airport.code == route.origin_airport)
+        const destinationAirport = ctx.airports.find(airport => airport.code == route.destination_airport)
+        const originCoordinates = [originAirport.longitude, originAirport.latitude]
+        const destinationCoordinates = [destinationAirport.longitude, destinationAirport.latitude]
 
+        return {type: "LineString", coordinates: [originCoordinates, destinationCoordinates]}
+    })
+
+    // Draw trajectories
+    var routes = ctx.routesGroup.selectAll("path")
+                   .data(linesStrings)
+
+    
+    routes.enter()
+          .append("path")
+          .attr("class", "route")
+          .attr("d", ctx.geoPathGenerator)
+
+    routes.exit()
+          .remove()
 }
 
 const filterTrajectoriesByDate = (start, end) => {
