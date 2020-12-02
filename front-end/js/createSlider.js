@@ -39,13 +39,17 @@ const makeSlider = () => {
     sliderG = d3.select('#main').append('g').attr('id', 'slider')
     var vlOpts = { width: ctx.w, height: HEIGHT, actions: false }
     vegaEmbed('#slider', vlSpec, vlOpts).then(({ _, view }) => {
-        // Listen to changes in interval
+        // Listen to changes in interval, with a 300 ms debounce
+        const debounceInterval = this._.debounce(item => {
+            const startDate = item
+                ? item[0].toISOString().substring(0, 10)
+                : null
+            const endDate = item ? item[1].toISOString().substring(0, 10) : null
+
+            updateMap(startDate, endDate)
+        }, 300)
         view.addSignalListener('brush_date', (_, item) => {
-            const startDate = item ? item[0] : null
-            const endDate = item ? item[1] : null
-            
-            const fileteredTrajectories = filterTrajectoriesByDate(startDate, endDate)
-            
+            debounceInterval(item)
         })
     })
 }
