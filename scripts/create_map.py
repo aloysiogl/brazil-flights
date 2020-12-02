@@ -3,18 +3,18 @@ import plotly.graph_objects as go
 
 # Function to extract airports data
 def read_all_airports(flights_data, airports_data):
-    orig = flights_data["ICAO Aerodromo Origem"]
-    dest = flights_data["ICAO Aerodromo Destino"]
+    orig = flights_data["origin_airport"]
+    dest = flights_data["destination_airport"]
     airports_icaos = pd.concat([orig, dest], axis=0).drop_duplicates()
     # print(airports_icaos)
     df = pd.DataFrame([airports_icaos]).transpose()
-    df.columns = ["ICAO Aerodromo Origem"]
+    df.columns = ["icao"]
     
-    airports_info = df.merge(airports_data[["ICAO Aerodromo Origem", "latitude_deg" ,"longitude_deg"]])
+    airports_info = df.merge(airports_data[["icao", "latitude_deg" ,"longitude_deg"]])
     return airports_info
 
 # Loading data
-flights_data = pd.read_csv("../data/flights2020.csv")
+flights_data = pd.read_csv("../data/preprocessed/flights2020.csv")
 airports_data = pd.read_csv("../data/br-airports.csv")
 
 # Reading data about the airports (locations)

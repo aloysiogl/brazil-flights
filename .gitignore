@@ -3,6 +3,9 @@
 data/*
 !data/urls.csv
 !data/br-airports.csv
+!data/variables.txt
+
+.ipynb_checkpoints
 
 # dependencies
 node_modules/
