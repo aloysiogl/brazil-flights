@@ -1,0 +1,28 @@
+.country {
+    fill: white;
+    stroke: #CCC;
+    vector-effect: non-scaling-stroke;
+  }
+  
+  .river {
+    fill: none;
+    stroke: #4e76b4;
+    vector-effect: non-scaling-stroke;
+  }
+  
+  .lake {
+    fill: #4e76b4;
+    stroke: none;
+  }
+  
+  svg {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  
+  .sphereBounds {
+      fill: #4e76b4;
+      stroke: #333;
+      stroke-width: 1px;
+  }
