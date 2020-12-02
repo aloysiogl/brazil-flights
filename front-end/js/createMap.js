@@ -1,19 +1,20 @@
 const makeMap = svgEl => {
+    // Parameters for the map
+    ctx.mapParams = {
+        center: [-55, -15],
+        scale: 500,
+    }
+
     // Creating the base map group
     ctx.mapG = svgEl.append("g")
                     .attr("id", "map")
 
-    // Setting up the geopath generator
-
-    // var projection = d3.geoMercator()
-    // .center([0, 5 ])
-    // .scale(200)
-    // .rotate([-180,0]);
+    // Creating the projection
     const projection = d3.geoEquirectangular()
-                        //  .center([0,100])
-                         .scale(500)
-    const center = d3.geoCentroid(ctx.countries);
-    console.log(center)
+                         .center(ctx.mapParams.center)
+                         .scale(ctx.mapParams.scale)
+
+    // Setting up the projection
     const geoPathGenerator = d3.geoPath().projection(projection)
 
     // Adding the background elements
@@ -25,47 +26,14 @@ const makeMap = svgEl => {
     // Adding states
     addStates(geoPathGenerator)
 
-    // var zoom = d3.zoom()
-    //   .scaleExtent([1, 8])
-    //   .on('zoom', function() {
-    //       ctx.mapG.selectAll('path')
-    //        .data(ctx.countries)
-    //        .attr('transform', d3.event.transform);
-    //     });     
-    // svgEl.call(zoom)
+    // Setting up the zoom
+    const zoomTransform = (e, d) => ctx.mapG.attr("transform", e.transform)
 
     const zoom = d3.zoom()
-      .scaleExtent([0.5, 8])
-      .on('zoom', zoomed);
+                   .scaleExtent([0.8, 8])
+                   .on('zoom', zoomTransform)
     
-    svgEl.call(zoom);
-
-    // Panning and zooming
-    svgEl.append("rect")
-         .attr("width", ctx.w)
-         .attr("height", ctx.h)
-         .style("fill", "none")
-         .style("pointer-events", "auto")
-         .call(d3.zoom()
-                 .scaleExtent([1, 8])
-                 .on("zoom", zoomed)
-         );
-    ctx.tr = false
-    function zoomed(event, d) {
-        if (ctx.panZoomMode){
-            if (!ctx.tr){
-                var trans = event.transform
-                // trans.x = trans.x+487
-                // trans.y = trans.y-120
-                ctx.mapG.attr("transform", trans);
-                ctx.tr = true
-            }
-            else {
-                var trans = event.transform
-                ctx.mapG.attr("transform", trans);
-            }
-        }
-    }
+    svgEl.call(zoom)
 };
 
 const addBackground = (generator) => {

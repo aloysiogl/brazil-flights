@@ -2,8 +2,7 @@
 
 var ctx = {
     w: 960,
-    h: 484,
-    panZoomMode: true
+    h: 484
 };
 
 var createViz = function(){
