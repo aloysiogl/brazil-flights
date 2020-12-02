@@ -7,9 +7,7 @@ const drawTrajectories = (routesCountsList) => {
         const destinationAirport = ctx.airports.find(airport => airport.code == route.destination_airport)
         const originCoordinates = [originAirport.longitude, originAirport.latitude]
         const destinationCoordinates = [destinationAirport.longitude, destinationAirport.latitude]
-
-        console.log(route.count/maxTraffic*100)
-
+        
         return {
             type: "LineString", 
             coordinates: [originCoordinates, destinationCoordinates],  
