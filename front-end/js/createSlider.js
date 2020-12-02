@@ -31,14 +31,18 @@ const makeSlider = () => {
                 type: 'quantitative',
                 axis: { tickCount: 4 },
             },
-            color: {
-                value: 'rgb(71, 69, 67)',
-            },
+            color: { value: 'rgb(71, 69, 67)' },
         },
     }
 
     // Create element
     sliderG = d3.select('#main').append('g').attr('id', 'slider')
     var vlOpts = { width: ctx.w, height: HEIGHT, actions: false }
-    vegaEmbed('#slider', vlSpec, vlOpts)
+    vegaEmbed('#slider', vlSpec, vlOpts).then(({ _, view }) => {
+        // Listen to changes in interval
+        view.addSignalListener('brush_date', (_, item) => {
+            const startDate = item ? item[0] : null
+            const endDate = item ? item[1] : null
+        })
+    })
 }
