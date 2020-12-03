@@ -1,6 +1,6 @@
 const makeTypesPlot = () => {
     const HEIGHT = 240
-    const WIDTH = ctx.w / 2 - 50
+    const WIDTH = ctx.w / 2 - 49
     const BACKGROUND_COLOR = 'rgb(24,26,27)'
     const GRID_COLOR = 'rgb(52, 51, 50)'
     const LABEL_COLOR = 'lightgray'

@@ -17,6 +17,10 @@ const makeCompaniesPlot = () => {
         },
         background: BACKGROUND_COLOR,
         config: { view: { stroke: GRID_COLOR } },
+        selection: {
+            highlight: { type: 'single', empty: 'none', on: 'mouseover' },
+            select: { type: 'multi', toggle: 'true' },
+        },
         encoding: {
             y: {
                 field: 'airline',
@@ -47,6 +51,13 @@ const makeCompaniesPlot = () => {
             },
             tooltip: { field: 'name', type: 'nominal' },
             color: { value: BARS_COLOR },
+            fillOpacity: {
+                condition: [
+                    { selection: 'highlight', value: 1 },
+                    { selection: 'select', value: 0.75 },
+                ],
+                value: 0.3,
+            },
         },
     }
 
@@ -54,15 +65,74 @@ const makeCompaniesPlot = () => {
     sliderG = d3.select('#plots').append('g').attr('id', 'companies')
     var vlOpts = { actions: false }
     vegaEmbed('#plots #companies', vlSpec, vlOpts).then(({ _, view }) => {
-        ctx.updateAirlines = () => {
-            const airlinesData = getAirlinesData()
+        configureSignalListener(view)
 
-            const changeSet = vega
-                .changeset()
-                .remove(() => true)
-                .insert(airlinesData)
+        ctx.updateAirlines = () => {
+            const newData = getAirlinesData()
+            const newDataMap = new Map(
+                newData.map(data => [data.airline, data])
+            )
+            const curData = view.data('data')
+            const curDataMap = new Map(
+                curData.map(data => [data.airline, data])
+            )
+
+            // Airlines that weren't showing before
+            const insert = newData.filter(
+                ({ airline }) => !curDataMap.has(airline)
+            )
+
+            // Airlines that won't show anymore
+            const remove = curData.filter(({ airline }) => {
+                if (!newDataMap.has(airline)) {
+                    // Remove from filter
+                    if (ctx.filter.airlines.has(airline)) {
+                        ctx.filter.airlines.delete(airline)
+                    }
+                    return true
+                }
+                return false
+            })
+
+            // Fix vgsig indices to be used later
+            insert.forEach(({ airline }) => {
+                ctx.airlinesVgSidCnt += 1
+                ctx.airlinesVgSid.set(airline, ctx.airlinesVgSidCnt)
+            })
+
+            // Modify airlines that are already in the plot
+            const changeSet = vega.changeset().remove(remove).insert(insert)
+            curData
+                .filter(({ airline }) => newDataMap.has(airline))
+                .forEach(cur => {
+                    changeSet.modify(
+                        cur,
+                        'count',
+                        newDataMap.get(cur.airline).count
+                    )
+                })
+
             view.change('data', changeSet).run()
         }
+    })
+}
+
+const configureSignalListener = view => {
+    view.addSignalListener('select_tuple', (_, item) => {
+        if (item) {
+            // The only way I found to get their respective airlines was building their vgsid when data changes
+            const airline = Array.from(ctx.airlinesVgSid.entries()).filter(
+                ([_, vgsid]) => vgsid == item.values[0]
+            )[0][0]
+            if (ctx.filter.airlines.has(airline)) {
+                ctx.filter.airlines.delete(airline)
+            } else {
+                ctx.filter.airlines.add(airline)
+            }
+        }
+
+        updateMap()
+        ctx.updateSlider()
     })
 }
 
@@ -81,7 +151,7 @@ const getAirlinesData = () => {
                     states.has(originState) && states.has(destinationState)
             }
 
-            const dateOk = !start || !end || start < date && date < end
+            const dateOk = !start || !end || (start < date && date < end)
 
             return stateOk && dateOk
         }
@@ -97,6 +167,20 @@ const getAirlinesData = () => {
         count: value,
         name: ctx.airlinesMap.get(key).name,
     }))
+    airlinesData.sort(({ count: count1 }, { count: count2 }) =>
+        count1 < count2 ? 1 : -1
+    )
+
+    // Build this to use on selection later
+    if (!ctx.airlinesVgSidCnt) {
+        ctx.airlinesVgSidCnt = 0
+        ctx.airlinesVgSid = new Map(
+            airlinesData.map(({ airline }) => {
+                ctx.airlinesVgSidCnt += 1
+                return [airline, ctx.airlinesVgSidCnt]
+            })
+        )
+    }
 
     return airlinesData
 }

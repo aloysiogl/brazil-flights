@@ -47,7 +47,7 @@ const filteredTrajectories = () => {
     const routesCounts = filterAirline ? ctx.airlinesCounts : ctx.routesCounts
 
     routesCounts
-        .filter(({ date, origin_airport, destination_airport }) => {
+        .filter(({ date, origin_airport, destination_airport, airline }) => {
             // Filter by date
             const dateOk = !start || !end || start < date && date < end
 
