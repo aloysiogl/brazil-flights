@@ -30,12 +30,14 @@ const makeCompaniesPlot = () => {
                     paddingInner: 0.8,
                     paddingOuter: 0.8,
                 },
+                sort: '-x',
             },
             x: {
                 field: 'count',
                 type: 'quantitative',
-                title: 'Nº of flights',
+                title: 'Nº of Flights',
                 axis: {
+                    format: '~s',
                     titleColor: LABEL_COLOR,
                     gridColor: GRID_COLOR,
                     domainColor: GRID_COLOR,
@@ -43,6 +45,7 @@ const makeCompaniesPlot = () => {
                     labelColor: LABEL_COLOR,
                 },
             },
+            tooltip: { field: 'name', type: 'nominal' },
             color: { value: BARS_COLOR },
         },
     }
@@ -92,6 +95,7 @@ const getAirlinesData = () => {
     airlinesData = Array.from(airlinesData.entries()).map(([key, value]) => ({
         airline: key,
         count: value,
+        name: ctx.airlinesMap.get(key).name,
     }))
 
     return airlinesData

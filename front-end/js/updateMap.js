@@ -85,9 +85,3 @@ const filteredTrajectories = () => {
 const updateMap = () => {
     drawTrajectories(filteredTrajectories())
 }
-
-const initializeUpdateMap = () => {
-    ctx.airportsMap = new Map(
-        ctx.airports.map(airport => [airport.code, airport])
-    )
-}

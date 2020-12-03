@@ -54,7 +54,7 @@ const makeTypesPlot = () => {
             y: {
                 field: "b",
                 type: 'quantitative',
-                title: 'Nº of flights',
+                title: 'Nº of Flights',
                 axis: {
                     titleColor: LABEL_COLOR,
                     gridColor: GRID_COLOR,

@@ -33,7 +33,8 @@ var loadData = svgEl => {
         // 'airlines_counts_small.csv',
     ]
     const loaders = files.map(f => {
-        if (f.substring(f.length - 3, f.length) == 'csv') return d3.csv(path + f)
+        if (f.substring(f.length - 3, f.length) == 'csv')
+            return d3.csv(path + f)
         else return d3.json(path + f)
     })
 
@@ -45,9 +46,14 @@ var loadData = svgEl => {
         ctx.airlines = values[3]
         ctx.routesCounts = values[4]
         ctx.airlinesCounts = values[5]
+        ctx.airportsMap = new Map(
+            ctx.airports.map(airport => [airport.code, airport])
+        )
+        ctx.airlinesMap = new Map(
+            ctx.airlines.map(airline => [airline.code, airline])
+        )
 
         // Drawing screen elements
-        initializeUpdateMap()
         makeMap(svgEl)
         makeSlider()
         makeTypesPlot()
