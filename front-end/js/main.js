@@ -3,11 +3,12 @@
 var ctx = {
     w: 960,
     h: 484,
-    currentDateSelection: {
-        start: null,
-        end: null
-    }
-};
+    filter: {
+        startDate: null,
+        endDate: null,
+        states: new Set(),
+    },
+}
 
 var createViz = () => {
     console.log('Using D3 v' + d3.version)
@@ -19,12 +20,12 @@ var createViz = () => {
 
 var loadData = svgEl => {
     // Load data, transform it, store it in ctx
-    const path = "data/"
+    const path = 'data/'
 
-    var loadCountries = d3.json(path+'ne_50m_admin_0_countries.geojson')
-    var loadBrazilianStates = d3.json(path+'brazil_states.geojson')
-    var loadAirports = d3.csv(path+'filtered_airports.csv')
-    var loadRoutesCounts = d3.csv(path+'routes_counts_small.csv')
+    var loadCountries = d3.json(path + 'ne_50m_admin_0_countries.geojson')
+    var loadBrazilianStates = d3.json(path + 'brazil_states.geojson')
+    var loadAirports = d3.csv(path + 'filtered_airports.csv')
+    var loadRoutesCounts = d3.csv(path + 'routes_counts.csv')
 
     // Executing loads and then calling makeMap
     Promise.all([
@@ -39,10 +40,11 @@ var loadData = svgEl => {
         ctx.routesCounts = values[3]
 
         // Drawing screen elements
+        initializeUpdateMap()
         makeMap(svgEl)
         makeSlider()
         makeTypesPlot()
         makeCompaniesPlot()
-        updateMap(null, null)
+        updateMap()
     })
 }

@@ -20,9 +20,6 @@ const makeMap = svgEl => {
     // Adding the background elements
     addBackground(ctx.geoPathGenerator)
 
-    // Setting the as empty the list of selected states
-    ctx.selectedStates = []
-
     // Adding states
     addStates(ctx.geoPathGenerator)
 
@@ -76,18 +73,16 @@ const addStates = (generator) => {
                     const state = d.properties.sigla
                     
                     // Adding or removing it from the list
-                    if (ctx.selectedStates.includes(state)){
-                        const index = ctx.selectedStates.indexOf(state);
-                        if (index > -1)
-                            ctx.selectedStates.splice(index, 1);
+                    if (ctx.filter.states.has(state)){
+                        ctx.filter.states.delete(state)
+                    } else {
+                        ctx.filter.states.add(state)
                     }
-                    else
-                        ctx.selectedStates.push(state)
                     
                     // Function that defines the states colors
                     const stateClass = (d) => {
                         const selection = d.properties.sigla
-                        if (ctx.selectedStates.includes(selection))
+                        if (ctx.filter.states.has(selection))
                             return "selected_state"
                         return "brazil_state"
                     }
@@ -97,8 +92,9 @@ const addStates = (generator) => {
                                    .data(ctx.states)
                                    .attr("class", stateClass)
 
-                    // Redrawing trajectories
-                    updateMap(ctx.currentDateSelection.start, ctx.currentDateSelection.end)
+                    // Redrawing data
+                    updateMap()
+                    ctx.updateSlider()
                })
             
     ctx.routesGroup = ctx.mapG.append("g").attr("id", "routes")
