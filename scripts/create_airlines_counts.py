@@ -33,10 +33,13 @@ for y in range(2000, 2021):
 
     df = read_preprocessed(data_path, y)
 
+    # Filter cancelled flights
+    df = df[df['status'] == 1]
+
     # Filter airports
     df = df[(df['origin_airport'].isin(airports['code'])) & (
         df['destination_airport'].isin(airports['code']))]
-    
+
     # Filter ailines
     df = df[df['airline'].isin(airlines['code'])]
 
@@ -48,7 +51,7 @@ for y in range(2000, 2021):
 
     # Count routes
     df = (df['origin_airport'].astype('str') + ' ' + df['destination_airport'].astype('str') +
-          ' ' + date.astype('str') + ' ' + df['airline'].astype('str')).value_counts()
+          ' ' + date.astype('str') + ' ' + df['type'].astype('str') + ' ' + df['airline'].astype('str')).value_counts()
 
     routes.append(df)
 
@@ -57,8 +60,9 @@ routes = pd.concat(routes, axis=1).sum(axis=1).rename('count').astype(int)
 # Split columns
 routes = routes.reset_index()
 routes[['origin_airport', 'destination_airport', 'date',
-        'airline']] = routes['index'].str.split(expand=True)
-routes = routes[['origin_airport', 'destination_airport', 'date', 'airline', 'count']]
+        'type', 'airline']] = routes['index'].str.split(expand=True)
+routes = routes[['origin_airport', 'destination_airport',
+                 'date', 'type', 'airline', 'count']]
 routes = routes.sort_values('date')
 
 routes.to_csv(data_path + 'airlines_counts.csv', index=False)

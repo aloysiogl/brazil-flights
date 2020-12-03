@@ -1,19 +1,27 @@
 Codigo DI: a) 0 - Etapa Regular
-           b) 2 - Etapa Extra
-           c) 3 - Etapa de Retorno
-           d) 4 - Inclusão de Etapa
-           e) 6 - Etapa Não Remunerada Sem Transporte de Objetos
-           f) 7 - Etapa de Voo de Fretamento
-           g) 9 - Etapa de Voo Charter
-           h) 10 - Etapa de Voo Duplicada (was D)
-           i) 11 - Etapa Não Remunerada Com Transporte de Objetos (was E)
-           j) 12, 13, 14, 15 (was A, B, C, F) - Outros
+           b) 1 - Etapa extra com HOTRAN
+           c) 2 - Etapa Extra sem HOTRAN
+           d) 3 - Etapa de Retorno
+           e) 4 - Inclusão de Etapa em um voo previsto em HOTRAN
+           f) 5 - Etapa cargueira
+           g) 6 - Etapa Não Remunerada Sem Transporte de Objetos ou Voo de serviço
+           h) 7 - Etapa de Voo de Fretamento
+           i) 9 - Etapa de Voo Charter
+           j) 10 - Etapa de Voo Duplicada (was D)
+           k) 11 - Etapa Não Remunerada Com Transporte de Objetos (was E)
+           l) 12 - Voo de instrução (was A)
+           m) 13 - Voo de experiência (was B)
+           n) 14, 15 (C, F) - Outros
 
 Codigo Tipo Linha: a) 1 (was N) - Doméstica Mista: para operações de transporte aéreo de passageiros ou mistas, em que todos os aeródromos envolvidos estejam situados simultaneamente em território brasileiro;
                    b) 2 (was C) - Doméstica Cargueira: para operações de transporte aéreo exclusivo de carga e/ou mala postal em que todos os aeródromos envolvidos estejam situados simultaneamente em território brasileiro;
                    c) 3 (was I) - Internacional Mista: para operações de transporte aéreo de passageiros ou mistas, em que ao menos um dos aeródromos envolvidos esteja situado em território estrangeiro;
                    d) 4 (was G) - Internacional Cargueira: para operações de transporte aéreo exclusivo de carga e/ou rede postal em que ao menos um dos aeródromos envolvidos esteja situado em território estrangeiro;
-                   e) 5, 6, 7, 8, 9 (was X, H, L, R, E) - Outros
+                   e) 5 (was X) - ?
+                   f) 6 (was H) - Sub regional
+                   g) 7 (was L) - Rede postal
+                   h) 8 (was R) - Regional
+                   i) 9 (was E) - Especial
 
 Situacao Voo: a) 1 - REALIZADO
               b) 2 - NAO REALIZADO
