@@ -93,7 +93,8 @@ const addStates = (generator) => {
                                    .attr("class", stateClass)
 
                     // Redrawing data
-                    updateData()
+                    updateMap()
+                    ctx.updateSlider()
                })
             
     ctx.routesGroup = ctx.mapG.append("g").attr("id", "routes")

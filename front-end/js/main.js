@@ -40,19 +40,9 @@ var loadData = svgEl => {
         ctx.routesCounts = values[3]
 
         // Drawing map
-        initialize()
+        initializeUpdateMap()
         makeMap(svgEl)
         makeSlider()
-        updateData()
+        updateMap()
     })
-}
-
-const initialize = () => {
-    initializeUpdateMap()
-    // initializeUpdateSlider()
-}
-
-const updateData = () => {
-    updateMap()
-    // updateSlider()
 }

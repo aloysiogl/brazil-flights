@@ -7,21 +7,10 @@ const makeSlider = () => {
     const LINE_COLOR = 'rgba(9, 255, 243, .75)'
     const LABEL_COLOR = 'lightgray'
 
-    // Create map with dates and counts
-    var weeksCounts = new Map()
-    ctx.routesCounts.forEach(({ date, count }) => {
-        const cur = weeksCounts.has(date) ? weeksCounts.get(date) : 0
-        weeksCounts.set(date, cur + parseInt(count))
-    })
-    weeksCounts = Array.from(weeksCounts.entries()).map(([key, value]) => ({
-        date: key,
-        count: value,
-    }))
-
     // Vega-lite spec for the slider graph
     var vlSpec = {
         $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
-        data: { values: weeksCounts },
+        data: { name: 'data', values: getSliderData() },
         width: ctx.w - AXIS_WIDTH,
         height: HEIGHT - AXIS_HEIGHT,
         mark: 'line',
@@ -63,6 +52,16 @@ const makeSlider = () => {
     var vlOpts = { actions: false }
     vegaEmbed('#slider', vlSpec, vlOpts).then(({ _, view }) => {
         configureEventListener(view)
+
+        ctx.updateSlider = () => {
+            const sliderData = getSliderData()
+
+            const changeSet = vega
+                .changeset()
+                .remove(() => true)
+                .insert(sliderData)
+            view.change('data', changeSet).run()
+        }
     })
 }
 
@@ -81,4 +80,36 @@ const configureEventListener = view => {
     view.addSignalListener('brush_date', (_, item) => {
         debounceInterval(item)
     })
+}
+
+const getSliderData = () => {
+    var sliderData = new Map()
+
+    const routesCounts =
+        ctx.filter.states.size > 0
+            ? ctx.routesCounts.filter(
+                  ({ origin_airport, destination_airport }) => {
+                      const originState = ctx.airportsMap.get(origin_airport)
+                          .state
+                      const destinationState = ctx.airportsMap.get(
+                          destination_airport
+                      ).state
+                      return (
+                          ctx.filter.states.has(originState) &&
+                          ctx.filter.states.has(destinationState)
+                      )
+                  }
+              )
+            : ctx.routesCounts
+
+    routesCounts.forEach(route => {
+        const cur = sliderData.has(route.date) ? sliderData.get(route.date) : 0
+        sliderData.set(route.date, cur + parseInt(route.count))
+    })
+    sliderData = Array.from(sliderData.entries()).map(([key, value]) => ({
+        date: key,
+        count: value,
+    }))
+
+    return sliderData
 }
