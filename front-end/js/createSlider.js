@@ -69,19 +69,14 @@ const makeSlider = () => {
 const configureEventListener = view => {
     // Listen to changes in interval, with a 300 ms debounce
     const debounceInterval = this._.debounce(item => {
-        const startDate = item
+        ctx.filter.startDate = item
             ? new Date(item[0]).toISOString().substring(0, 10)
             : null
-        const endDate = item
+        ctx.filter.endDate = item
             ? new Date(item[1]).toISOString().substring(0, 10)
             : null
 
-        ctx.currentDateSelection = {
-            start: startDate,
-            end: endDate,
-        }
-
-        updateMap(startDate, endDate)
+        updateMap()
     }, 300)
     view.addSignalListener('brush_date', (_, item) => {
         debounceInterval(item)
