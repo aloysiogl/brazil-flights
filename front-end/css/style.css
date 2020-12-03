@@ -13,7 +13,7 @@
 
 .selected_state {
     fill: rgb(96, 95, 94);
-    stroke: rgb(105, 103, 103);
+    stroke: rgb(112, 110, 110);
     vector-effect: non-scaling-stroke;
 }
 
@@ -27,6 +27,7 @@
     fill: transparent;
     stroke: rgb(9, 255, 243);
     stroke-width: 0.5px;
+    pointer-events: none;
 }
 
 .main {

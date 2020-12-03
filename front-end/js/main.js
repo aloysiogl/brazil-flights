@@ -4,8 +4,8 @@ var ctx = {
     w: 960,
     h: 484,
     currentDateSelection: {
-        start: "2020-03-02",
-        end: "2020-10-26"
+        start: null,
+        end: null
     }
 };
 
@@ -24,7 +24,7 @@ var loadData = svgEl => {
     var loadCountries = d3.json(path+'ne_50m_admin_0_countries.geojson')
     var loadBrazilianStates = d3.json(path+'brazil_states.geojson')
     var loadAirports = d3.csv(path+'filtered_airports.csv')
-    var loadRoutesCounts = d3.csv(path+'routes_counts_small.csv')
+    var loadRoutesCounts = d3.csv(path+'routes_counts.csv')
 
     // Executing loads and then calling makeMap
     Promise.all([
