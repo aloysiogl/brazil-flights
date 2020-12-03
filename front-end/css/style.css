@@ -30,6 +30,32 @@
     pointer-events: none;
 }
 
+.interactiveMap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Slider styles */
+g#slider {
+    display: flex;
+}
+
+/* Plots styles */
+#plots {
+    width: 960px;
+    flex-direction: row
+}
+
+#plots #companies {
+    align-self: flex-end;
+}
+
+#plots #types {
+    align-self: flex-start;
+}
+
+/* Main div style */
 .main {
     display: flex;
     flex-direction: column;

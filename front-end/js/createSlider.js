@@ -59,7 +59,7 @@ const makeSlider = () => {
     }
 
     // Create element
-    sliderG = d3.select('#main').append('g').attr('id', 'slider')
+    sliderG = d3.select('#interactiveMap').append('g').attr('id', 'slider')
     var vlOpts = { actions: false }
     vegaEmbed('#slider', vlSpec, vlOpts).then(({ _, view }) => {
         configureEventListener(view)

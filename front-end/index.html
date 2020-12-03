@@ -21,15 +21,20 @@
         <!-- Underscore.js -->
         <script src="https://cdn.jsdelivr.net/npm/underscore@1.12.0"></script>
 
-        <!-- Loading main javascript -->
+        <!-- Loading custom -->
         <script type="text/javascript" src="js/main.js"></script>
         <script type="text/javascript" src="js/createMap.js"></script>
         <script type="text/javascript" src="js/updateMap.js"></script>
         <script type="text/javascript" src="js/createSlider.js"></script>
+        <script type="text/javascript" src="js/createCompaniesPlot.js"></script>
+        <script type="text/javascript" src="js/createTypesPlot.js"></script>
+
     </head>
 
     <body onload="createViz()">
         <div id="main" class="main">
+            <div id="interactiveMap" class="interactiveMap"></div>
+            <div id="plots" class="plots"></div>
         </div>
     </body>
 
