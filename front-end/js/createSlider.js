@@ -1,6 +1,6 @@
 const makeSlider = () => {
     const HEIGHT = 100
-    const AXIS_WIDTH = 14
+    const AXIS_WIDTH = 10
     const AXIS_HEIGHT = 36
     const BACKGROUND_COLOR = 'rgb(24,26,27)'
     const GRID_COLOR = 'rgb(52, 51, 50)'
@@ -26,7 +26,7 @@ const makeSlider = () => {
         height: HEIGHT - AXIS_HEIGHT,
         mark: 'line',
         selection: {
-            brush: { type: 'interval', encodings: ['x'] },
+            brush: { type: 'interval', bind: 'scales', encodings: ['x'] },
         },
         background: BACKGROUND_COLOR,
         config: { view: { stroke: GRID_COLOR } },
@@ -69,8 +69,12 @@ const makeSlider = () => {
 const configureEventListener = view => {
     // Listen to changes in interval, with a 300 ms debounce
     const debounceInterval = this._.debounce(item => {
-        const startDate = item ? item[0].toISOString().substring(0, 10) : null
-        const endDate = item ? item[1].toISOString().substring(0, 10) : null
+        const startDate = item
+            ? new Date(item[0]).toISOString().substring(0, 10)
+            : null
+        const endDate = item
+            ? new Date(item[1]).toISOString().substring(0, 10)
+            : null
 
         ctx.currentDateSelection = {
             start: startDate,
