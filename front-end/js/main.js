@@ -21,23 +21,29 @@ var createViz = () => {
 var loadData = svgEl => {
     // Load data, transform it, store it in ctx
     const path = 'data/'
-
-    var loadCountries = d3.json(path + 'ne_50m_admin_0_countries.geojson')
-    var loadBrazilianStates = d3.json(path + 'brazil_states.geojson')
-    var loadAirports = d3.csv(path + 'filtered_airports.csv')
-    var loadRoutesCounts = d3.csv(path + 'routes_counts.csv')
+    const files = [
+        'ne_50m_admin_0_countries.geojson',
+        'brazil_states.geojson',
+        'filtered_airports.csv',
+        'filtered_airlines.csv',
+        'routes_counts.csv',
+        // 'routes_counts_small.csv',
+        'airlines_counts.csv',
+        // 'airlines_counts_small.csv',
+    ]
+    const loaders = files.map(f => {
+        if (f.substring(f.length - 3, f.length) == 'csv') return d3.csv(path + f)
+        else return d3.json(path + f)
+    })
 
     // Executing loads and then calling makeMap
-    Promise.all([
-        loadCountries,
-        loadBrazilianStates,
-        loadAirports,
-        loadRoutesCounts,
-    ]).then(values => {
+    Promise.all(loaders).then(values => {
         ctx.countries = values[0].features
         ctx.states = values[1].features
         ctx.airports = values[2]
-        ctx.routesCounts = values[3]
+        ctx.airlines = values[3]
+        ctx.routesCounts = values[4]
+        ctx.airlinesConts = values[5]
 
         // Drawing screen elements
         initializeUpdateMap()
