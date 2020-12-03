@@ -7,6 +7,7 @@ var ctx = {
         startDate: null,
         endDate: null,
         states: new Set(),
+        airlines: new Set(),
     },
 }
 
@@ -43,7 +44,7 @@ var loadData = svgEl => {
         ctx.airports = values[2]
         ctx.airlines = values[3]
         ctx.routesCounts = values[4]
-        ctx.airlinesConts = values[5]
+        ctx.airlinesCounts = values[5]
 
         // Drawing screen elements
         initializeUpdateMap()

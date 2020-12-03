@@ -76,6 +76,7 @@ const configureEventListener = view => {
             : null
 
         updateMap()
+        ctx.updateAirlines()
     }, 300)
     view.addSignalListener('brush_date', (_, item) => {
         debounceInterval(item)
@@ -83,25 +84,34 @@ const configureEventListener = view => {
 }
 
 const getSliderData = () => {
+    const filterAirlines = ctx.filter.airlines.size > 0
+    const filterStates = ctx.filter.states.size > 0
+
+    var routesCounts = filterAirlines ? ctx.routesCounts : ctx.airlinesCounts
+    if (filterAirlines || filterStates) {
+        routesCounts = routesCounts.filter(
+            ({ origin_airport, destination_airport, airline }) => {
+                var stateOk = !filterStates
+                if (!stateOk) {
+                    const originState = ctx.airportsMap.get(origin_airport)
+                        .state
+                    const destinationState = ctx.airportsMap.get(
+                        destination_airport
+                    ).state
+                    stateOk =
+                        ctx.filter.states.has(originState) &&
+                        ctx.filter.states.has(destinationState)
+                }
+
+                const airlineOk =
+                    !filterAirlines || ctx.filter.airlines.has(airline)
+
+                return stateOk && airlineOk
+            }
+        )
+    }
+
     var sliderData = new Map()
-
-    const routesCounts =
-        ctx.filter.states.size > 0
-            ? ctx.routesCounts.filter(
-                  ({ origin_airport, destination_airport }) => {
-                      const originState = ctx.airportsMap.get(origin_airport)
-                          .state
-                      const destinationState = ctx.airportsMap.get(
-                          destination_airport
-                      ).state
-                      return (
-                          ctx.filter.states.has(originState) &&
-                          ctx.filter.states.has(destinationState)
-                      )
-                  }
-              )
-            : ctx.routesCounts
-
     routesCounts.forEach(route => {
         const cur = sliderData.has(route.date) ? sliderData.get(route.date) : 0
         sliderData.set(route.date, cur + parseInt(route.count))

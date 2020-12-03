@@ -40,25 +40,32 @@ const drawTrajectories = routesCountsList => {
 }
 
 const filteredTrajectories = () => {
-    const start = ctx.filter.startDate
-    const end = ctx.filter.endDate
-    const states = ctx.filter.states
+    const { startDate: start, endDate: end, states } = ctx.filter
 
     const routesMap = new Map()
-    ctx.routesCounts
+    const filterAirline = ctx.filter.airlines.size > 0
+    const routesCounts = filterAirline ? ctx.airlinesCounts : ctx.routesCounts
+
+    routesCounts
         .filter(({ date, origin_airport, destination_airport }) => {
             // Filter by date
-            const dateOk = start && end ? start < date && date < end : true
+            const dateOk = !start || !end || start < date && date < end
+
+            // Filter by airline
+            const airlineOk = !filterAirline || ctx.filter.airlines.has(airline)
 
             // Filter by state
-            const originState = ctx.airportsMap.get(origin_airport).state
-            const destinationState = ctx.airportsMap.get(destination_airport)
-                .state
-            const stateOk =
-                states.size == 0 ||
-                (states.has(originState) && states.has(destinationState))
+            var stateOk = states.size == 0
+            if (!stateOk) {
+                const originState = ctx.airportsMap.get(origin_airport).state
+                const destinationState = ctx.airportsMap.get(
+                    destination_airport
+                ).state
+                stateOk =
+                    states.has(originState) && states.has(destinationState)
+            }
 
-            return dateOk && stateOk
+            return dateOk && stateOk && airlineOk
         })
         .forEach(({ origin_airport, destination_airport, count }) => {
             const key = origin_airport + destination_airport

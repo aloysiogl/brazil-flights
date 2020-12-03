@@ -95,6 +95,7 @@ const addStates = (generator) => {
                     // Redrawing data
                     updateMap()
                     ctx.updateSlider()
+                    ctx.updateAirlines()
                })
             
     ctx.routesGroup = ctx.mapG.append("g").attr("id", "routes")
