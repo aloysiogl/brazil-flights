@@ -101,4 +101,5 @@ const clickOnState = (state) => {
     updateMap()
     ctx.updateSlider()
     ctx.updateAirlines()
+    ctx.updateTypes()
 }

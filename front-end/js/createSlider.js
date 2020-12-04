@@ -77,6 +77,7 @@ const configureEventListener = view => {
 
         updateMap()
         ctx.updateAirlines()
+        ctx.updateTypes()
     }, 300)
     view.addSignalListener('brush_date', (_, item) => {
         debounceInterval(item)

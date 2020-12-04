@@ -58,6 +58,9 @@ routes = routes.reset_index()
 routes[['origin_airport', 'destination_airport', 'date', 'type']
        ] = routes['index'].str.split(expand=True)
 routes = routes[['origin_airport', 'destination_airport', 'date', 'type', 'count']]
+
+routes['type'] = routes['type'].fillna(5)
+
 routes = routes.sort_values('date')
 
 routes.to_csv(data_path + 'routes_counts.csv', index=False)

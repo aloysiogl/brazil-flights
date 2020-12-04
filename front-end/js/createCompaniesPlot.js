@@ -1,6 +1,6 @@
 const makeCompaniesPlot = () => {
-    const HEIGHT = 230
-    const WIDTH = ctx.w / 2 - 40
+    const HEIGHT = 260 - 4
+    const WIDTH = ctx.w / 2
     const BACKGROUND_COLOR = 'rgb(24,26,27)'
     const GRID_COLOR = 'rgb(52, 51, 50)'
     const BARS_COLOR = 'rgba(9, 255, 243, .75)'
@@ -10,6 +10,10 @@ const makeCompaniesPlot = () => {
         $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
         width: WIDTH,
         height: HEIGHT,
+        autosize: {
+            type: 'fit',
+            contains: 'padding',
+        },
         data: { name: 'data', values: getAirlinesData() },
         mark: {
             type: 'bar',
@@ -133,6 +137,7 @@ const configureSignalListener = view => {
 
         updateMap()
         ctx.updateSlider()
+        ctx.updateTypes()
     })
 }
 

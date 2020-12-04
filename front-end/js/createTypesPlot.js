@@ -1,73 +1,184 @@
 const makeTypesPlot = () => {
-    const HEIGHT = 240
-    const WIDTH = ctx.w / 2 - 49
+    const HEIGHT = 260 - 4
+    const WIDTH = ctx.w / 2
     const BACKGROUND_COLOR = 'rgb(24,26,27)'
     const GRID_COLOR = 'rgb(52, 51, 50)'
+    const BARS_COLOR = 'rgba(9, 255, 243, .75)'
     const LABEL_COLOR = 'lightgray'
-    const TYPES_COLORS = [
-        'rgba(47, 255, 28, .75)',
-        'rgba(231, 255, 15, .75)',
-        'rgba(255, 69, 252, .75)',
-        'rgba(255, 131, 15, .75)'
-    ]
 
     var vlSpec = {
         $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
         width: WIDTH,
         height: HEIGHT,
-        data: {
-            values: [
-                { "a": "A", "b": 28 },
-                { "a": "B", "b": 55 },
-                { "a": "C", "b": 43 },
-                { "a": "D", "b": 91 }
-            ]
+        autosize: {
+            type: 'fit',
+            contains: 'padding',
         },
+        data: { name: 'data', values: getTypesData() },
         mark: {
             type: 'bar',
-            cornerRadiusEnd: { "expr": 2 }
+            cornerRadiusEnd: { expr: 1 },
         },
         background: BACKGROUND_COLOR,
         config: { view: { stroke: GRID_COLOR } },
+        selection: {
+            highlight: { type: 'single', empty: 'none', on: 'mouseover' },
+            select: { type: 'multi', toggle: 'true' },
+        },
         encoding: {
             x: {
-                field: "a",
+                field: 'name',
                 type: 'nominal',
                 title: null,
+                sort: '-y',
                 axis: {
-                    "labelAngle": 0,
+                    labelAngle: 0,
                     labelColor: LABEL_COLOR,
                 },
                 scale: {
                     paddingInner: 0.6,
-                    paddingOuter: 0.6
-                }
-            },
-            color: {
-                field: "a",
-                type: 'nominal',
-                legend: null,
-                scale: {
-                    range: TYPES_COLORS
-                }
+                    paddingOuter: 0.6,
+                },
             },
             y: {
-                field: "b",
+                field: 'count',
                 type: 'quantitative',
                 title: 'Nº of Flights',
                 axis: {
+                    format: '~s',
                     titleColor: LABEL_COLOR,
                     gridColor: GRID_COLOR,
                     domainColor: GRID_COLOR,
                     tickColor: GRID_COLOR,
                     labelColor: LABEL_COLOR,
                 },
-            }
-        }
+            },
+            color: { value: BARS_COLOR },
+            fillOpacity: {
+                condition: [
+                    { selection: 'highlight', value: 1 },
+                    { selection: 'select', value: 0.75 },
+                ],
+                value: 0.3,
+            },
+        },
     }
 
     // Create element
     sliderG = d3.select('#plots').append('g').attr('id', 'types')
     var vlOpts = { actions: false }
-    vegaEmbed('#plots #types', vlSpec, vlOpts)
+    vegaEmbed('#plots #types', vlSpec, vlOpts).then(({ _, view }) => {
+        // configureSignalListener(view)
+
+        ctx.updateTypes = () => {
+            const newData = getTypesData()
+            const newDataMap = new Map(newData.map(data => [data.type, data]))
+            const curData = view.data('data')
+            const curDataMap = new Map(curData.map(data => [data.type, data]))
+
+            // Types that weren't showing before
+            const insert = newData.filter(({ type }) => !curDataMap.has(type))
+
+            // Types that won't show anymore
+            const remove = curData.filter(({ type }) => {
+                if (!newDataMap.has(type)) {
+                    // Remove from filter
+                    if (ctx.filter.types.has(type)) {
+                        ctx.filter.types.delete(type)
+                    }
+                    return true
+                }
+                return false
+            })
+
+            // Fix vgsig indices to be used later
+            insert.forEach(({ type }) => {
+                ctx.typesVgSidCnt += 1
+                ctx.typesVgSid.set(type, ctx.typesVgSidCnt)
+            })
+
+            // Modify types that are already in the plot
+            const changeSet = vega.changeset().remove(remove).insert(insert)
+            curData
+                .filter(({ type }) => newDataMap.has(type))
+                .forEach(cur => {
+                    changeSet.modify(
+                        cur,
+                        'count',
+                        newDataMap.get(cur.type).count
+                    )
+                })
+
+            view.change('data', changeSet).run()
+        }
+    })
+}
+
+const getTypesData = () => {
+    const { startDate: start, endDate: end, states, airlines } = ctx.filter
+
+    const filterAirlines = airlines.size > 0
+    var routesCounts = filterAirlines ? ctx.airlinesCounts : ctx.routesCounts
+    routesCounts = routesCounts.filter(
+        ({ origin_airport, destination_airport, date, airline }) => {
+            var stateOk = states.size == 0
+            if (!stateOk) {
+                const originState = ctx.airportsMap.get(origin_airport).state
+                const destinationState = ctx.airportsMap.get(
+                    destination_airport
+                ).state
+                stateOk =
+                    states.has(originState) && states.has(destinationState)
+            }
+
+            const dateOk = !start || !end || (start < date && date < end)
+
+            const airlineOk = !filterAirlines || airlines.has(airline)
+
+            return stateOk && dateOk && airlineOk
+        }
+    )
+
+    var typesData = new Map()
+    routesCounts.forEach(({ type, count }) => {
+        const cur = typesData.has(type) ? typesData.get(type) : 0
+        typesData.set(type, cur + parseInt(count))
+    })
+
+    const names = {
+        1: ['Domestic', 'mixed'],
+        2: ['Domestic', 'freighter'],
+        3: ['International', 'mixed'],
+        4: ['International', 'freighter'],
+        5: ['Not', 'informed'],
+        6: ['Sub', 'regional'],
+        7: ['Postal', 'network'],
+        8: 'Regional',
+        9: 'Special',
+    }
+
+    typesData = Array.from(typesData.entries()).map(([key, value]) => ({
+        type: key,
+        count: value,
+        name: names[key],
+    }))
+    typesData.sort(({ count: count1 }, { count: count2 }) =>
+        count1 < count2 ? 1 : -1
+    )
+
+    // Limit number of bars in graph
+    typesData = typesData.slice(0, 6)
+
+    // Build this to use on selection later
+    if (!ctx.typesVgSidCnt) {
+        ctx.typesVgSidCnt = 0
+        ctx.typesVgSid = new Map(
+            typesData.map(({ type }) => {
+                ctx.typesVgSidCnt += 1
+                return [type, ctx.typesVgSidCnt]
+            })
+        )
+    }
+
+    return typesData
 }
