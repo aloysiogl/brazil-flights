@@ -30,4 +30,10 @@ const updateMap = () => {
     } else {
         drawAirportDensity([])
     }
+
+    if (ctx.drawPlanes) {
+        drawPlanes(traj)
+    } else {
+        drawPlanes([])
+    }
 }
