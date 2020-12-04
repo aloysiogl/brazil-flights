@@ -44,8 +44,10 @@ for y in range(2000, 2021):
     df = df[df['airline'].isin(airlines['code'])]
 
     # Fix types
-    df.loc[df['origin_state'].isna() | df['destination_state'].isna(), 'domestic'] = False
-    df.loc[~df['origin_state'].isna() & ~df['destination_state'].isna(), 'domestic'] = True
+    df.loc[df['origin_state'].isna() | df['destination_state'].isna(),
+           'domestic'] = False
+    df.loc[~df['origin_state'].isna() & ~df['destination_state'].isna(),
+           'domestic'] = True
     df['type'] = df['type'].fillna(5)
     df.loc[df['domestic'] & (df['type'] == 3), 'type'] = 1
     df.loc[df['domestic'] & (df['type'] == 4), 'type'] = 2
@@ -61,20 +63,56 @@ for y in range(2000, 2021):
     date.loc[date.isna()] = df.loc[date.isna(), 'real_arrival']
     date = date.dt.date - date.dt.weekday * np.timedelta64(1, 'D')
 
+    # Time variables
+    df['duration'] = np.nan
+    mask = ~df['real_arrival'].isna() & ~df['real_departure'].isna()
+    df.loc[mask, 'duration'] = df['real_arrival'] - df['real_departure']
+    mask = df['duration'].isna() & ~df['scheduled_arrival'].isna(
+    ) & ~df['scheduled_departure'].isna()
+    df.loc[mask, 'duration'] = df['scheduled_arrival'] - \
+        df['scheduled_departure']
+    mask = ~df['duration'].isna()
+    df.loc[mask, 'duration'] = (
+        df.loc[mask, 'duration'] / pd.Timedelta('1 min')).astype(int)
+
+    df['delay'] = np.nan
+    mask = ~df['real_arrival'].isna() & ~df['scheduled_arrival'].isna()
+    df.loc[mask, 'delay'] = df['real_arrival'] - df['scheduled_arrival']
+    mask = ~df['delay'].isna() & ~df['real_departure'].isna(
+    ) & ~df['scheduled_departure'].isna()
+    df.loc[mask, 'delay'] += df['real_departure'] - df['scheduled_departure']
+    df.loc[mask, 'delay'] *= 0.5
+    mask = df['delay'].isna() & ~df['real_departure'].isna(
+    ) & ~df['scheduled_departure'].isna()
+    df.loc[mask, 'delay'] = df['real_departure'] - df['scheduled_departure']
+    mask = ~df['delay'].isna()
+    df.loc[mask, 'delay'] = (df.loc[mask, 'delay'] /
+                             pd.Timedelta('1 min')).astype(int)
+
     # Count routes
-    df = (df['origin_airport'].astype('str') + ' ' + df['destination_airport'].astype('str') +
-          ' ' + date.astype('str') + ' ' + df['type'].astype('str') + ' ' + df['airline'].astype('str')).value_counts()
+    df['key'] = df['origin_airport'].astype('str') + ' ' + df['destination_airport'].astype(
+        'str') + ' ' + date.astype('str') + ' ' + df['type'].astype('str') + ' ' + df['airline'].astype('str')
+    df = df[['key', 'duration', 'delay']]
+    df = df.astype({ 'key': str, 'duration': 'Int64', 'delay': 'Int64' })
+    durations = df.groupby('key').duration.agg(['count', 'mean'])
+    durations.columns = ['count', 'duration']
+    delays = df.groupby('key').delay.mean()
+    delays.columns = ['delay']
+    durations['delay'] = delays
+    df = durations.reset_index()
 
     routes.append(df)
 
-routes = pd.concat(routes, axis=1).sum(axis=1).rename('count').astype(int)
-
-# Split columns
+routes = pd.concat(routes, axis=0)
+routes = routes.groupby('key').sum()
 routes = routes.reset_index()
+
 routes[['origin_airport', 'destination_airport', 'date',
-        'type', 'airline']] = routes['index'].str.split(expand=True)
+        'type', 'airline']] = routes['key'].str.split(expand=True)
 routes = routes[['origin_airport', 'destination_airport',
-                 'date', 'type', 'airline', 'count']]
+                 'date', 'type', 'airline', 'count', 'duration', 'delay']]
 routes = routes.sort_values('date')
+routes['duration'] = routes['duration'].replace(0, np.nan)
+routes['delay'] = routes['delay'].replace(0, np.nan)
 
 routes.to_csv(data_path + 'routes_counts.csv', index=False)
