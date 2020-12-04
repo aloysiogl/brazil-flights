@@ -1,44 +1,3 @@
-const drawTrajectories = routesCountsList => {
-    const maxTraffic = d3.max(routesCountsList.map(r => r.count))
-
-    // Transform a list of origina and destinations in a listt of LineString
-    linesStrings = routesCountsList.map(route => {
-        const originAirport = ctx.airportsMap.get(route.origin_airport)
-        const destinationAirport = ctx.airportsMap.get(
-            route.destination_airport
-        )
-        const originCoordinates = [
-            originAirport.longitude,
-            originAirport.latitude,
-        ]
-        const destinationCoordinates = [
-            destinationAirport.longitude,
-            destinationAirport.latitude,
-        ]
-
-        return {
-            type: 'LineString',
-            coordinates: [originCoordinates, destinationCoordinates],
-            id: route.origin_airport + route.destination_airport,
-            strokeIntensity: (route.count / maxTraffic) * 0.85,
-        }
-    })
-
-    // Draw trajectories
-    var routes = ctx.routesGroup.selectAll('path').data(linesStrings, d => d.id)
-
-    routes
-        .enter()
-        .append('path')
-        .transition()
-        .duration(800)
-        .attr('class', 'route')
-        .attr('d', ctx.geoPathGenerator)
-        .attr('opacity', d => 0.15 + d.strokeIntensity)
-
-    routes.exit().transition().duration(800).attr('opacity', 0).remove()
-}
-
 const filteredTrajectories = () => {
     const { startDate: start, endDate: end, states } = ctx.filter
 
@@ -83,7 +42,20 @@ const filteredTrajectories = () => {
 }
 
 const updateMap = () => {
-    drawTrajectories(filteredTrajectories())
+    switch (ctx.currentDropdownState){
+        case "routes":
+            drawTrajectories(filteredTrajectories())
+            break;
+        case "airports":
+            drawAirportDensity(filteredTrajectories())
+            break;
+        case "hybrid":
+            drawAirportDensity(filteredTrajectories())
+            drawTrajectories(filteredTrajectories())
+            break;
+        default:
+            throw "Tried to update map with invalid mode"
+    }
 }
 
 const initializeUpdateMap = () => {

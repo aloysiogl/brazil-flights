@@ -30,6 +30,10 @@
     pointer-events: none;
 }
 
+.circle {
+    fill: rgb(9, 255, 243);
+}
+
 .interactiveMap {
     display: flex;
     flex-direction: column;
@@ -53,6 +57,17 @@ g#slider {
 
 #plots #types {
     align-self: flex-start;
+}
+
+/* Dropdown styles */
+
+.dropdown {
+    z-index: 2;
+    margin-top: -830px;
+    margin-left: 830px;
+    background-color: rgb(71, 69, 67);
+    color:  rgb(209, 209, 209);
+    border-radius: 3px;
 }
 
 /* Main div style */

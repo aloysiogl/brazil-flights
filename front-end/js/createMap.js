@@ -10,12 +10,12 @@ const makeMap = svgEl => {
                     .attr("id", "map")
 
     // Creating the projection
-    const projection = d3.geoEquirectangular()
+    ctx.projection = d3.geoEquirectangular()
                          .center(ctx.mapParams.center)
                          .scale(ctx.mapParams.scale)
 
     // Setting up the projection
-    ctx.geoPathGenerator = d3.geoPath().projection(projection)
+    ctx.geoPathGenerator = d3.geoPath().projection(ctx.projection)
 
     // Adding the background elements
     addBackground(ctx.geoPathGenerator)
@@ -53,8 +53,6 @@ const addBackground = (generator) => {
         .attr("class", "oceans")
         .attr("xlink:href", "#sphere")
         .attr("opacity", 1);
-    
-    // ctx.mapG.attr("transform", "translate(487, -120)")
 };
 
 const addStates = (generator) => {
@@ -68,41 +66,39 @@ const addStates = (generator) => {
                .append("path")
                .attr("d", generator)
                .attr("class", "brazil_state")
-               .on("click", (e,d) => {
-                    // Getting current selection
-                    const state = d.properties.sigla
-                    
-                    // Adding or removing it from the list
-                    if (ctx.filter.states.has(state)){
-                        ctx.filter.states.delete(state)
-                    } else {
-                        ctx.filter.states.add(state)
-                    }
-                    
-                    // Function that defines the states colors
-                    const stateClass = (d) => {
-                        const selection = d.properties.sigla
-                        if (ctx.filter.states.has(selection))
-                            return "selected_state"
-                        return "brazil_state"
-                    }
-
-                    // Redrawing the states map with highlight colors
-                    ctx.statesGroup.selectAll("path")
-                                   .data(ctx.states)
-                                   .attr("class", stateClass)
-
-                    // Redrawing data
-                    updateMap()
-                    ctx.updateSlider()
-                    ctx.updateAirlines()
-               })
-            
+               .on("click", (e,d) => clickOnState(d.properties.sigla))
+    
+    // Adding group for the routes
     ctx.routesGroup = ctx.mapG.append("g").attr("id", "routes")
     
+    // Adding group for the circles
+    ctx.circlesGroup = ctx.mapG.append("g").attr("id", "circles")
+}
 
-    const projection = d3.geoEquirectangular()
-                         .center(ctx.mapParams.center)
-                         .scale(ctx.mapParams.scale)
-    var path = d3.geoPath().projection(projection);
+const clickOnState = (state) => {
+    console.log(state)
+    // Adding or removing it from the list
+    if (ctx.filter.states.has(state)){
+        ctx.filter.states.delete(state)
+    } else {
+        ctx.filter.states.add(state)
+    }
+    
+    // Function that defines the states colors
+    const stateClass = (d) => {
+        const selection = d.properties.sigla
+        if (ctx.filter.states.has(selection))
+            return "selected_state"
+        return "brazil_state"
+    }
+
+    // Redrawing the states map with highlight colors
+    ctx.statesGroup.selectAll("path")
+                   .data(ctx.states)
+                   .attr("class", stateClass)
+
+    // Redrawing data
+    updateMap()
+    ctx.updateSlider()
+    ctx.updateAirlines()
 }

@@ -9,6 +9,7 @@ var ctx = {
         states: new Set(),
         airlines: new Set(),
     },
+    currentDropdownState: "hybrid"
 }
 
 var createViz = () => {
@@ -27,10 +28,10 @@ var loadData = svgEl => {
         'brazil_states.geojson',
         'filtered_airports.csv',
         'filtered_airlines.csv',
-        'routes_counts.csv',
-        // 'routes_counts_small.csv',
-        'airlines_counts.csv',
-        // 'airlines_counts_small.csv',
+        // 'routes_counts.csv',
+        'routes_counts_small.csv',
+        // 'airlines_counts.csv',
+        'airlines_counts_small.csv',
     ]
     const loaders = files.map(f => {
         if (f.substring(f.length - 3, f.length) == 'csv') return d3.csv(path + f)
