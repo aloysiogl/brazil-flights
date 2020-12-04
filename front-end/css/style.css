@@ -70,6 +70,17 @@ g#slider {
     border-radius: 3px;
 }
 
+/* Plane information styles */
+.about_plane {
+    color: white;
+    margin-left: 700px;
+    margin-top: 350px;
+    width: 200px;
+    height: 100px;
+    pointer-events: none;
+    white-space:pre-wrap;
+}
+
 /* Main div style */
 .main {
     display: flex;
