@@ -9,7 +9,8 @@ var ctx = {
         states: new Set(),
         airlines: new Set(),
     },
-    currentDropdownState: "hybrid"
+    currentDropdownState: "hybrid",
+    selectionMode: "world"
 }
 
 var createViz = () => {
