@@ -10,8 +10,10 @@ var ctx = {
         airlines: new Set(),
         types: new Set(),
     },
-    currentDropdownState: "hybrid",
-    selectionMode: "world"
+    selectionMode: "world",
+    drawRoutes: true,
+    drawAirports: true,
+    drawPlanes: true
 }
 
 var createViz = () => {

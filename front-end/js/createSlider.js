@@ -1,6 +1,6 @@
 const makeSlider = () => {
     const HEIGHT = 100
-    const AXIS_WIDTH = 10
+    const AXIS_WIDTH = 22
     const AXIS_HEIGHT = 36
     const BACKGROUND_COLOR = 'rgb(24,26,27)'
     const GRID_COLOR = 'rgb(52, 51, 50)'

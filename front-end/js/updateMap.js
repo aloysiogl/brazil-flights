@@ -18,18 +18,16 @@ const filteredTrajectories = () => {
 
 const updateMap = () => {
     const traj = filteredTrajectories()
-    switch (ctx.currentDropdownState) {
-        case "routes":
-            drawTrajectories(traj)
-            break;
-        case "airports":
-            drawAirportDensity(traj)
-            break;
-        case "hybrid":
-            drawAirportDensity(traj)
-            drawTrajectories(traj)
-            break;
-        default:
-            throw "Tried to update map with invalid mode"
+
+    if (ctx.drawRoutes) {
+        drawTrajectories(traj)
+    } else {
+        drawTrajectories([])
+    }
+
+    if (ctx.drawAirports) {
+        drawAirportDensity(traj)
+    } else {
+        drawAirportDensity([])
     }
 }
