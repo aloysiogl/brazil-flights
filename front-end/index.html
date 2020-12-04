@@ -12,6 +12,7 @@
 
         <!-- CSS style -->
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pretty-checkbox/3.0.3/pretty-checkbox.min.css"></script>
 
         <!-- https://vega.github.io/vega-lite/ -->
         <script src="https://cdn.jsdelivr.net/npm/vega@5.16.1"></script>
@@ -30,6 +31,7 @@
         <script type="text/javascript" src="js/createTypesPlot.js"></script>
         <script type="text/javascript" src="js/drawOnMap.js"></script>
         <script type="text/javascript" src="js/transitionManager.js"></script>
+        <script type="text/javascript" src="js/routesFilter.js"></script>
 
     </head>
 
@@ -37,11 +39,26 @@
         <div id="main" class="main">
             <div id="interactiveMap" class="interactiveMap"></div>
             <div id="plots" class="plots"></div>
-            <select id="mode" class="dropdown" onchange="transition(this.value)">
-                <option value="hybrid" class="dropdown_option">Hybrid</option>
-                <option value="routes" class="dropdown_option">Routes</option>
-                <option value="airports" class="dropdown_option">Airports</option>
-              </select>
+            <div class="checkboxContainer">
+                <div class="pretty p-default p-curve">
+                    <input type="checkbox" checked onclick="transition('routes', this.checked)" />
+                    <div class="state">
+                        <label class="checkboxLabel">Routes</label>
+                    </div>
+                </div>
+                <div class="pretty p-default p-curve">
+                    <input type="checkbox" checked onclick="transition('airports', this.checked)" />
+                    <div class="state">
+                        <label class="checkboxLabel">Airports</label>
+                    </div>
+                </div>
+                <div class="pretty p-default p-curve">
+                    <input type="checkbox" checked onclick="transition('planes', this.checked)" />
+                    <div class="state">
+                        <label class="checkboxLabel">Planes</label>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 

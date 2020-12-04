@@ -1,6 +1,6 @@
 /* Map styles */
 .country {
-    fill: rgb(52,51,50);
+    fill: rgb(52, 51, 50);
     stroke: rgb(71, 71, 71);
     vector-effect: non-scaling-stroke;
 }
@@ -18,7 +18,7 @@
 }
 
 .oceans {
-    fill: rgb(24,26,27);
+    fill: rgb(24, 26, 27);
     stroke: #333;
     stroke-width: 1px;
 }
@@ -48,7 +48,7 @@ g#slider {
 /* Plots styles */
 #plots {
     width: 960px;
-    flex-direction: row
+    flex-direction: row;
 }
 
 #plots #companies {
@@ -59,15 +59,28 @@ g#slider {
     align-self: flex-start;
 }
 
-/* Dropdown styles */
+/* Checkbox styles */
 
-.dropdown {
+.checkboxContainer {
     z-index: 2;
-    margin-top: -830px;
-    margin-left: 830px;
+    margin-top: -825px;
+    margin-left: 860px;
+    width: 70px;
+    height: 60px;
     background-color: rgb(71, 69, 67);
-    color:  rgb(209, 209, 209);
+    border: 1px solid;
     border-radius: 3px;
+    border-color: #D3D3D3;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.checkboxLabel {
+    color: #D3D3D3;
+    font-size: 15px;
+    font-family: 'Helvetica Neue';
 }
 
 /* Main div style */

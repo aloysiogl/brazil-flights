@@ -23,7 +23,7 @@ const makeCompaniesPlot = () => {
         config: { view: { stroke: GRID_COLOR } },
         selection: {
             highlight: { type: 'single', empty: 'none', on: 'mouseover' },
-            select: { type: 'multi', toggle: 'true' },
+            select: { type: 'single' },
         },
         encoding: {
             y: {
@@ -122,18 +122,14 @@ const makeCompaniesPlot = () => {
 }
 
 const configureAirlinesSignalListener = view => {
-    view.addSignalListener('select_tuple', (_, item) => {
-        if (item) {
-            // The only way I found to get their respective airlines was building their vgsid when data changes
-            const airline = Array.from(ctx.airlinesVgSid.entries()).filter(
-                ([_, vgsid]) => vgsid == item.values[0]
-            )[0][0]
-            if (ctx.filter.airlines.has(airline)) {
-                ctx.filter.airlines.delete(airline)
-            } else {
-                ctx.filter.airlines.add(airline)
-            }
-        }
+    view.addSignalListener('select', (_, item) => {
+        // The only way I found to get their respective airlines was building their vgsid when data changes
+        const selectedSids = item?._vgsid_ ?? []
+        ctx.filter.airlines = new Set(
+            Array.from(ctx.airlinesVgSid.entries())
+                .filter(([_, vgsid]) => selectedSids.includes(vgsid))
+                .map(([airline, _]) => airline)
+        )
 
         updateMap()
         ctx.updateSlider()
@@ -142,28 +138,7 @@ const configureAirlinesSignalListener = view => {
 }
 
 const getAirlinesData = () => {
-    const { startDate: start, endDate: end, states, types } = ctx.filter
-
-    const routesCounts = ctx.airlinesCounts.filter(
-        ({ origin_airport, destination_airport, date, type }) => {
-            var stateOk = states.size == 0
-            if (!stateOk) {
-                const originState = ctx.airportsMap.get(origin_airport).state
-                const destinationState = ctx.airportsMap.get(
-                    destination_airport
-                ).state
-                stateOk =
-                    states.has(originState) && states.has(destinationState)
-            }
-
-            const dateOk = !start || !end || (start < date && date < end)
-
-            const typeOk = types.size == 0 || types.has(type)
-
-            return stateOk && dateOk && typeOk
-        }
-    )
-
+    const routesCounts = filteredRoutes({ filterAirline: false })
     var airlinesData = new Map()
     routesCounts.forEach(({ airline, count }) => {
         const cur = airlinesData.has(airline) ? airlinesData.get(airline) : 0
@@ -177,6 +152,7 @@ const getAirlinesData = () => {
     airlinesData.sort(({ count: count1 }, { count: count2 }) =>
         count1 < count2 ? 1 : -1
     )
+    airlinesData = airlinesData.splice(0, 10)
 
     // Build this to use on selection later
     if (!ctx.airlinesVgSidCnt) {

@@ -1,23 +1,16 @@
-const transition = (toState) => {
-    // Clear dropdown selection
-    document.activeElement.blur()
-
-    // Updating state
-    const fromState = ctx.currentDropdownState
-    ctx.currentDropdownState = toState
-
-    // Do out trasition
-    switch (toState) {
-        case "routes":
-            drawAirportDensity([])
-            break;
-        case "airports":
-            drawTrajectories([])
-            break;
-        case "hybrid":
-            break;
+const transition = (state, checked) => {
+    switch (state) {
+        case 'routes':
+            ctx.drawRoutes = checked
+            break
+        case 'airports':
+            ctx.drawAirports = checked
+            break
+        case 'planes':
+            ctx.drawPlanes = checked
+            break
         default:
-            throw "Selection box tried to select a non existing mode"
+            throw 'Checkbox with wrong state'
     }
 
     // Updating map (in transition)
