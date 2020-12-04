@@ -135,30 +135,7 @@ const configureTypesSignalListener = view => {
 }
 
 const getTypesData = () => {
-    const { startDate: start, endDate: end, states, airlines } = ctx.filter
-
-    const filterAirlines = airlines.size > 0
-    var routesCounts = filterAirlines ? ctx.airlinesCounts : ctx.routesCounts
-    routesCounts = routesCounts.filter(
-        ({ origin_airport, destination_airport, date, airline }) => {
-            var stateOk = states.size == 0
-            if (!stateOk) {
-                const originState = ctx.airportsMap.get(origin_airport).state
-                const destinationState = ctx.airportsMap.get(
-                    destination_airport
-                ).state
-                stateOk =
-                    states.has(originState) && states.has(destinationState)
-            }
-
-            const dateOk = !start || !end || (start < date && date < end)
-
-            const airlineOk = !filterAirlines || airlines.has(airline)
-
-            return stateOk && dateOk && airlineOk
-        }
-    )
-
+    var routesCounts = filteredRoutes({ filterType: false })
     var typesData = new Map()
     routesCounts.forEach(({ type, count }) => {
         const cur = typesData.has(type) ? typesData.get(type) : 0

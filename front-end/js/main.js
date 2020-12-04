@@ -32,8 +32,6 @@ var loadData = svgEl => {
         'filtered_airlines.csv',
         // 'routes_counts.csv',
         'routes_counts_small.csv',
-        // 'airlines_counts.csv',
-        'airlines_counts_small.csv',
     ]
     const loaders = files.map(f => {
         if (f.substring(f.length - 3, f.length) == 'csv')
@@ -48,7 +46,6 @@ var loadData = svgEl => {
         ctx.airports = values[2]
         ctx.airlines = values[3]
         ctx.routesCounts = values[4]
-        ctx.airlinesCounts = values[5]
         ctx.airportsMap = new Map(
             ctx.airports.map(airport => [airport.code, airport])
         )

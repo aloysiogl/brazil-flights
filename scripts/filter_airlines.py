@@ -30,6 +30,6 @@ for y in range(2000, 2021):
     airlines_counts.append(df['airline'].value_counts().rename('count'))
 airlines_counts = pd.concat(airlines_counts, axis=1).sum(
     axis=1).rename('count').astype(int).sort_values(ascending=False)
-airlines_counts = airlines_counts.iloc[:10]
+airlines_counts = airlines_counts[airlines_counts > 1000]
 
 airlines_counts.to_csv(data_path + 'filtered_airlines.csv')

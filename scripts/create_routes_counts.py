@@ -24,6 +24,7 @@ def read_preprocessed(data_path, year):
 
 
 data_path = os.path.dirname(os.path.abspath(__file__)) + '/../data/'
+airlines = pd.read_csv(data_path + 'filtered_airlines.csv')
 airports = pd.read_csv(data_path + 'filtered_airports.csv')
 
 routes = []
@@ -39,6 +40,21 @@ for y in range(2000, 2021):
     df = df[(df['origin_airport'].isin(airports['code'])) & (
         df['destination_airport'].isin(airports['code']))]
 
+    # Filter ailines
+    df = df[df['airline'].isin(airlines['code'])]
+
+    # Fix types
+    df.loc[df['origin_state'].isna() | df['destination_state'].isna(), 'domestic'] = False
+    df.loc[~df['origin_state'].isna() & ~df['destination_state'].isna(), 'domestic'] = True
+    df['type'] = df['type'].fillna(5)
+    df.loc[df['domestic'] & (df['type'] == 3), 'type'] = 1
+    df.loc[df['domestic'] & (df['type'] == 4), 'type'] = 2
+    df.loc[~df['domestic'] & (df['type'] == 1), 'type'] = 3
+    df.loc[~df['domestic'] & (df['type'] == 2), 'type'] = 4
+    df.loc[~df['domestic'] & (df['type'] == 6), 'type'] = 3
+    df.loc[~df['domestic'] & (df['type'] == 7), 'type'] = 4
+    df.loc[~df['domestic'] & (df['type'] == 8), 'type'] = 3
+
     # Create week date
     date = df['scheduled_departure'].copy()
     date.loc[date.isna()] = df.loc[date.isna(), 'real_departure']
@@ -46,8 +62,8 @@ for y in range(2000, 2021):
     date = date.dt.date - date.dt.weekday * np.timedelta64(1, 'D')
 
     # Count routes
-    df = (df['origin_airport'].astype('str') + ' ' + df['destination_airport'].astype(
-        'str') + ' ' + date.astype('str') + ' ' + df['type'].astype('str')).value_counts()
+    df = (df['origin_airport'].astype('str') + ' ' + df['destination_airport'].astype('str') +
+          ' ' + date.astype('str') + ' ' + df['type'].astype('str') + ' ' + df['airline'].astype('str')).value_counts()
 
     routes.append(df)
 
@@ -55,12 +71,10 @@ routes = pd.concat(routes, axis=1).sum(axis=1).rename('count').astype(int)
 
 # Split columns
 routes = routes.reset_index()
-routes[['origin_airport', 'destination_airport', 'date', 'type']
-       ] = routes['index'].str.split(expand=True)
-routes = routes[['origin_airport', 'destination_airport', 'date', 'type', 'count']]
-
-routes['type'] = routes['type'].fillna(5)
-
+routes[['origin_airport', 'destination_airport', 'date',
+        'type', 'airline']] = routes['index'].str.split(expand=True)
+routes = routes[['origin_airport', 'destination_airport',
+                 'date', 'type', 'airline', 'count']]
 routes = routes.sort_values('date')
 
 routes.to_csv(data_path + 'routes_counts.csv', index=False)

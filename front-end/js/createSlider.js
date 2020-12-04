@@ -85,36 +85,7 @@ const configureSliderSignalListener = view => {
 }
 
 const getSliderData = () => {
-    const filterAirlines = ctx.filter.airlines.size > 0
-    const filterStates = ctx.filter.states.size > 0
-    const filterTypes = ctx.filter.types.size > 0
-
-    var routesCounts = filterAirlines ? ctx.airlinesCounts : ctx.routesCounts
-    if (filterAirlines || filterStates || filterTypes) {
-        routesCounts = routesCounts.filter(
-            ({ origin_airport, destination_airport, airline, type }) => {
-                var stateOk = !filterStates
-                if (!stateOk) {
-                    const originState = ctx.airportsMap.get(origin_airport)
-                        .state
-                    const destinationState = ctx.airportsMap.get(
-                        destination_airport
-                    ).state
-                    stateOk =
-                        ctx.filter.states.has(originState) &&
-                        ctx.filter.states.has(destinationState)
-                }
-
-                const airlineOk =
-                    !filterAirlines || ctx.filter.airlines.has(airline)
-
-                const typeOk = !filterTypes || ctx.filter.types.has(type)
-
-                return stateOk && airlineOk && typeOk
-            }
-        )
-    }
-
+    const routesCounts = filteredRoutes({ filterDate: false })
     var sliderData = new Map()
     routesCounts.forEach(route => {
         const cur = sliderData.has(route.date) ? sliderData.get(route.date) : 0
