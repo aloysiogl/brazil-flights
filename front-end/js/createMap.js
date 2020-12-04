@@ -124,6 +124,7 @@ const updateStates = (stateClass) => {
     updateMap()
     ctx.updateSlider()
     ctx.updateAirlines()
+    ctx.updateTypes()
 }
 
 const clickOnCountry = (country) => {

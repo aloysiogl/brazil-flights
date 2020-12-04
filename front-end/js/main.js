@@ -8,6 +8,7 @@ var ctx = {
         endDate: null,
         states: new Set(),
         airlines: new Set(),
+        types: new Set(),
     },
     currentDropdownState: "hybrid",
     selectionMode: "world"

@@ -65,4 +65,6 @@ routes = routes[['origin_airport', 'destination_airport',
                  'date', 'type', 'airline', 'count']]
 routes = routes.sort_values('date')
 
+routes['type'] = routes['type'].fillna(5)
+
 routes.to_csv(data_path + 'airlines_counts.csv', index=False)

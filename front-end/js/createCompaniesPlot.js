@@ -1,6 +1,6 @@
 const makeCompaniesPlot = () => {
-    const HEIGHT = 230
-    const WIDTH = ctx.w / 2 - 40
+    const HEIGHT = 260 - 4
+    const WIDTH = ctx.w / 2
     const BACKGROUND_COLOR = 'rgb(24,26,27)'
     const GRID_COLOR = 'rgb(52, 51, 50)'
     const BARS_COLOR = 'rgba(9, 255, 243, .75)'
@@ -10,6 +10,10 @@ const makeCompaniesPlot = () => {
         $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
         width: WIDTH,
         height: HEIGHT,
+        autosize: {
+            type: 'fit',
+            contains: 'padding',
+        },
         data: { name: 'data', values: getAirlinesData() },
         mark: {
             type: 'bar',
@@ -65,7 +69,7 @@ const makeCompaniesPlot = () => {
     sliderG = d3.select('#plots').append('g').attr('id', 'companies')
     var vlOpts = { actions: false }
     vegaEmbed('#plots #companies', vlSpec, vlOpts).then(({ _, view }) => {
-        configureSignalListener(view)
+        configureAirlinesSignalListener(view)
 
         ctx.updateAirlines = () => {
             const newData = getAirlinesData()
@@ -117,7 +121,7 @@ const makeCompaniesPlot = () => {
     })
 }
 
-const configureSignalListener = view => {
+const configureAirlinesSignalListener = view => {
     view.addSignalListener('select_tuple', (_, item) => {
         if (item) {
             // The only way I found to get their respective airlines was building their vgsid when data changes
@@ -133,14 +137,15 @@ const configureSignalListener = view => {
 
         updateMap()
         ctx.updateSlider()
+        ctx.updateTypes()
     })
 }
 
 const getAirlinesData = () => {
-    const { startDate: start, endDate: end, states } = ctx.filter
+    const { startDate: start, endDate: end, states, types } = ctx.filter
 
     const routesCounts = ctx.airlinesCounts.filter(
-        ({ origin_airport, destination_airport, date }) => {
+        ({ origin_airport, destination_airport, date, type }) => {
             var stateOk = states.size == 0
             if (!stateOk) {
                 const originState = ctx.airportsMap.get(origin_airport).state
@@ -153,7 +158,9 @@ const getAirlinesData = () => {
 
             const dateOk = !start || !end || (start < date && date < end)
 
-            return stateOk && dateOk
+            const typeOk = types.size == 0 || types.has(type)
+
+            return stateOk && dateOk && typeOk
         }
     )
 

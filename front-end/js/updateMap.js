@@ -3,15 +3,19 @@ const filteredTrajectories = () => {
 
     const routesMap = new Map()
     const filterAirline = ctx.filter.airlines.size > 0
+    const filterType = ctx.filter.types.size > 0
     const routesCounts = filterAirline ? ctx.airlinesCounts : ctx.routesCounts
 
     routesCounts
-        .filter(({ date, origin_airport, destination_airport, airline }) => {
+        .filter(({ date, origin_airport, destination_airport, airline, type }) => {
             // Filter by date
             const dateOk = !start || !end || start < date && date < end
 
             // Filter by airline
             const airlineOk = !filterAirline || ctx.filter.airlines.has(airline)
+
+            // Filter by type
+            const typeOk = !filterType || ctx.filter.types.has(type)
 
             // Filter by state
             var stateOk = states.size == 0
@@ -24,7 +28,7 @@ const filteredTrajectories = () => {
                     states.has(originState) && states.has(destinationState)
             }
 
-            return dateOk && stateOk && airlineOk
+            return dateOk && stateOk && airlineOk && typeOk
         })
         .forEach(({ origin_airport, destination_airport, count }) => {
             const key = origin_airport + destination_airport
