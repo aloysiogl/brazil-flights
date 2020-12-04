@@ -46,6 +46,7 @@ const filteredTrajectories = () => {
 }
 
 const updateMap = () => {
+    drawPlanes(filteredTrajectories())
     switch (ctx.currentDropdownState){
         case "routes":
             drawTrajectories(filteredTrajectories())
