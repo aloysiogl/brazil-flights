@@ -51,7 +51,7 @@ const makeSlider = () => {
     sliderG = d3.select('#interactiveMap').append('g').attr('id', 'slider')
     var vlOpts = { actions: false }
     vegaEmbed('#slider', vlSpec, vlOpts).then(({ _, view }) => {
-        configureEventListener(view)
+        configureSliderSignalListener(view)
 
         ctx.updateSlider = () => {
             const sliderData = getSliderData()
@@ -65,7 +65,7 @@ const makeSlider = () => {
     })
 }
 
-const configureEventListener = view => {
+const configureSliderSignalListener = view => {
     // Listen to changes in interval, with a 300 ms debounce
     const debounceInterval = this._.debounce(item => {
         ctx.filter.startDate = item
@@ -87,11 +87,12 @@ const configureEventListener = view => {
 const getSliderData = () => {
     const filterAirlines = ctx.filter.airlines.size > 0
     const filterStates = ctx.filter.states.size > 0
+    const filterTypes = ctx.filter.types.size > 0
 
     var routesCounts = filterAirlines ? ctx.airlinesCounts : ctx.routesCounts
-    if (filterAirlines || filterStates) {
+    if (filterAirlines || filterStates || filterTypes) {
         routesCounts = routesCounts.filter(
-            ({ origin_airport, destination_airport, airline }) => {
+            ({ origin_airport, destination_airport, airline, type }) => {
                 var stateOk = !filterStates
                 if (!stateOk) {
                     const originState = ctx.airportsMap.get(origin_airport)
@@ -107,7 +108,9 @@ const getSliderData = () => {
                 const airlineOk =
                     !filterAirlines || ctx.filter.airlines.has(airline)
 
-                return stateOk && airlineOk
+                const typeOk = !filterTypes || ctx.filter.types.has(type)
+
+                return stateOk && airlineOk && typeOk
             }
         )
     }

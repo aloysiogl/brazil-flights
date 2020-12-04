@@ -68,7 +68,7 @@ const makeTypesPlot = () => {
     sliderG = d3.select('#plots').append('g').attr('id', 'types')
     var vlOpts = { actions: false }
     vegaEmbed('#plots #types', vlSpec, vlOpts).then(({ _, view }) => {
-        // configureSignalListener(view)
+        configureTypesSignalListener(view)
 
         ctx.updateTypes = () => {
             const newData = getTypesData()
@@ -111,6 +111,26 @@ const makeTypesPlot = () => {
 
             view.change('data', changeSet).run()
         }
+    })
+}
+
+const configureTypesSignalListener = view => {
+    view.addSignalListener('select_tuple', (_, item) => {
+        if (item) {
+            // The only way I found to get their respective airlines was building their vgsid when data changes
+            const type = Array.from(ctx.typesVgSid.entries()).filter(
+                ([_, vgsid]) => vgsid == item.values[0]
+            )[0][0]
+            if (ctx.filter.types.has(type)) {
+                ctx.filter.types.delete(type)
+            } else {
+                ctx.filter.types.add(type)
+            }
+        }
+
+        updateMap()
+        ctx.updateSlider()
+        ctx.updateAirlines()
     })
 }
 
