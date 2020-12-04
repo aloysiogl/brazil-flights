@@ -6,7 +6,7 @@ const filteredTrajectories = () => {
     const routesCounts = filterAirline ? ctx.airlinesCounts : ctx.routesCounts
 
     routesCounts
-        .filter(({ date, origin_airport, destination_airport }) => {
+        .filter(({ date, origin_airport, destination_airport, airline }) => {
             // Filter by date
             const dateOk = !start || !end || start < date && date < end
 
@@ -56,10 +56,4 @@ const updateMap = () => {
         default:
             throw "Tried to update map with invalid mode"
     }
-}
-
-const initializeUpdateMap = () => {
-    ctx.airportsMap = new Map(
-        ctx.airports.map(airport => [airport.code, airport])
-    )
 }

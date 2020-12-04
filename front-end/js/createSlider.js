@@ -87,7 +87,7 @@ const getSliderData = () => {
     const filterAirlines = ctx.filter.airlines.size > 0
     const filterStates = ctx.filter.states.size > 0
 
-    var routesCounts = filterAirlines ? ctx.routesCounts : ctx.airlinesCounts
+    var routesCounts = filterAirlines ? ctx.airlinesCounts : ctx.routesCounts
     if (filterAirlines || filterStates) {
         routesCounts = routesCounts.filter(
             ({ origin_airport, destination_airport, airline }) => {
