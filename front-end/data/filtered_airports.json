@@ -1,0 +1,2053 @@
+[
+  {
+    "code": "SBGR",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -23.435556411743164,
+    "longitude": -46.47305679321289
+  },
+  {
+    "code": "SBSP",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -23.626110076904297,
+    "longitude": -46.65638732910156
+  },
+  {
+    "code": "SBBR",
+    "brazilian": 1,
+    "state": "DF",
+    "latitude": -15.869167000000001,
+    "longitude": -47.920834
+  },
+  {
+    "code": "SBGL",
+    "brazilian": 1,
+    "state": "RJ",
+    "latitude": -22.809999465900002,
+    "longitude": -43.2505569458
+  },
+  {
+    "code": "SBRJ",
+    "brazilian": 1,
+    "state": "RJ",
+    "latitude": -22.910499572800003,
+    "longitude": -43.1631011963
+  },
+  {
+    "code": "SBKP",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -23.0074005127,
+    "longitude": -47.1344985962
+  },
+  {
+    "code": "SBCT",
+    "brazilian": 1,
+    "state": "PR",
+    "latitude": -25.5284996033,
+    "longitude": -49.175800323500006
+  },
+  {
+    "code": "SBSV",
+    "brazilian": 1,
+    "state": "BA",
+    "latitude": -12.9086112976,
+    "longitude": -38.3224983215
+  },
+  {
+    "code": "SBCF",
+    "brazilian": 1,
+    "state": "MG",
+    "latitude": -19.62444305419922,
+    "longitude": -43.97194290161133
+  },
+  {
+    "code": "SBPA",
+    "brazilian": 1,
+    "state": "RS",
+    "latitude": -29.994400024414066,
+    "longitude": -51.1713981628418
+  },
+  {
+    "code": "SBRF",
+    "brazilian": 1,
+    "state": "PE",
+    "latitude": -8.126489639282228,
+    "longitude": -34.923599243164055
+  },
+  {
+    "code": "SBFZ",
+    "brazilian": 1,
+    "state": "CE",
+    "latitude": -3.776279926300049,
+    "longitude": -38.53260040283203
+  },
+  {
+    "code": "SBEG",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -3.03861,
+    "longitude": -60.049702
+  },
+  {
+    "code": "SBBE",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -1.3792500495900002,
+    "longitude": -48.476299285900005
+  },
+  {
+    "code": "SBFL",
+    "brazilian": 1,
+    "state": "SC",
+    "latitude": -27.670278549194336,
+    "longitude": -48.5525016784668
+  },
+  {
+    "code": "SBVT",
+    "brazilian": 1,
+    "state": "ES",
+    "latitude": -20.258057,
+    "longitude": -40.286388
+  },
+  {
+    "code": "SBGO",
+    "brazilian": 1,
+    "state": "GO",
+    "latitude": -16.631999969482422,
+    "longitude": -49.22069931030274
+  },
+  {
+    "code": "SBCY",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -15.6528997421,
+    "longitude": -56.1166992188
+  },
+  {
+    "code": "SBBH",
+    "brazilian": 1,
+    "state": "MG",
+    "latitude": -19.851200103759766,
+    "longitude": -43.950599670410156
+  },
+  {
+    "code": "SAEZ",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -34.8222,
+    "longitude": -58.5358
+  },
+  {
+    "code": "SBRP",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -21.136388778686523,
+    "longitude": -47.77666854858398
+  },
+  {
+    "code": "SBCG",
+    "brazilian": 1,
+    "state": "MS",
+    "latitude": -20.468700408900002,
+    "longitude": -54.6725006104
+  },
+  {
+    "code": "SBMG",
+    "brazilian": 1,
+    "state": "PR",
+    "latitude": -23.479444,
+    "longitude": -52.012221999999994
+  },
+  {
+    "code": "SBMG",
+    "brazilian": 1,
+    "state": "PR",
+    "latitude": -23.47606,
+    "longitude": -52.016187
+  },
+  {
+    "code": "SBMO",
+    "brazilian": 1,
+    "state": "AL",
+    "latitude": -9.510809898376463,
+    "longitude": -35.79169845581055
+  },
+  {
+    "code": "SBSL",
+    "brazilian": 1,
+    "state": "MA",
+    "latitude": -2.585360050201416,
+    "longitude": -44.23410034179688
+  },
+  {
+    "code": "SBLO",
+    "brazilian": 1,
+    "state": "PR",
+    "latitude": -23.3335990906,
+    "longitude": -51.1301002502
+  },
+  {
+    "code": "SBNT",
+    "brazilian": 1,
+    "state": "RN",
+    "latitude": -5.91142,
+    "longitude": -35.2477
+  },
+  {
+    "code": "SBUL",
+    "brazilian": 1,
+    "state": "MG",
+    "latitude": -18.883612,
+    "longitude": -48.225277
+  },
+  {
+    "code": "SBFI",
+    "brazilian": 1,
+    "state": "PR",
+    "latitude": -25.60027885437012,
+    "longitude": -54.48500061035156
+  },
+  {
+    "code": "SBNF",
+    "brazilian": 1,
+    "state": "SC",
+    "latitude": -26.879998999999998,
+    "longitude": -48.651402000000004
+  },
+  {
+    "code": "SBAR",
+    "brazilian": 1,
+    "state": "SE",
+    "latitude": -10.984000000000002,
+    "longitude": -37.070301
+  },
+  {
+    "code": "SBPS",
+    "brazilian": 1,
+    "state": "BA",
+    "latitude": -16.438601000000002,
+    "longitude": -39.080898
+  },
+  {
+    "code": "KMIA",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 25.79319954,
+    "longitude": -80.29060364
+  },
+  {
+    "code": "SBTE",
+    "brazilian": 1,
+    "state": "PI",
+    "latitude": -5.0599398613,
+    "longitude": -42.8235015869
+  },
+  {
+    "code": "SBPV",
+    "brazilian": 1,
+    "state": "RO",
+    "latitude": -8.70928955078125,
+    "longitude": -63.90230178833008
+  },
+  {
+    "code": "SBSN",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -2.424721956253052,
+    "longitude": -54.78583145141602
+  },
+  {
+    "code": "SBSR",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -20.8166007996,
+    "longitude": -49.40650177
+  },
+  {
+    "code": "SBJP",
+    "brazilian": 1,
+    "state": "PB",
+    "latitude": -7.145833015440002,
+    "longitude": -34.9486122131
+  },
+  {
+    "code": "SCEL",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -33.39300156,
+    "longitude": -70.78579712
+  },
+  {
+    "code": "SBIL",
+    "brazilian": 1,
+    "state": "BA",
+    "latitude": -14.815999984741001,
+    "longitude": -39.033199310303004
+  },
+  {
+    "code": "SBJV",
+    "brazilian": 1,
+    "state": "SC",
+    "latitude": -26.22450065612793,
+    "longitude": -48.797401428222656
+  },
+  {
+    "code": "SBMQ",
+    "brazilian": 1,
+    "state": "AP",
+    "latitude": 0.0506640002131,
+    "longitude": -51.0722007751
+  },
+  {
+    "code": "LPPT",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 38.7813,
+    "longitude": -9.13592
+  },
+  {
+    "code": "SBSG",
+    "brazilian": 1,
+    "state": "RN",
+    "latitude": -5.768056,
+    "longitude": -35.376111
+  },
+  {
+    "code": "SUMU",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -34.838402,
+    "longitude": -56.0308
+  },
+  {
+    "code": "SBMA",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -5.36858987808,
+    "longitude": -49.1380004883
+  },
+  {
+    "code": "SBIP",
+    "brazilian": 1,
+    "state": "MG",
+    "latitude": -19.470699310302997,
+    "longitude": -42.487598419189
+  },
+  {
+    "code": "SBPJ",
+    "brazilian": 1,
+    "state": "TO",
+    "latitude": -10.2915000916,
+    "longitude": -48.3569984436
+  },
+  {
+    "code": "SABE",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -34.5592,
+    "longitude": -58.4156
+  },
+  {
+    "code": "SBRB",
+    "brazilian": 1,
+    "state": "AC",
+    "latitude": -9.869031,
+    "longitude": -67.893984
+  },
+  {
+    "code": "SBHT",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -3.2539100646973,
+    "longitude": -52.254001617432
+  },
+  {
+    "code": "MPTO",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 9.071359634,
+    "longitude": -79.38349915
+  },
+  {
+    "code": "SBDN",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -22.1751003265,
+    "longitude": -51.4245986938
+  },
+  {
+    "code": "SBCA",
+    "brazilian": 1,
+    "state": "PR",
+    "latitude": -25.0002994537,
+    "longitude": -53.5008010864
+  },
+  {
+    "code": "SBML",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -22.1968994141,
+    "longitude": -49.926399231000005
+  },
+  {
+    "code": "SBPL",
+    "brazilian": 1,
+    "state": "PE",
+    "latitude": -9.362409591674805,
+    "longitude": -40.56909942626953
+  },
+  {
+    "code": "SBCH",
+    "brazilian": 1,
+    "state": "SC",
+    "latitude": -27.134199142456,
+    "longitude": -52.656600952148
+  },
+  {
+    "code": "SBUR",
+    "brazilian": 1,
+    "state": "MG",
+    "latitude": -19.764722824097,
+    "longitude": -47.966110229491996
+  },
+  {
+    "code": "LFPG",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 49.012798,
+    "longitude": 2.55
+  },
+  {
+    "code": "SBJU",
+    "brazilian": 1,
+    "state": "CE",
+    "latitude": -7.21895980835,
+    "longitude": -39.270099639899996
+  },
+  {
+    "code": "SBMK",
+    "brazilian": 1,
+    "state": "MG",
+    "latitude": -16.706899642899998,
+    "longitude": -43.818901061999995
+  },
+  {
+    "code": "SBIZ",
+    "brazilian": 1,
+    "state": "MA",
+    "latitude": -5.53129,
+    "longitude": -47.459998999999996
+  },
+  {
+    "code": "KJFK",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 40.63980103,
+    "longitude": -73.77890015
+  },
+  {
+    "code": "LEMD",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 40.471926,
+    "longitude": -3.56264
+  },
+  {
+    "code": "SBFN",
+    "brazilian": 1,
+    "state": "PE",
+    "latitude": -3.8549300000000004,
+    "longitude": -32.423302
+  },
+  {
+    "code": "SBQV",
+    "brazilian": 1,
+    "state": "BA",
+    "latitude": -14.8628,
+    "longitude": -40.863098
+  },
+  {
+    "code": "SBAU",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -21.141479,
+    "longitude": -50.424575
+  },
+  {
+    "code": "SBCX",
+    "brazilian": 1,
+    "state": "RS",
+    "latitude": -29.197099685700003,
+    "longitude": -51.1875
+  },
+  {
+    "code": "SKBO",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 4.70159,
+    "longitude": -74.1469
+  },
+  {
+    "code": "SBBV",
+    "brazilian": 1,
+    "state": "RR",
+    "latitude": 2.8413889408099995,
+    "longitude": -60.69222259520001
+  },
+  {
+    "code": "SWPI",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -2.6730198860168457,
+    "longitude": -56.777198791503906
+  },
+  {
+    "code": "SPIM",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -12.0219,
+    "longitude": -77.114305
+  },
+  {
+    "code": "SGAS",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -25.23999977,
+    "longitude": -57.52000046
+  },
+  {
+    "code": "SBGV",
+    "brazilian": 1,
+    "state": "MG",
+    "latitude": -18.89520072937,
+    "longitude": -41.982200622559
+  },
+  {
+    "code": "SBME",
+    "brazilian": 1,
+    "state": "RJ",
+    "latitude": -22.343000412,
+    "longitude": -41.7659988403
+  },
+  {
+    "code": "SBIH",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -4.2423400878906,
+    "longitude": -56.000701904296996
+  },
+  {
+    "code": "EDDF",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 50.033333,
+    "longitude": 8.570556
+  },
+  {
+    "code": "SBBU",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -22.344999313400002,
+    "longitude": -49.053798675500005
+  },
+  {
+    "code": "SWSI",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -11.885000999999999,
+    "longitude": -55.58610899999999
+  },
+  {
+    "code": "SBJF",
+    "brazilian": 1,
+    "state": "MG",
+    "latitude": -21.791500091552734,
+    "longitude": -43.38679885864258
+  },
+  {
+    "code": "SBSJ",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -23.22920036315918,
+    "longitude": -45.86149978637695
+  },
+  {
+    "code": "SBPF",
+    "brazilian": 1,
+    "state": "RS",
+    "latitude": -28.243999,
+    "longitude": -52.326599
+  },
+  {
+    "code": "SBCJ",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -6.11527776718,
+    "longitude": -50.0013885498
+  },
+  {
+    "code": "SBTF",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -3.38294005394,
+    "longitude": -64.7240982056
+  },
+  {
+    "code": "EGLL",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 51.4706,
+    "longitude": -0.461941
+  },
+  {
+    "code": "SLVR",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -17.6448,
+    "longitude": -63.135399
+  },
+  {
+    "code": "SNBR",
+    "brazilian": 1,
+    "state": "BA",
+    "latitude": -12.078900337219238,
+    "longitude": -45.00899887084961
+  },
+  {
+    "code": "KATL",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 33.6367,
+    "longitude": -84.428101
+  },
+  {
+    "code": "SBAE",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -22.15778,
+    "longitude": -49.068329999999996
+  },
+  {
+    "code": "SBKG",
+    "brazilian": 1,
+    "state": "PB",
+    "latitude": -7.26992,
+    "longitude": -35.8964
+  },
+  {
+    "code": "SWGN",
+    "brazilian": 1,
+    "state": "TO",
+    "latitude": -7.227869999999999,
+    "longitude": -48.240501
+  },
+  {
+    "code": "SWRD",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -16.586,
+    "longitude": -54.7248
+  },
+  {
+    "code": "SBCP",
+    "brazilian": 1,
+    "state": "RJ",
+    "latitude": -21.698299408,
+    "longitude": -41.301700591999996
+  },
+  {
+    "code": "SBMD",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -0.8898389999999999,
+    "longitude": -52.6022
+  },
+  {
+    "code": "SVMI",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 10.601194,
+    "longitude": -66.991222
+  },
+  {
+    "code": "SJTC",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -22.1668591409,
+    "longitude": -49.0502866745
+  },
+  {
+    "code": "MMMX",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 19.4363,
+    "longitude": -99.072098
+  },
+  {
+    "code": "SBVH",
+    "brazilian": 1,
+    "state": "RO",
+    "latitude": -12.694399833678998,
+    "longitude": -60.098300933838
+  },
+  {
+    "code": "SBSM",
+    "brazilian": 1,
+    "state": "RS",
+    "latitude": -29.711399,
+    "longitude": -53.688202000000004
+  },
+  {
+    "code": "SPJC",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -12.0219,
+    "longitude": -77.114305
+  },
+  {
+    "code": "SBCZ",
+    "brazilian": 1,
+    "state": "AC",
+    "latitude": -7.59991,
+    "longitude": -72.769501
+  },
+  {
+    "code": "SBCB",
+    "brazilian": 1,
+    "state": "RJ",
+    "latitude": -22.921699523900003,
+    "longitude": -42.0742988586
+  },
+  {
+    "code": "KMCO",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 28.42939949,
+    "longitude": -81.30899811
+  },
+  {
+    "code": "SWKO",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -4.1340599060058585,
+    "longitude": -63.13259887695313
+  },
+  {
+    "code": "LIMC",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 45.6306,
+    "longitude": 8.728110000000001
+  },
+  {
+    "code": "EHAM",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 52.308601,
+    "longitude": 4.76389
+  },
+  {
+    "code": "SBCM",
+    "brazilian": 1,
+    "state": "SC",
+    "latitude": -28.724443435700003,
+    "longitude": -49.4213905334
+  },
+  {
+    "code": "KIAH",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 29.9843998,
+    "longitude": -95.34140015
+  },
+  {
+    "code": "SBUY",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -4.8842201232899995,
+    "longitude": -65.3554000854
+  },
+  {
+    "code": "SBAX",
+    "brazilian": 1,
+    "state": "MG",
+    "latitude": -19.563199996948,
+    "longitude": -46.960399627686
+  },
+  {
+    "code": "SBTT",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -4.2556700706482,
+    "longitude": -69.93579864502
+  },
+  {
+    "code": "SBAT",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -9.866389,
+    "longitude": -56.106297999999995
+  },
+  {
+    "code": "SBTB",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -1.489599943161,
+    "longitude": -56.396800994873
+  },
+  {
+    "code": "LIRF",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 41.8002778,
+    "longitude": 12.2388889
+  },
+  {
+    "code": "SBPK",
+    "brazilian": 1,
+    "state": "RS",
+    "latitude": -31.718398999999998,
+    "longitude": -52.327702
+  },
+  {
+    "code": "SBNM",
+    "brazilian": 1,
+    "state": "RS",
+    "latitude": -28.2817,
+    "longitude": -54.169102
+  },
+  {
+    "code": "SWUY",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -4.8842201232899995,
+    "longitude": -65.3554000854
+  },
+  {
+    "code": "SWCA",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -4.871520042419434,
+    "longitude": -66.89749908447266
+  },
+  {
+    "code": "SBAQ",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -21.811999999999998,
+    "longitude": -48.132999
+  },
+  {
+    "code": "KDFW",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 32.896801,
+    "longitude": -97.038002
+  },
+  {
+    "code": "SACO",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -31.323601,
+    "longitude": -64.208
+  },
+  {
+    "code": "GOOY",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 14.73970032,
+    "longitude": -17.49020004
+  },
+  {
+    "code": "SDOW",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -6.763100147250001,
+    "longitude": -51.0499000549
+  },
+  {
+    "code": "SBTU",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -3.7860100269317996,
+    "longitude": -49.72029876709001
+  },
+  {
+    "code": "KEWR",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 40.69250107,
+    "longitude": -74.16870117
+  },
+  {
+    "code": "SGES",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -25.454516,
+    "longitude": -54.842682
+  },
+  {
+    "code": "SBZM",
+    "brazilian": 1,
+    "state": "MG",
+    "latitude": -21.513085999999998,
+    "longitude": -43.173069
+  },
+  {
+    "code": "SBJI",
+    "brazilian": 1,
+    "state": "RO",
+    "latitude": -10.870800018299999,
+    "longitude": -61.8465003967
+  },
+  {
+    "code": "SBDO",
+    "brazilian": 1,
+    "state": "MS",
+    "latitude": -22.2019,
+    "longitude": -54.926601
+  },
+  {
+    "code": "LSZH",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 47.464699,
+    "longitude": 8.54917
+  },
+  {
+    "code": "OMDB",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 25.25279999,
+    "longitude": 55.36439896
+  },
+  {
+    "code": "FAJS",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -26.133333,
+    "longitude": 28.25
+  },
+  {
+    "code": "SBVG",
+    "brazilian": 1,
+    "state": "MG",
+    "latitude": -21.5900993347,
+    "longitude": -45.473300933800004
+  },
+  {
+    "code": "KORD",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 41.9786,
+    "longitude": -87.9048
+  },
+  {
+    "code": "SWJI",
+    "brazilian": 1,
+    "state": "RO",
+    "latitude": -10.870800018299999,
+    "longitude": -61.8465003967
+  },
+  {
+    "code": "KLAX",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 33.94250107,
+    "longitude": -118.4079971
+  },
+  {
+    "code": "SOCA",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 4.819809914,
+    "longitude": -52.36040115
+  },
+  {
+    "code": "CYYZ",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 43.67720032,
+    "longitude": -79.63059998
+  },
+  {
+    "code": "SWLC",
+    "brazilian": 1,
+    "state": "GO",
+    "latitude": -17.8347225189209,
+    "longitude": -50.95611190795898
+  },
+  {
+    "code": "SWJN",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -11.419444,
+    "longitude": -58.701668000000005
+  },
+  {
+    "code": "SBCR",
+    "brazilian": 1,
+    "state": "MS",
+    "latitude": -19.0119438171,
+    "longitude": -57.6713905334
+  },
+  {
+    "code": "KIAD",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 38.94449997,
+    "longitude": -77.45580292
+  },
+  {
+    "code": "SBMH",
+    "brazilian": 1,
+    "state": "PR",
+    "latitude": -23.479444,
+    "longitude": -52.012221999999994
+  },
+  {
+    "code": "SBCN",
+    "brazilian": 1,
+    "state": "GO",
+    "latitude": -17.725299835205,
+    "longitude": -48.607498168945
+  },
+  {
+    "code": "SAAR",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -32.9036,
+    "longitude": -60.785
+  },
+  {
+    "code": "SSDO",
+    "brazilian": 1,
+    "state": "MS",
+    "latitude": -22.2019,
+    "longitude": -54.926601
+  },
+  {
+    "code": "SNDC",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -8.033289909362793,
+    "longitude": -49.97990036010742
+  },
+  {
+    "code": "SBTK",
+    "brazilian": 1,
+    "state": "AC",
+    "latitude": -8.1552600860596,
+    "longitude": -70.783302307129
+  },
+  {
+    "code": "SJRG",
+    "brazilian": 1,
+    "state": "RS",
+    "latitude": -32.083065000000005,
+    "longitude": -52.167184000000006
+  },
+  {
+    "code": "SWBC",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -0.981292,
+    "longitude": -62.919601
+  },
+  {
+    "code": "SWMW",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -3.3721699999999997,
+    "longitude": -57.7248
+  },
+  {
+    "code": "SNVS",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -1.6365300416946411,
+    "longitude": -50.44359970092773
+  },
+  {
+    "code": "SNGI",
+    "brazilian": 1,
+    "state": "BA",
+    "latitude": -14.208200454711914,
+    "longitude": -42.74610137939453
+  },
+  {
+    "code": "SWLB",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -7.278969764709473,
+    "longitude": -64.76950073242189
+  },
+  {
+    "code": "SBTG",
+    "brazilian": 1,
+    "state": "MS",
+    "latitude": -20.754199981689,
+    "longitude": -51.68420028686499
+  },
+  {
+    "code": "KMEM",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 35.04240036,
+    "longitude": -89.97669983
+  },
+  {
+    "code": "FNLU",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -8.858369999999997,
+    "longitude": 13.2312
+  },
+  {
+    "code": "SBUA",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -0.14835,
+    "longitude": -66.9855
+  },
+  {
+    "code": "SNOX",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -1.714079976081848,
+    "longitude": -55.83620071411133
+  },
+  {
+    "code": "SWHT",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -7.532120227810001,
+    "longitude": -63.072101593
+  },
+  {
+    "code": "SWEI",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -6.6395301818847665,
+    "longitude": -69.87979888916016
+  },
+  {
+    "code": "SWGI",
+    "brazilian": 1,
+    "state": "TO",
+    "latitude": -11.73960018157959,
+    "longitude": -49.13219833374024
+  },
+  {
+    "code": "SBTC",
+    "brazilian": 1,
+    "state": "BA",
+    "latitude": -15.3551998138,
+    "longitude": -38.9990005493
+  },
+  {
+    "code": "SSER",
+    "brazilian": 1,
+    "state": "RS",
+    "latitude": -27.66189956665039,
+    "longitude": -52.2682991027832
+  },
+  {
+    "code": "SNJR",
+    "brazilian": 1,
+    "state": "MG",
+    "latitude": -21.0849990845,
+    "longitude": -44.2247238159
+  },
+  {
+    "code": "SBLJ",
+    "brazilian": 1,
+    "state": "SC",
+    "latitude": -27.7821006775,
+    "longitude": -50.28150177
+  },
+  {
+    "code": "SEQU",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -0.141144007444,
+    "longitude": -78.4881973267
+  },
+  {
+    "code": "SSJA",
+    "brazilian": 1,
+    "state": "SC",
+    "latitude": -27.1714000702,
+    "longitude": -51.5532989502
+  },
+  {
+    "code": "SBUG",
+    "brazilian": 1,
+    "state": "RS",
+    "latitude": -29.782199859600002,
+    "longitude": -57.0382003784
+  },
+  {
+    "code": "SNPD",
+    "brazilian": 1,
+    "state": "MG",
+    "latitude": -18.672800064086914,
+    "longitude": -46.4911994934082
+  },
+  {
+    "code": "EDDM",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 48.353802,
+    "longitude": 11.7861
+  },
+  {
+    "code": "SBLP",
+    "brazilian": 1,
+    "state": "BA",
+    "latitude": -13.2621002197,
+    "longitude": -43.4081001282
+  },
+  {
+    "code": "LPPR",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 41.24810028,
+    "longitude": -8.681389809
+  },
+  {
+    "code": "SDCO",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -23.478001000000003,
+    "longitude": -47.490002000000004
+  },
+  {
+    "code": "MDPC",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 18.56739998,
+    "longitude": -68.36340332
+  },
+  {
+    "code": "GVAC",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 16.7414,
+    "longitude": -22.9494
+  },
+  {
+    "code": "SBPM",
+    "brazilian": 1,
+    "state": "TO",
+    "latitude": -10.29,
+    "longitude": -48.357778
+  },
+  {
+    "code": "SSKW",
+    "brazilian": 1,
+    "state": "RO",
+    "latitude": -11.495999999999999,
+    "longitude": -61.4508
+  },
+  {
+    "code": "ELLX",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 49.6233333,
+    "longitude": 6.204444400000002
+  },
+  {
+    "code": "SWKN",
+    "brazilian": 1,
+    "state": "GO",
+    "latitude": -17.724722,
+    "longitude": -48.61
+  },
+  {
+    "code": "SBRD",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -16.586,
+    "longitude": -54.7248
+  },
+  {
+    "code": "SBAA",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -8.34835,
+    "longitude": -49.301497999999995
+  },
+  {
+    "code": "KFLL",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 26.072599,
+    "longitude": -80.152702
+  },
+  {
+    "code": "SBRG",
+    "brazilian": 1,
+    "state": "RS",
+    "latitude": -32.081666999999996,
+    "longitude": -52.163333
+  },
+  {
+    "code": "SMJP",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 5.452829838,
+    "longitude": -55.18780136
+  },
+  {
+    "code": "SEQM",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -0.129166667,
+    "longitude": -78.3575
+  },
+  {
+    "code": "SNMZ",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -1.741449952125549,
+    "longitude": -52.23609924316406
+  },
+  {
+    "code": "SWFX",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -11.632399559020994,
+    "longitude": -50.68960189819336
+  },
+  {
+    "code": "SDSC",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -21.875401,
+    "longitude": -47.903703
+  },
+  {
+    "code": "SWRP",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -10.188278,
+    "longitude": -59.457273
+  },
+  {
+    "code": "SBCD",
+    "brazilian": 1,
+    "state": "SC",
+    "latitude": -26.78840065,
+    "longitude": -50.9398002625
+  },
+  {
+    "code": "SBJA",
+    "brazilian": 1,
+    "state": "SC",
+    "latitude": -28.6753,
+    "longitude": -49.0596
+  },
+  {
+    "code": "SNFX",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -6.6413,
+    "longitude": -51.9523
+  },
+  {
+    "code": "SBMC",
+    "brazilian": 1,
+    "state": "GO",
+    "latitude": -13.5491,
+    "longitude": -48.195301
+  },
+  {
+    "code": "KCLT",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 35.21400070000001,
+    "longitude": -80.94309998
+  },
+  {
+    "code": "SWBR",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -4.4063401222229,
+    "longitude": -59.60240173339844
+  },
+  {
+    "code": "LTBA",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 40.976898,
+    "longitude": 28.8146
+  },
+  {
+    "code": "LEBL",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 41.2971,
+    "longitude": 2.07846
+  },
+  {
+    "code": "SWJH",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -11.286667,
+    "longitude": -57.538889000000005
+  },
+  {
+    "code": "SNTF",
+    "brazilian": 1,
+    "state": "BA",
+    "latitude": -17.524499893188,
+    "longitude": -39.66849899292
+  },
+  {
+    "code": "SBTD",
+    "brazilian": 1,
+    "state": "PR",
+    "latitude": -24.6863,
+    "longitude": -53.697497999999996
+  },
+  {
+    "code": "SNMA",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -1.9958000183105469,
+    "longitude": -54.07419967651367
+  },
+  {
+    "code": "SBFC",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -20.592222,
+    "longitude": -47.383055999999996
+  },
+  {
+    "code": "SBLE",
+    "brazilian": 1,
+    "state": "BA",
+    "latitude": -12.4822998047,
+    "longitude": -41.2770004272
+  },
+  {
+    "code": "SBPB",
+    "brazilian": 1,
+    "state": "PI",
+    "latitude": -2.89374995232,
+    "longitude": -41.73199844359999
+  },
+  {
+    "code": "SBMS",
+    "brazilian": 1,
+    "state": "RN",
+    "latitude": -5.2019200325,
+    "longitude": -37.3642997742
+  },
+  {
+    "code": "SBUF",
+    "brazilian": 1,
+    "state": "BA",
+    "latitude": -9.4008798599243,
+    "longitude": -38.250598907471
+  },
+  {
+    "code": "KDTW",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 42.21239853,
+    "longitude": -83.35340118
+  },
+  {
+    "code": "SWTP",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -0.3786,
+    "longitude": -64.9923
+  },
+  {
+    "code": "SBOI",
+    "brazilian": 1,
+    "state": "AP",
+    "latitude": 3.85548996925354,
+    "longitude": -51.79690170288086
+  },
+  {
+    "code": "SSZR",
+    "brazilian": 1,
+    "state": "RS",
+    "latitude": -27.9067,
+    "longitude": -54.520401
+  },
+  {
+    "code": "SBDB",
+    "brazilian": 1,
+    "state": "MS",
+    "latitude": -21.2473,
+    "longitude": -56.4525
+  },
+  {
+    "code": "SULS",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -34.85509872,
+    "longitude": -55.09429932
+  },
+  {
+    "code": "SBVC",
+    "brazilian": 1,
+    "state": "BA",
+    "latitude": -14.907885,
+    "longitude": -40.914804
+  },
+  {
+    "code": "SIZX",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -11.2966,
+    "longitude": -57.5495
+  },
+  {
+    "code": "SIMK",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -20.592199,
+    "longitude": -47.3829
+  },
+  {
+    "code": "SWOB",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -2.5326099395800004,
+    "longitude": -66.0831985474
+  },
+  {
+    "code": "SNMU",
+    "brazilian": 1,
+    "state": "BA",
+    "latitude": -18.048900604248047,
+    "longitude": -39.864200592041016
+  },
+  {
+    "code": "SJNP",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -7.125833,
+    "longitude": -55.400833
+  },
+  {
+    "code": "SNDV",
+    "brazilian": 1,
+    "state": "MG",
+    "latitude": -20.180700302124,
+    "longitude": -44.870899200439
+  },
+  {
+    "code": "SAZS",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -41.151199,
+    "longitude": -71.157501
+  },
+  {
+    "code": "SBMY",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -5.8113799095153995,
+    "longitude": -61.278301239014
+  },
+  {
+    "code": "OTBD",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 25.261101,
+    "longitude": 51.565102
+  },
+  {
+    "code": "OTHH",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 25.273056,
+    "longitude": 51.608056
+  },
+  {
+    "code": "SILC",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -13.037861,
+    "longitude": -55.95025
+  },
+  {
+    "code": "SNNG",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -7.125833,
+    "longitude": -55.400833
+  },
+  {
+    "code": "SJHG",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -10.634400367736816,
+    "longitude": -51.5635986328125
+  },
+  {
+    "code": "MDSD",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 18.42970085,
+    "longitude": -69.66889954
+  },
+  {
+    "code": "SNKE",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -9.31997013092041,
+    "longitude": -50.32849884033203
+  },
+  {
+    "code": "SNTI",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -1.867169976234436,
+    "longitude": -55.51440048217773
+  },
+  {
+    "code": "FAOR",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -26.1392,
+    "longitude": 28.246
+  },
+  {
+    "code": "SBSI",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -11.885000999999999,
+    "longitude": -55.58610899999999
+  },
+  {
+    "code": "SYCJ",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 6.498549937999999,
+    "longitude": -58.25410079999999
+  },
+  {
+    "code": "SDCG",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -3.46792950765,
+    "longitude": -68.9204120636
+  },
+  {
+    "code": "SKRG",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 6.1645400000000015,
+    "longitude": -75.4231
+  },
+  {
+    "code": "GMMN",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 33.36750031,
+    "longitude": -7.589970112
+  },
+  {
+    "code": "SNDT",
+    "brazilian": 1,
+    "state": "MG",
+    "latitude": -18.232000351,
+    "longitude": -43.650398254399995
+  },
+  {
+    "code": "SBJE",
+    "brazilian": 1,
+    "state": "CE",
+    "latitude": -2.906425,
+    "longitude": -40.357338
+  },
+  {
+    "code": "SBSO",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -12.479177,
+    "longitude": -55.672341
+  },
+  {
+    "code": "SSNM",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -9.965832710266113,
+    "longitude": -54.8849983215332
+  },
+  {
+    "code": "SWNK",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -8.83456,
+    "longitude": -67.312401
+  },
+  {
+    "code": "SSVI",
+    "brazilian": 1,
+    "state": "SC",
+    "latitude": -26.99970054626465,
+    "longitude": -51.14189910888672
+  },
+  {
+    "code": "SLCB",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -17.42110062,
+    "longitude": -66.17710114
+  },
+  {
+    "code": "SNGV",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -12.721846000000001,
+    "longitude": -52.38028
+  },
+  {
+    "code": "SBBW",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -15.8613004684,
+    "longitude": -52.388900756800005
+  },
+  {
+    "code": "OMAA",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 24.43300056,
+    "longitude": 54.65110016
+  },
+  {
+    "code": "SNIG",
+    "brazilian": 1,
+    "state": "CE",
+    "latitude": -6.346640110015869,
+    "longitude": -39.293800354003906
+  },
+  {
+    "code": "MMUN",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 21.03650093,
+    "longitude": -86.87709808
+  },
+  {
+    "code": "GVNP",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 14.92450047,
+    "longitude": -23.49349976
+  },
+  {
+    "code": "SNYA",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -1.4919439554214478,
+    "longitude": -52.57833480834961
+  },
+  {
+    "code": "SNDM",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -23.4404,
+    "longitude": -46.4352
+  },
+  {
+    "code": "SWJU",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -10.305832862854004,
+    "longitude": -58.48944473266602
+  },
+  {
+    "code": "SUPE",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -34.91699982,
+    "longitude": -54.91699982
+  },
+  {
+    "code": "SAME",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -32.83169937,
+    "longitude": -68.79290009
+  },
+  {
+    "code": "HAAB",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 8.977890015,
+    "longitude": 38.79930115
+  },
+  {
+    "code": "SBBT",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -20.584499359131,
+    "longitude": -48.594100952148
+  },
+  {
+    "code": "SWMP",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -9.785960000000001,
+    "longitude": -54.908
+  },
+  {
+    "code": "SSTD",
+    "brazilian": 1,
+    "state": "RS",
+    "latitude": -28.55083274841309,
+    "longitude": -51.59611129760742
+  },
+  {
+    "code": "SEGU",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -2.15741992,
+    "longitude": -79.88359833
+  },
+  {
+    "code": "SSUM",
+    "brazilian": 1,
+    "state": "PR",
+    "latitude": -23.7987003326416,
+    "longitude": -53.31380081176758
+  },
+  {
+    "code": "SWTU",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -13.465527999999999,
+    "longitude": -58.866935
+  },
+  {
+    "code": "SNTS",
+    "brazilian": 1,
+    "state": "PB",
+    "latitude": -7.038990020751952,
+    "longitude": -37.2515983581543
+  },
+  {
+    "code": "SNBS",
+    "brazilian": 1,
+    "state": "MA",
+    "latitude": -7.52603006362915,
+    "longitude": -46.05329895019531
+  },
+  {
+    "code": "GOBD",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 14.67,
+    "longitude": -17.073332999999998
+  },
+  {
+    "code": "SSTL",
+    "brazilian": 1,
+    "state": "MS",
+    "latitude": -20.754199981689,
+    "longitude": -51.68420028686499
+  },
+  {
+    "code": "SBPP",
+    "brazilian": 1,
+    "state": "MS",
+    "latitude": -22.54960060119629,
+    "longitude": -55.702598571777344
+  },
+  {
+    "code": "SNDB",
+    "brazilian": 1,
+    "state": "PA",
+    "latitude": -4.0855560302734375,
+    "longitude": -54.91083145141602
+  },
+  {
+    "code": "SBGM",
+    "brazilian": 1,
+    "state": "RO",
+    "latitude": -10.786399841308594,
+    "longitude": -65.28479766845703
+  },
+  {
+    "code": "MUHA",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 22.98920059,
+    "longitude": -82.40910339
+  },
+  {
+    "code": "SSPB",
+    "brazilian": 1,
+    "state": "PR",
+    "latitude": -26.217184000000003,
+    "longitude": -52.694463
+  },
+  {
+    "code": "SURV",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -30.97459984,
+    "longitude": -55.47620010000001
+  },
+  {
+    "code": "SBJR",
+    "brazilian": 1,
+    "state": "RJ",
+    "latitude": -22.986773,
+    "longitude": -43.372194
+  },
+  {
+    "code": "SDRS",
+    "brazilian": 1,
+    "state": "RJ",
+    "latitude": -22.4785003662,
+    "longitude": -44.4803009033
+  },
+  {
+    "code": "SWTS",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -14.662,
+    "longitude": -57.443501
+  },
+  {
+    "code": "GCTS",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 28.04450035,
+    "longitude": -16.57250023
+  },
+  {
+    "code": "SWNA",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -5.118030071258545,
+    "longitude": -60.36489868164063
+  },
+  {
+    "code": "SWIQ",
+    "brazilian": 1,
+    "state": "GO",
+    "latitude": -13.5491,
+    "longitude": -48.195301
+  },
+  {
+    "code": "MMMD",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 20.93700027,
+    "longitude": -89.65769959
+  },
+  {
+    "code": "SARI",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -25.737301,
+    "longitude": -54.4734
+  },
+  {
+    "code": "SNVB",
+    "brazilian": 1,
+    "state": "BA",
+    "latitude": -13.2965,
+    "longitude": -38.992401
+  },
+  {
+    "code": "SSUW",
+    "brazilian": 1,
+    "state": "PR",
+    "latitude": -22.775956,
+    "longitude": -51.505539
+  },
+  {
+    "code": "SNQD",
+    "brazilian": 1,
+    "state": "PB",
+    "latitude": -6.7854399681099995,
+    "longitude": -38.2333984375
+  },
+  {
+    "code": "SNTO",
+    "brazilian": 1,
+    "state": "MG",
+    "latitude": -17.89229965209961,
+    "longitude": -41.51359939575195
+  },
+  {
+    "code": "SSFB",
+    "brazilian": 1,
+    "state": "PR",
+    "latitude": -26.059200286865234,
+    "longitude": -53.0634994506836
+  },
+  {
+    "code": "SBAS",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -22.64,
+    "longitude": -50.453056
+  },
+  {
+    "code": "LLBG",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 32.01139832,
+    "longitude": 34.88669968
+  },
+  {
+    "code": "SNBI",
+    "brazilian": 1,
+    "state": "MA",
+    "latitude": -4.227709770202637,
+    "longitude": -44.81999969482422
+  },
+  {
+    "code": "SCDA",
+    "brazilian": 0,
+    "state": "",
+    "latitude": -20.53520012,
+    "longitude": -70.1812973
+  },
+  {
+    "code": "EGKK",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 51.148102,
+    "longitude": -0.190278
+  },
+  {
+    "code": "SBBQ",
+    "brazilian": 1,
+    "state": "MG",
+    "latitude": -21.2672,
+    "longitude": -43.761101000000004
+  },
+  {
+    "code": "SWFN",
+    "brazilian": 1,
+    "state": "AM",
+    "latitude": -3.0727779865264893,
+    "longitude": -60.02111053466797
+  },
+  {
+    "code": "SDAM",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -22.85919952392578,
+    "longitude": -47.10820007324219
+  }
+]

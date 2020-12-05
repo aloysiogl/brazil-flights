@@ -29,8 +29,8 @@ var loadData = svgEl => {
     const files = [
         'ne_50m_admin_0_countries.geojson',
         'brazil_states.geojson',
-        'filtered_airports.csv',
-        'filtered_airlines.csv',
+        'filtered_airports.json',
+        'filtered_airlines.json',
     ]
     var loaders = files.map(f => {
         if (f.substring(f.length - 3, f.length) == 'csv')

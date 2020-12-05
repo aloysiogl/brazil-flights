@@ -1,0 +1,482 @@
+[
+  {
+    "code": "TAM",
+    "name": "TAM"
+  },
+  {
+    "code": "GLO",
+    "name": "GOL"
+  },
+  {
+    "code": "AZU",
+    "name": "AZUL"
+  },
+  {
+    "code": "VRG",
+    "name": "VARIG LINHAS AREAS"
+  },
+  {
+    "code": "ONE",
+    "name": "AVIANCA BRASIL"
+  },
+  {
+    "code": "TIB",
+    "name": "TRIP"
+  },
+  {
+    "code": "VSP",
+    "name": "VASP"
+  },
+  {
+    "code": "RSL",
+    "name": "RIO SUL"
+  },
+  {
+    "code": "PTB",
+    "name": "PASSAREDO"
+  },
+  {
+    "code": "TTL",
+    "name": "TOTAL"
+  },
+  {
+    "code": "WEB",
+    "name": "WEBJET"
+  },
+  {
+    "code": "PTN",
+    "name": "PANTANAL"
+  },
+  {
+    "code": "NES",
+    "name": "NORDESTE"
+  },
+  {
+    "code": "VRN",
+    "name": "VRG LINHAS AEREAS"
+  },
+  {
+    "code": "AAL",
+    "name": "AMERICAN AIRLINES INC"
+  },
+  {
+    "code": "ARG",
+    "name": "AEROLINEAS ARGENTINAS"
+  },
+  {
+    "code": "TAP",
+    "name": "TAP AIR PORTUGAL"
+  },
+  {
+    "code": "RLE",
+    "name": "RICO"
+  },
+  {
+    "code": "TBA",
+    "name": "TRANSBRASIL"
+  },
+  {
+    "code": "BRB",
+    "name": "BRA"
+  },
+  {
+    "code": "CMP",
+    "name": "COPA - COMPANIA PANAMENA DE AVIACION"
+  },
+  {
+    "code": "BLC",
+    "name": "TAM - TRANSPORTE AEREOS MERIDIONAIS"
+  },
+  {
+    "code": "SLX",
+    "name": "SETE"
+  },
+  {
+    "code": "TUS",
+    "name": "ABSA"
+  },
+  {
+    "code": "VLO",
+    "name": "VARIG LOG"
+  },
+  {
+    "code": "NHG",
+    "name": "NHT"
+  },
+  {
+    "code": "LAN",
+    "name": "LAN CHILE"
+  },
+  {
+    "code": "PEP",
+    "name": "PENTA"
+  },
+  {
+    "code": "UAL",
+    "name": "UNITED AIRLINES"
+  },
+  {
+    "code": "ITB",
+    "name": "INTERBRASIL"
+  },
+  {
+    "code": "LAP",
+    "name": "TAM TRANSP.AR.DEL.MERCOS."
+  },
+  {
+    "code": "MSQ",
+    "name": "META"
+  },
+  {
+    "code": "DAL",
+    "name": "DELTA AIRLINES"
+  },
+  {
+    "code": "AFR",
+    "name": "AIR FRANCE"
+  },
+  {
+    "code": "PUA",
+    "name": "PLUNA"
+  },
+  {
+    "code": "TSD",
+    "name": "TAF"
+  },
+  {
+    "code": "DLH",
+    "name": "LUFTHANSA"
+  },
+  {
+    "code": "LCO",
+    "name": "LAN CARGO S.A"
+  },
+  {
+    "code": "PAM",
+    "name": "MAP LINHAS AEREAS"
+  },
+  {
+    "code": "IBE",
+    "name": "IBERIA"
+  },
+  {
+    "code": "RIO",
+    "name": "RIO LINHAS AEREAS"
+  },
+  {
+    "code": "PLY",
+    "name": "PUMA AIR"
+  },
+  {
+    "code": "TPU",
+    "name": "TRASAMERICA  AIRLINES-TACAPERU"
+  },
+  {
+    "code": "BAW",
+    "name": "BRITISH AIRWAYS PLC"
+  },
+  {
+    "code": "AVA",
+    "name": "AVIANCA"
+  },
+  {
+    "code": "TIM",
+    "name": "TEAM"
+  },
+  {
+    "code": "LAE",
+    "name": "LINEA AEREA CARGUERA DE COLOMBIA S.A."
+  },
+  {
+    "code": "COA",
+    "name": "CONTINENTAL AIRLINES INC"
+  },
+  {
+    "code": "TVJ",
+    "name": "TAVAJ"
+  },
+  {
+    "code": "LTG",
+    "name": "ABSA"
+  },
+  {
+    "code": "AUT",
+    "name": "AUSTRAL LÖNEAS AREAS CIELOS DEL SUR S.A"
+  },
+  {
+    "code": "UAE",
+    "name": "EMIRATES"
+  },
+  {
+    "code": "OWT",
+    "name": "AZUL CONECTA"
+  },
+  {
+    "code": "AZA",
+    "name": "ALITALIA"
+  },
+  {
+    "code": "SKC",
+    "name": "SKYMASTER"
+  },
+  {
+    "code": "VCR",
+    "name": "CRUISER"
+  },
+  {
+    "code": "KLM",
+    "name": "KLM ROYAL DUTCH AIRLINES"
+  },
+  {
+    "code": "LPE",
+    "name": "LAN PERU S/A"
+  },
+  {
+    "code": "SWR",
+    "name": "SWISSAIR"
+  },
+  {
+    "code": "FDX",
+    "name": "FEDERAL EXPRESS"
+  },
+  {
+    "code": "ABJ",
+    "name": "ABAETE"
+  },
+  {
+    "code": "AMG",
+    "name": "AIR MINAS"
+  },
+  {
+    "code": "UPS",
+    "name": "UNITED PARCEL SERVICE"
+  },
+  {
+    "code": "DSM",
+    "name": "LAN ARGENTINA S/A"
+  },
+  {
+    "code": "SAA",
+    "name": "SOUTH AFRICAN AIRWAYS"
+  },
+  {
+    "code": "AMX",
+    "name": "AEROMEXICO"
+  },
+  {
+    "code": "QTR",
+    "name": "QATAR AIRWAYS"
+  },
+  {
+    "code": "GEC",
+    "name": "LUFTHANSA CARGO AG"
+  },
+  {
+    "code": "GTI",
+    "name": "ATLAS AIR INC"
+  },
+  {
+    "code": "LXP",
+    "name": "TRANSPORTES AREOS (LANEXPRESS)"
+  },
+  {
+    "code": "ACA",
+    "name": "AIR CANADA"
+  },
+  {
+    "code": "AEA",
+    "name": "AIR EUROPA S/A"
+  },
+  {
+    "code": "CLX",
+    "name": "CARGOLUX AIRLINES"
+  },
+  {
+    "code": "TPA",
+    "name": "TAMPA S/A"
+  },
+  {
+    "code": "THY",
+    "name": "TURKISH AIRLINES INC."
+  },
+  {
+    "code": "LLB",
+    "name": "LLOYD AEREO BOLIVIANO"
+  },
+  {
+    "code": "MAA",
+    "name": "AEROTRANSPORTES MAS DE CARGA S.A. DE C.V."
+  },
+  {
+    "code": "BET",
+    "name": "BETA"
+  },
+  {
+    "code": "DTA",
+    "name": "TAAG LINHAS AEREAS DE ANGOLA"
+  },
+  {
+    "code": "CIU",
+    "name": "CIELOS DEL PERU"
+  },
+  {
+    "code": "MEL",
+    "name": "MEGA"
+  },
+  {
+    "code": "BOV",
+    "name": "BOLIVIANA DE AVIACION"
+  },
+  {
+    "code": "APW",
+    "name": "ARROW AIR INC"
+  },
+  {
+    "code": "NRA",
+    "name": "NO AR"
+  },
+  {
+    "code": "SBA",
+    "name": "SOL"
+  },
+  {
+    "code": "PAC",
+    "name": "POLAR AIR CARGO INC."
+  },
+  {
+    "code": "MST",
+    "name": "MASTER TOP"
+  },
+  {
+    "code": "RSU",
+    "name": "CIA BOLIVIANA DE TRASNP. AEREO"
+  },
+  {
+    "code": "ABZ",
+    "name": "ATA BRASIL"
+  },
+  {
+    "code": "SLM",
+    "name": "SURINAM AIRWAYS"
+  },
+  {
+    "code": "TCV",
+    "name": "EMPRESA DE TRANSPORTES AEREOS DE CABO VERDE S.A."
+  },
+  {
+    "code": "MPH",
+    "name": "MARTINAIR HOLLAND N.V."
+  },
+  {
+    "code": "AWE",
+    "name": "US AIRWAYS INC."
+  },
+  {
+    "code": "KAL",
+    "name": "KOREAN AIRLINES"
+  },
+  {
+    "code": "ETH",
+    "name": "ETHIOPIAN AIR LINES"
+  },
+  {
+    "code": "TPE",
+    "name": "TRANSPORTES AEREOS PRESIDENTE S.A"
+  },
+  {
+    "code": "CFG",
+    "name": "CONDOR FLUGDINST"
+  },
+  {
+    "code": "SID",
+    "name": "SIDERAL LINHAS AEREAS"
+  },
+  {
+    "code": "JAL",
+    "name": "JAPAN AIRLINES"
+  },
+  {
+    "code": "MWM",
+    "name": "MODERN TRANSPOR"
+  },
+  {
+    "code": "AEY",
+    "name": "AIR ITALY SPA"
+  },
+  {
+    "code": "RAM",
+    "name": "NÃO INFORMADO"
+  },
+  {
+    "code": "CCA",
+    "name": "AIR CHINA"
+  },
+  {
+    "code": "TAE",
+    "name": "NÃO INFORMADO"
+  },
+  {
+    "code": "FWI",
+    "name": "AIR CARAIBES S.A."
+  },
+  {
+    "code": "ETD",
+    "name": "ETIHAD AIRWAYS"
+  },
+  {
+    "code": "FYW",
+    "name": "FLYWAYS LINHAS"
+  },
+  {
+    "code": "AZP",
+    "name": "PARANAIR"
+  },
+  {
+    "code": "VBR",
+    "name": "NÃO INFORMADO"
+  },
+  {
+    "code": "SKU",
+    "name": "SKY AIRLINE"
+  },
+  {
+    "code": "ARE",
+    "name": "AIRES AEROVIAS DE INTEGRACION"
+  },
+  {
+    "code": "SIA",
+    "name": "SINGAPORE AIRLINES"
+  },
+  {
+    "code": "LRC",
+    "name": "LINEAS AE.COSTARRICENCES S/A"
+  },
+  {
+    "code": "EUU",
+    "name": "AIR EURO AMERICA"
+  },
+  {
+    "code": "CUB",
+    "name": "EMP.CONSOLIDADA CUBANA"
+  },
+  {
+    "code": "TAB",
+    "name": "TABA"
+  },
+  {
+    "code": "CDN",
+    "name": "CANADIAN"
+  },
+  {
+    "code": "CWC",
+    "name": "CHALLENGE"
+  },
+  {
+    "code": "DRD",
+    "name": "AIR MADRID LINEAS AEREAS"
+  },
+  {
+    "code": "BQB",
+    "name": "BQB LINEAS AEREAS"
+  }
+]
