@@ -188,7 +188,7 @@ const typesQuery = () => {
                 r.type,
                 SUM(r.count) as count,
             FROM
-                \`inf552-project.routes.routes\` r
+                \`inf552-project.routes.routes2\` r
             WHERE
                 1 = 1
                 ${

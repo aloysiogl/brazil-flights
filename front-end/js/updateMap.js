@@ -18,7 +18,7 @@ const flightsQuery = () => {
                 SUM(r.duration) / SUM(r.count) as avg_duration,
                 SUM(r.delay) / SUM(r.count) as avg_delay
             FROM
-                \`inf552-project.routes.routes\` r
+                \`inf552-project.routes.routes2\` r
             WHERE
                 1 = 1
                 ${
