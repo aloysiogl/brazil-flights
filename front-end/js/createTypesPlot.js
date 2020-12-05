@@ -102,43 +102,47 @@ const configureTypesSignalListener = view => {
 }
 
 const getTypesData = callback => {
-    const request = ctx.bigquery.jobs.query({
-        projectId: ctx.projectId,
-        query: typesQuery(),
-        useLegacySql: false,
-    })
-    request.execute(response => {
-        const names = {
-            1: ['Domestic', 'mixed'],
-            2: ['Domestic', 'freighter'],
-            3: ['International', 'mixed'],
-            4: ['International', 'freighter'],
-            5: ['Not', 'informed'],
-            6: ['Sub', 'regional'],
-            7: ['Postal', 'network'],
-            8: 'Regional',
-            9: 'Special',
+    jQuery.get(
+        ctx.serverUrl,
+        {
+            name: 'types',
+            startDate: ctx.filter.startDate,
+            endDate: ctx.filter.endDate,
+            airlines: JSON.stringify([...ctx.filter.airlines]),
+            states: JSON.stringify([...ctx.filter.states]),
+        },
+        response => {
+            const names = {
+                1: ['Domestic', 'mixed'],
+                2: ['Domestic', 'freighter'],
+                3: ['International', 'mixed'],
+                4: ['International', 'freighter'],
+                5: ['Not', 'informed'],
+                6: ['Sub', 'regional'],
+                7: ['Postal', 'network'],
+                8: 'Regional',
+                9: 'Special',
+            }
+
+            const data = response.map(row => ({
+                name: names[parseInt(row.type)],
+                ...row,
+            }))
+
+            // Fix vgsig indices to be used later
+            if (!ctx.typesVgSidCnt) {
+                ctx.typesVgSidCnt = 0
+                ctx.typesVgSid = new Map(
+                    data.map(({ type }) => {
+                        ctx.typesVgSidCnt += 1
+                        return [type, ctx.typesVgSidCnt]
+                    })
+                )
+            }
+
+            callback(data)
         }
-
-        const data = response.rows.map(({ f: row }) => ({
-            type: parseInt(row[0].v),
-            count: parseInt(row[1].v),
-            name: names[parseInt(row[0].v)],
-        }))
-
-        // Fix vgsig indices to be used later
-        if (!ctx.typesVgSidCnt) {
-            ctx.typesVgSidCnt = 0
-            ctx.typesVgSid = new Map(
-                data.map(({ type }) => {
-                    ctx.typesVgSidCnt += 1
-                    return [type, ctx.typesVgSidCnt]
-                })
-            )
-        }
-
-        callback(data)
-    })
+    )
 }
 
 const updateVegaTypes = (view, newData) => {
@@ -176,50 +180,4 @@ const updateVegaTypes = (view, newData) => {
         })
 
     view.change('data', changeSet).run()
-}
-
-const typesQuery = () => {
-    const { startDate: start, endDate: end, states, airlines } = ctx.filter
-    filterDate = start || end
-    filterState = states.size > 0
-    filterAirline = airlines.size > 0
-
-    return `SELECT
-                r.type,
-                SUM(r.count) as count,
-            FROM
-                \`inf552-project.routes.routes2\` r
-            WHERE
-                1 = 1
-                ${
-                    filterDate
-                        ? `AND "${start}" <= r.date AND r.date <= "${end}"`
-                        : ''
-                }
-                ${
-                    filterAirline
-                        ? `AND r.airline IN ("${Array.from(airlines).join(
-                              '","'
-                          )}")`
-                        : ''
-                }
-                ${
-                    filterState
-                        ? `AND r.origin_state IN ("${Array.from(states).join(
-                              '","'
-                          )}")`
-                        : ''
-                }
-                ${
-                    filterState
-                        ? `AND r.destination_state IN ("${Array.from(
-                              states
-                          ).join('","')}")`
-                        : ''
-                }
-            GROUP BY
-                r.type
-            ORDER BY
-                count DESC
-            LIMIT 6`
 }

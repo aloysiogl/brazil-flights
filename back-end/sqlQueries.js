@@ -22,19 +22,19 @@ const parse = ({
 } = {}) => ({
     start: startDate == '' ? null : startDate,
     end: endDate == '' ? null : endDate,
-    airlines: JSON.parse(airlines),
-    types: JSON.parse(types),
-    states: JSON.parse(states),
+    airlines: airlines.substring(1, airlines.length - 1),
+    types: types.substring(1, types.length - 1),
+    states: states.substring(1, states.length - 1),
 })
 
 const fromWhereExp = ({ start, end, airlines, types, states }) => {
     filterDate = start || end
-    filterState = states.size > 0
-    filterAirline = airlines.size > 0
-    filterType = types.size > 0
+    filterState = states !== ''
+    filterAirline = airlines !== ''
+    filterType = types !== ''
 
     return `FROM
-                \`inf552-project.routes.routes2\` r
+                \`inf552-project.routes.routes\` r
             WHERE
                 1 = 1
                 ${
@@ -44,18 +44,18 @@ const fromWhereExp = ({ start, end, airlines, types, states }) => {
                 }
                 ${
                     filterAirline
-                        ? `AND r.airline IN ("${airlines.join('","')}")`
+                        ? `AND r.airline IN (${airlines})`
                         : ''
                 }
-                ${filterType ? `AND r.type IN (${types.join()})` : ''}
+                ${filterType ? `AND r.type IN (${types})` : ''}
                 ${
                     filterState
-                        ? `AND r.origin_state IN ("${states.join('","')}")`
+                        ? `AND r.origin_state IN (${states})`
                         : ''
                 }
                 ${
                     filterState
-                        ? `AND r.destination_state IN ("${states.join('","')}")`
+                        ? `AND r.destination_state IN (${states})`
                         : ''
                 }`
 }

@@ -89,60 +89,20 @@ const configureSliderSignalListener = view => {
 }
 
 const getSliderData = callback => {
-    const request = ctx.bigquery.jobs.query({
-        projectId: ctx.projectId,
-        query: sliderQuery(),
-        useLegacySql: false,
-    })
-    request.execute(response => {
-        const data = response.rows.map(({ f: row }) => ({
-            date: row[0].v,
-            count: parseInt(row[1].v),
-        }))
-
-        callback(data)
-    })
-}
-
-const sliderQuery = () => {
-    const { states, airlines, types } = ctx.filter
-    filterState = states.size > 0
-    filterAirline = airlines.size > 0
-    filterType = types.size > 0
-
-    return `SELECT
-                r.date,
-                SUM(r.count) as count
-            FROM
-                \`inf552-project.routes.routes2\` r
-            WHERE
-                1 = 1
-                ${
-                    filterAirline
-                        ? `AND r.airline IN ("${Array.from(airlines).join(
-                              '","'
-                          )}")`
-                        : ''
-                }
-                ${
-                    filterType
-                        ? `AND r.type IN (${Array.from(types).join()})`
-                        : ''
-                }
-                ${
-                    filterState
-                        ? `AND r.origin_state IN ("${Array.from(states).join(
-                              '","'
-                          )}")`
-                        : ''
-                }
-                ${
-                    filterState
-                        ? `AND r.destination_state IN ("${Array.from(
-                              states
-                          ).join('","')}")`
-                        : ''
-                }
-            GROUP BY
-                r.date`
+    jQuery.get(
+        ctx.serverUrl,
+        {
+            name: 'slider',
+            airlines: JSON.stringify([...ctx.filter.airlines]),
+            types: JSON.stringify([...ctx.filter.types]),
+            states: JSON.stringify([...ctx.filter.states]),
+        },
+        response => {
+            const data = response.map(row => ({
+                date: row.date.value,
+                count: row.count,
+            }))
+            callback(data)
+        }
+    )
 }

@@ -53,9 +53,9 @@ var loadData = svgEl => {
 
         // Drawing screen elements
         makeMap(svgEl)
-        // makeSlider()
-        // makeTypesPlot()
-        // makeCompaniesPlot()
+        makeSlider()
+        makeTypesPlot()
+        makeCompaniesPlot()
         updateMap()
     })
 }

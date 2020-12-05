@@ -98,31 +98,35 @@ const configureAirlinesSignalListener = view => {
 }
 
 const getAirlinesData = callback => {
-    const request = ctx.bigquery.jobs.query({
-        projectId: ctx.projectId,
-        query: airlinesQuery(),
-        useLegacySql: false,
-    })
-    request.execute(response => {
-        const data = response.rows.map(({ f: row }) => ({
-            airline: row[0].v,
-            count: parseInt(row[1].v),
-            name: ctx.airlinesMap.get(row[0].v).name,
-        }))
+    jQuery.get(
+        ctx.serverUrl,
+        {
+            name: 'airlines',
+            startDate: ctx.filter.startDate,
+            endDate: ctx.filter.endDate,
+            types: JSON.stringify([...ctx.filter.types]),
+            states: JSON.stringify([...ctx.filter.states]),
+        },
+        response => {
+            const data = response.map(row => ({
+                name: ctx.airlinesMap.get(row.airline).name,
+                ...row,
+            }))
 
-        // Fix vgsig indices to be used later
-        if (!ctx.airlinesVgSidCnt) {
-            ctx.airlinesVgSidCnt = 0
-            ctx.airlinesVgSid = new Map(
-                data.map(({ airline }) => {
-                    ctx.airlinesVgSidCnt += 1
-                    return [airline, ctx.airlinesVgSidCnt]
-                })
-            )
+            // Fix vgsig indices to be used later
+            if (!ctx.airlinesVgSidCnt) {
+                ctx.airlinesVgSidCnt = 0
+                ctx.airlinesVgSid = new Map(
+                    data.map(({ airline }) => {
+                        ctx.airlinesVgSidCnt += 1
+                        return [airline, ctx.airlinesVgSidCnt]
+                    })
+                )
+            }
+
+            callback(data)
         }
-
-        callback(data)
-    })
+    )
 }
 
 const updateVegaSlider = (view, newData) => {
@@ -160,48 +164,4 @@ const updateVegaSlider = (view, newData) => {
         })
 
     view.change('data', changeSet).run()
-}
-
-const airlinesQuery = () => {
-    const { startDate: start, endDate: end, states, types } = ctx.filter
-    filterDate = start || end
-    filterState = states.size > 0
-    filterType = types.size > 0
-
-    return `SELECT
-                r.airline,
-                SUM(r.count) as count
-            FROM
-                \`inf552-project.routes.routes2\` r
-            WHERE
-                1 = 1
-                ${
-                    filterDate
-                        ? `AND "${start}" <= r.date AND r.date <= "${end}"`
-                        : ''
-                }
-                ${
-                    filterType
-                        ? `AND r.type IN (${Array.from(types).join()})`
-                        : ''
-                }
-                ${
-                    filterState
-                        ? `AND r.origin_state IN ("${Array.from(states).join(
-                              '","'
-                          )}")`
-                        : ''
-                }
-                ${
-                    filterState
-                        ? `AND r.destination_state IN ("${Array.from(
-                              states
-                          ).join('","')}")`
-                        : ''
-                }
-            GROUP BY
-                r.airline
-            ORDER BY
-                count DESC
-            LIMIT 10`
 }

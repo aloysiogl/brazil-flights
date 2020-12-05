@@ -15,24 +15,24 @@ const updateMap = () => {
             },
             response => {
                 const traj = response.map(row => {
-                    const originAirport = ctx.airportsMap.get(row.origin_airport)
-                    const destinationAirport = ctx.airportsMap.get(row.destination_airport)
+                    const originAirport = ctx.airportsMap.get(
+                        row.origin_airport
+                    )
+                    const destinationAirport = ctx.airportsMap.get(
+                        row.destination_airport
+                    )
                     return {
-                        origin_airport: row.origin_airport,
                         origin_coordinates: [
                             originAirport.longitude,
                             originAirport.latitude,
                         ],
                         origin_state: originAirport.state,
-                        destination_airport: row.destination_airport,
                         destination_coordinates: [
                             destinationAirport.longitude,
                             destinationAirport.latitude,
                         ],
                         destination_state: destinationAirport.state,
-                        count: row.count,
-                        avg_duration: row.avg_duration,
-                        avg_delay: row.avg_delay,
+                        ...row,
                     }
                 })
 
