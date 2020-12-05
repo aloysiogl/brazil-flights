@@ -32,8 +32,6 @@ var loadData = svgEl => {
         'brazil_states.geojson',
         'filtered_airports.csv',
         'filtered_airlines.csv',
-        // 'routes_counts.csv',
-        'routes_counts_small.csv',
     ]
     var loaders = files.map(f => {
         if (f.substring(f.length - 3, f.length) == 'csv')
@@ -70,14 +68,13 @@ var loadData = svgEl => {
         ctx.states = values[1].features
         ctx.airports = values[2]
         ctx.airlines = values[3]
-        ctx.routesCounts = values[4]
+        ctx.bigquery = values[4]
         ctx.airportsMap = new Map(
             ctx.airports.map(airport => [airport.code, airport])
         )
         ctx.airlinesMap = new Map(
             ctx.airlines.map(airline => [airline.code, airline])
         )
-        ctx.bigquery = values[5]
 
         // Drawing screen elements
         makeMap(svgEl)
