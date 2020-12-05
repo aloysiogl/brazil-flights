@@ -1,5 +1,3 @@
-// import {addCountries} from "./createMap.js"
-
 var ctx = {
     w: 960,
     h: 484,
@@ -39,49 +37,12 @@ var loadData = svgEl => {
         else return d3.json(path + f)
     })
 
-    loaders = [
-        ...loaders,
-
-        // Google API authentication
-        new Promise((resolve, _) => {
-            // gapi.load('auth2', () => {
-            //     gapi.client
-            //         .init({
-            //             client_id:
-            //                 '870126430098-7f54u9u9slslr732v5i6enppueaa94gf.apps.googleusercontent.com',
-            //             scope:
-            //                 'https://www.googleapis.com/auth/bigquery.readonly',
-            //         })
-            //         .then(() => {
-            //             gapi.client.load('bigquery', 'v2', () => {
-            //                 ctx.projectId = 'my-project-1501985873141'
-            //                 resolve(gapi.client.bigquery)
-            //             })
-            //         })
-            // })
-
-            options = {
-                client_id:
-                    '870126430098-7f54u9u9slslr732v5i6enppueaa94gf.apps.googleusercontent.com',
-                scope: 'https://www.googleapis.com/auth/bigquery.readonly',
-            }
-            
-            gapi.auth.authorize(options, () => {
-                gapi.client.load('bigquery', 'v2', () => {
-                    ctx.projectId = 'my-project-1501985873141'
-                    resolve(gapi.client.bigquery)
-                })
-            })
-        }),
-    ]
-
     // Executing loads and then calling makeMap
     Promise.all(loaders).then(values => {
         ctx.countries = values[0].features
         ctx.states = values[1].features
         ctx.airports = values[2]
         ctx.airlines = values[3]
-        ctx.bigquery = values[4]
         ctx.airportsMap = new Map(
             ctx.airports.map(airport => [airport.code, airport])
         )

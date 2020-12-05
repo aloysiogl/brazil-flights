@@ -67,7 +67,8 @@ const updateMap = () => {
             query: flightsQuery(),
             useLegacySql: false,
         })
-        request.execute(response => {
+        request.execute((response, e) => {
+            console.log(e)
             const traj = response.rows.map(({ f: row }) => {
                 const originAirport = ctx.airportsMap.get(row[0].v)
                 const destinationAirport = ctx.airportsMap.get(row[1].v)
