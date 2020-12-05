@@ -14,7 +14,7 @@ const makeCompaniesPlot = () => {
             type: 'fit',
             contains: 'padding',
         },
-        data: { name: 'data', values: getAirlinesData() },
+        data: { name: 'data', values: { airline: 'AAA', count: 0 } },
         mark: {
             type: 'bar',
             cornerRadiusEnd: { expr: 1 },
@@ -72,52 +72,23 @@ const makeCompaniesPlot = () => {
         configureAirlinesSignalListener(view)
 
         ctx.updateAirlines = () => {
-            const newData = getAirlinesData()
-            const newDataMap = new Map(
-                newData.map(data => [data.airline, data])
-            )
-            const curData = view.data('data')
-            const curDataMap = new Map(
-                curData.map(data => [data.airline, data])
-            )
-
-            // Airlines that weren't showing before
-            const insert = newData.filter(
-                ({ airline }) => !curDataMap.has(airline)
-            )
-
-            // Airlines that won't show anymore
-            const remove = curData.filter(({ airline }) => {
-                if (!newDataMap.has(airline)) {
-                    // Remove from filter
-                    if (ctx.filter.airlines.has(airline)) {
-                        ctx.filter.airlines.delete(airline)
-                    }
-                    return true
-                }
-                return false
+            const request = ctx.bigquery.jobs.query({
+                projectId: ctx.projectId,
+                query: airlinesQuery(),
+                useLegacySql: false,
             })
+            request.execute(response => {
+                const data = response.rows.map(({ f: row }) => ({
+                    airline: row[0].v,
+                    count: parseInt(row[1].v),
+                    name: ctx.airlinesMap.get(row[0].v).name,
+                }))
 
-            // Fix vgsig indices to be used later
-            insert.forEach(({ airline }) => {
-                ctx.airlinesVgSidCnt += 1
-                ctx.airlinesVgSid.set(airline, ctx.airlinesVgSidCnt)
+                updateVegaSlider(view, data)
             })
-
-            // Modify airlines that are already in the plot
-            const changeSet = vega.changeset().remove(remove).insert(insert)
-            curData
-                .filter(({ airline }) => newDataMap.has(airline))
-                .forEach(cur => {
-                    changeSet.modify(
-                        cur,
-                        'count',
-                        newDataMap.get(cur.airline).count
-                    )
-                })
-
-            view.change('data', changeSet).run()
         }
+
+        ctx.updateAirlines()
     })
 }
 
@@ -137,33 +108,93 @@ const configureAirlinesSignalListener = view => {
     })
 }
 
-const getAirlinesData = () => {
-    const routesCounts = filteredRoutes({ filterAirline: false })
-    var airlinesData = new Map()
-    routesCounts.forEach(({ airline, count }) => {
-        const cur = airlinesData.has(airline) ? airlinesData.get(airline) : 0
-        airlinesData.set(airline, cur + parseInt(count))
-    })
-    airlinesData = Array.from(airlinesData.entries()).map(([key, value]) => ({
-        airline: key,
-        count: value,
-        name: ctx.airlinesMap.get(key).name,
-    }))
-    airlinesData.sort(({ count: count1 }, { count: count2 }) =>
-        count1 < count2 ? 1 : -1
-    )
-    airlinesData = airlinesData.splice(0, 10)
+const updateVegaSlider = (view, newData) => {
+    const newDataMap = new Map(newData.map(data => [data.airline, data]))
+    const curData = view.data('data')
+    const curDataMap = new Map(curData.map(data => [data.airline, data]))
 
-    // Build this to use on selection later
+    // Airlines that weren't showing before
+    const insert = newData.filter(({ airline }) => !curDataMap.has(airline))
+
+    // Airlines that won't show anymore
+    const remove = curData.filter(({ airline }) => {
+        if (!newDataMap.has(airline)) {
+            // Remove from filter
+            if (ctx.filter.airlines.has(airline)) {
+                ctx.filter.airlines.delete(airline)
+            }
+            return true
+        }
+        return false
+    })
+
+    // Fix vgsig indices to be used later
     if (!ctx.airlinesVgSidCnt) {
         ctx.airlinesVgSidCnt = 0
         ctx.airlinesVgSid = new Map(
-            airlinesData.map(({ airline }) => {
+            insert.map(({ airline }) => {
                 ctx.airlinesVgSidCnt += 1
                 return [airline, ctx.airlinesVgSidCnt]
             })
         )
+    } else {
+        insert.forEach(({ airline }) => {
+            ctx.airlinesVgSidCnt += 1
+            ctx.airlinesVgSid.set(airline, ctx.airlinesVgSidCnt)
+        })
     }
 
-    return airlinesData
+    // Modify airlines that are already in the plot
+    const changeSet = vega.changeset().remove(remove).insert(insert)
+    curData
+        .filter(({ airline }) => newDataMap.has(airline))
+        .forEach(cur => {
+            changeSet.modify(cur, 'count', newDataMap.get(cur.airline).count)
+        })
+
+    view.change('data', changeSet).run()
+}
+
+const airlinesQuery = () => {
+    const { startDate: start, endDate: end, states, types } = ctx.filter
+    filterDate = start || end
+    filterState = states.size > 0
+    filterType = types.size > 0
+
+    return `SELECT
+                r.airline,
+                SUM(r.count) as count
+            FROM
+                \`inf552-project.routes.routes\` r
+            WHERE
+                1 = 1
+                ${
+                    filterDate
+                        ? `AND "${start}" <= r.date AND r.date <= "${end}"`
+                        : ''
+                }
+                ${
+                    filterType
+                        ? `AND r.type IN (${Array.from(types).join()})`
+                        : ''
+                }
+                ${
+                    filterState
+                        ? `AND r.origin_state IN ("${Array.from(states).join(
+                              '","'
+                          )}")`
+                        : ''
+                }
+                ${
+                    filterState
+                        ? `AND r.destination_state IN ("${Array.from(
+                              states
+                          ).join('","')}")`
+                        : ''
+                }
+            GROUP BY
+                r.airline
+            ORDER BY
+                count DESC
+            LIMIT 10`
 }

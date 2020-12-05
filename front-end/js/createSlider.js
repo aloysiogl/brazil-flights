@@ -8,7 +8,7 @@ const makeSlider = () => {
     // Vega-lite spec for the slider graph
     var vlSpec = {
         $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
-        data: { name: 'data', values: { date: '2020-01-01', count: 1 } },
+        data: { name: 'data', values: { date: '2020-01-01', count: 0 } },
         width: ctx.w,
         height: HEIGHT,
         autosize: {
@@ -138,7 +138,5 @@ const sliderQuery = () => {
                         : ''
                 }
             GROUP BY
-                r.date
-            ORDER BY
                 r.date`
 }
