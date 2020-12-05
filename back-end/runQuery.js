@@ -12,6 +12,6 @@ const runQuery = async (query) => {
   return rows
 }
 
-module.export = {
+module.exports = {
   runQuery,
 }

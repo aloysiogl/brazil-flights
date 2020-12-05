@@ -12,6 +12,7 @@ var ctx = {
     drawRoutes: true,
     drawAirports: true,
     drawPlanes: true,
+    serverUrl: 'http://localhost:8080',
 }
 
 var createViz = () => {
@@ -52,9 +53,9 @@ var loadData = svgEl => {
 
         // Drawing screen elements
         makeMap(svgEl)
-        makeSlider()
-        makeTypesPlot()
-        makeCompaniesPlot()
+        // makeSlider()
+        // makeTypesPlot()
+        // makeCompaniesPlot()
         updateMap()
     })
 }
