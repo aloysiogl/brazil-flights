@@ -1,7 +1,5 @@
 const makeSlider = () => {
     const HEIGHT = 100
-    const AXIS_WIDTH = 22
-    const AXIS_HEIGHT = 36
     const BACKGROUND_COLOR = 'rgb(24,26,27)'
     const GRID_COLOR = 'rgb(52, 51, 50)'
     const LINE_COLOR = 'rgba(9, 255, 243, .75)'
@@ -10,9 +8,13 @@ const makeSlider = () => {
     // Vega-lite spec for the slider graph
     var vlSpec = {
         $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
-        data: { name: 'data', values: getSliderData() },
-        width: ctx.w - AXIS_WIDTH,
-        height: HEIGHT - AXIS_HEIGHT,
+        data: { name: 'data', values: { date: '2020-01-01', count: 1 } },
+        width: ctx.w,
+        height: HEIGHT,
+        autosize: {
+            type: 'fit',
+            contains: 'padding',
+        },
         mark: 'line',
         selection: {
             brush: { type: 'interval', bind: 'scales', encodings: ['x'] },
@@ -54,14 +56,26 @@ const makeSlider = () => {
         configureSliderSignalListener(view)
 
         ctx.updateSlider = () => {
-            const sliderData = getSliderData()
+            const request = ctx.bigquery.jobs.query({
+                projectId: ctx.projectId,
+                query: sliderQuery(),
+                useLegacySql: false,
+            })
+            request.execute(response => {
+                const data = response.rows.map(({ f: row }) => ({
+                    date: row[0].v,
+                    count: parseInt(row[1].v),
+                }))
 
-            const changeSet = vega
-                .changeset()
-                .remove(() => true)
-                .insert(sliderData)
-            view.change('data', changeSet).run()
+                const changeSet = vega
+                    .changeset()
+                    .remove(() => true)
+                    .insert(data)
+                view.change('data', changeSet).run()
+            })
         }
+
+        ctx.updateSlider()
     })
 }
 
@@ -84,17 +98,47 @@ const configureSliderSignalListener = view => {
     })
 }
 
-const getSliderData = () => {
-    const routesCounts = filteredRoutes({ filterDate: false })
-    var sliderData = new Map()
-    routesCounts.forEach(route => {
-        const cur = sliderData.has(route.date) ? sliderData.get(route.date) : 0
-        sliderData.set(route.date, cur + parseInt(route.count))
-    })
-    sliderData = Array.from(sliderData.entries()).map(([key, value]) => ({
-        date: key,
-        count: value,
-    }))
+const sliderQuery = () => {
+    const { states, airlines, types } = ctx.filter
+    filterState = states.size > 0
+    filterAirline = airlines.size > 0
+    filterType = types.size > 0
 
-    return sliderData
+    return `SELECT
+                r.date,
+                SUM(r.count) as count
+            FROM
+                \`inf552-project.routes.routes\` r
+            WHERE
+                1 = 1
+                ${
+                    filterAirline
+                        ? `AND r.airline IN ("${Array.from(airlines).join(
+                              '","'
+                          )}")`
+                        : ''
+                }
+                ${
+                    filterType
+                        ? `AND r.type IN (${Array.from(types).join()})`
+                        : ''
+                }
+                ${
+                    filterState
+                        ? `AND r.origin_state IN ("${Array.from(states).join(
+                              '","'
+                          )}")`
+                        : ''
+                }
+                ${
+                    filterState
+                        ? `AND r.destination_state IN ("${Array.from(
+                              states
+                          ).join('","')}")`
+                        : ''
+                }
+            GROUP BY
+                r.date
+            ORDER BY
+                r.date`
 }

@@ -20,7 +20,7 @@ const flightsQuery = () => {
                 r.destination_state,
                 r.destination_latitude,
                 r.destination_longitude,
-                COUNT(*) as count,
+                SUM(r.count) as count,
                 SUM(r.count * r.duration) / SUM(r.count) as duration,
                 SUM(r.count * r.delay) / SUM(r.count) as delay
             FROM
