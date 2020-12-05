@@ -2,7 +2,7 @@ const { BigQuery } = require('@google-cloud/bigquery')
 
 const options = {
   projectId: 'my-project-1501985873141',
-  keyFilename: 'service_account.json',
+  keyFilename: 'back-end/service_account.json',
 }
 const bigquery = new BigQuery(options)
 
