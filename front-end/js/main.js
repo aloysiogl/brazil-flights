@@ -11,7 +11,7 @@ var ctx = {
     selectionMode: 'world',
     drawRoutes: true,
     drawAirports: true,
-    drawPlanes: true,
+    drawPlanes: false,
     serverUrl: '/query',
     sectionsLoaded: 0,
 }
