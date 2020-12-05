@@ -4,6 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@google-cloud/bigquery": "^5.5.0"
+    "@google-cloud/bigquery": "^5.5.0",
+    "d3": "^6.3.0",
+    "http-server": "^0.12.3"
   }
 }

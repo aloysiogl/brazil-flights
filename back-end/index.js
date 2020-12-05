@@ -1,35 +1,35 @@
-const { BigQuery } = require('@google-cloud/bigquery')
+const http = require('http')
+const { runQuery } = require('./runQuery.js')
 
-const options = {
-    projectId: 'my-project-1501985873141',
-    keyFilename: 'service_account.json',
-}
-const bigquery = new BigQuery(options)
+const requestListener = async (request, response) => {
+  const { headers, method, url } = request;
+  let body = [];
+  request.on('error', (err) => {
+    console.error(err);
+  }).on('data', (chunk) => {
+    body.push(chunk);
+  }).on('end', () => {
+    body = Buffer.concat(body).toString();
+    
+    response.on('error', (err) => {
+      console.error(err);
+    });
 
-async function query() {
-    const query = `SELECT
-                  r.origin_airport,
-                  r.destination_airport,
-                  SUM(r.count) as count,
-                  SUM(r.duration) / SUM(r.count) as avg_duration,
-                  SUM(r.delay) / SUM(r.count) as avg_delay
-                FROM
-                  \`inf552-project.routes.routes2\` r
-                GROUP BY
-                  r.origin_airport,
-                  r.destination_airport`
+    query = runQuery(`SELECT
+                          r.origin_airport,
+                          r.destination_airport,
+                          SUM(r.count) as count,
+                          SUM(r.duration) / SUM(r.count) as avg_duration,
+                          SUM(r.delay) / SUM(r.count) as avg_delay
+                      FROM
+                          \`inf552-project.routes.routes2\` r
+                      GROUP BY
+                          r.origin_airport,
+                          r.destination_airport`)
 
-    const options = {
-        query: query,
-    }
-
-    const [job] = await bigquery.createQueryJob(options)
-    console.log(`Job ${job.id} started.`)
-
-    const [rows] = await job.getQueryResults()
-
-    console.log('Rows:')
-    rows.forEach(row => console.log(row))
-}
-
-query()
+    response.statusCode = 200;
+    response.setHeader('Content-Type', 'application/json');
+    response.write(JSON.stringify(query));
+    response.end()
+  });
+}).listen(8080);
