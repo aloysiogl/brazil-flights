@@ -1,81 +1,71 @@
 const makeSlider = () => {
-    const HEIGHT = 100
-    const BACKGROUND_COLOR = 'rgb(24,26,27)'
-    const GRID_COLOR = 'rgb(52, 51, 50)'
-    const LINE_COLOR = 'rgba(9, 255, 243, .75)'
-    const LABEL_COLOR = 'lightgray'
+    d3.select('#interactiveMap').append('g').attr('id', 'slider')
+    getSliderData(data => {
+        const HEIGHT = 100
+        const BACKGROUND_COLOR = 'rgb(24,26,27)'
+        const GRID_COLOR = 'rgb(52, 51, 50)'
+        const LINE_COLOR = 'rgba(9, 255, 243, .75)'
+        const LABEL_COLOR = 'lightgray'
 
-    // Vega-lite spec for the slider graph
-    var vlSpec = {
-        $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
-        data: { name: 'data', values: { date: '2020-01-01', count: 0 } },
-        width: ctx.w,
-        height: HEIGHT,
-        autosize: {
-            type: 'fit',
-            contains: 'padding',
-        },
-        mark: 'line',
-        selection: {
-            brush: { type: 'interval', bind: 'scales', encodings: ['x'] },
-        },
-        background: BACKGROUND_COLOR,
-        config: { view: { stroke: GRID_COLOR } },
-        encoding: {
-            x: {
-                field: 'date',
-                type: 'temporal',
-                title: null,
-                axis: {
-                    grid: false,
-                    domainColor: GRID_COLOR,
-                    tickColor: GRID_COLOR,
-                    labelColor: LABEL_COLOR,
-                },
+        // Vega-lite spec for the slider graph
+        var vlSpec = {
+            $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
+            data: { name: 'data', values: data },
+            width: ctx.w,
+            height: HEIGHT,
+            autosize: {
+                type: 'fit',
+                contains: 'padding',
             },
-            y: {
-                field: 'count',
-                type: 'quantitative',
-                title: null,
-                axis: {
-                    tickCount: 4,
-                    gridColor: GRID_COLOR,
-                    domainColor: GRID_COLOR,
-                    labels: false,
-                    ticks: false,
-                },
+            mark: 'line',
+            selection: {
+                brush: { type: 'interval', bind: 'scales', encodings: ['x'] },
             },
-            color: { value: LINE_COLOR },
-        },
-    }
-
-    // Create element
-    sliderG = d3.select('#interactiveMap').append('g').attr('id', 'slider')
-    var vlOpts = { actions: false }
-    vegaEmbed('#slider', vlSpec, vlOpts).then(({ _, view }) => {
-        configureSliderSignalListener(view)
-
-        ctx.updateSlider = () => {
-            const request = ctx.bigquery.jobs.query({
-                projectId: ctx.projectId,
-                query: sliderQuery(),
-                useLegacySql: false,
-            })
-            request.execute(response => {
-                const data = response.rows.map(({ f: row }) => ({
-                    date: row[0].v,
-                    count: parseInt(row[1].v),
-                }))
-
-                const changeSet = vega
-                    .changeset()
-                    .remove(() => true)
-                    .insert(data)
-                view.change('data', changeSet).run()
-            })
+            background: BACKGROUND_COLOR,
+            config: { view: { stroke: GRID_COLOR } },
+            encoding: {
+                x: {
+                    field: 'date',
+                    type: 'temporal',
+                    title: null,
+                    axis: {
+                        grid: false,
+                        domainColor: GRID_COLOR,
+                        tickColor: GRID_COLOR,
+                        labelColor: LABEL_COLOR,
+                    },
+                },
+                y: {
+                    field: 'count',
+                    type: 'quantitative',
+                    title: null,
+                    axis: {
+                        tickCount: 4,
+                        gridColor: GRID_COLOR,
+                        domainColor: GRID_COLOR,
+                        labels: false,
+                        ticks: false,
+                    },
+                },
+                color: { value: LINE_COLOR },
+            },
         }
 
-        ctx.updateSlider()
+        // Create element
+        var vlOpts = { actions: false }
+        vegaEmbed('#slider', vlSpec, vlOpts).then(({ _, view }) => {
+            configureSliderSignalListener(view)
+
+            ctx.updateSlider = () => {
+                getSliderData(data => {
+                    const changeSet = vega
+                        .changeset()
+                        .remove(() => true)
+                        .insert(data)
+                    view.change('data', changeSet).run()
+                })
+            }
+        })
     })
 }
 
@@ -95,6 +85,22 @@ const configureSliderSignalListener = view => {
     }, 300)
     view.addSignalListener('brush_date', (_, item) => {
         debounceInterval(item)
+    })
+}
+
+const getSliderData = callback => {
+    const request = ctx.bigquery.jobs.query({
+        projectId: ctx.projectId,
+        query: sliderQuery(),
+        useLegacySql: false,
+    })
+    request.execute(response => {
+        const data = response.rows.map(({ f: row }) => ({
+            date: row[0].v,
+            count: parseInt(row[1].v),
+        }))
+
+        callback(data)
     })
 }
 

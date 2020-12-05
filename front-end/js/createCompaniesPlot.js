@@ -1,94 +1,83 @@
 const makeCompaniesPlot = () => {
-    const HEIGHT = 260 - 4
-    const WIDTH = ctx.w / 2
-    const BACKGROUND_COLOR = 'rgb(24,26,27)'
-    const GRID_COLOR = 'rgb(52, 51, 50)'
-    const BARS_COLOR = 'rgba(9, 255, 243, .75)'
-    const LABEL_COLOR = 'lightgray'
+    d3.select('#plots').append('g').attr('id', 'companies')
+    getAirlinesData(data => {
+        const HEIGHT = 260 - 4
+        const WIDTH = ctx.w / 2
+        const BACKGROUND_COLOR = 'rgb(24,26,27)'
+        const GRID_COLOR = 'rgb(52, 51, 50)'
+        const BARS_COLOR = 'rgba(9, 255, 243, .75)'
+        const LABEL_COLOR = 'lightgray'
 
-    var vlSpec = {
-        $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
-        width: WIDTH,
-        height: HEIGHT,
-        autosize: {
-            type: 'fit',
-            contains: 'padding',
-        },
-        data: { name: 'data', values: { airline: 'AAA', count: 0 } },
-        mark: {
-            type: 'bar',
-            cornerRadiusEnd: { expr: 1 },
-        },
-        background: BACKGROUND_COLOR,
-        config: { view: { stroke: GRID_COLOR } },
-        selection: {
-            highlight: { type: 'single', empty: 'none', on: 'mouseover' },
-            select: { type: 'single' },
-        },
-        encoding: {
-            y: {
-                field: 'airline',
-                type: 'nominal',
-                title: null,
-                axis: {
-                    labelAngle: 0,
-                    labelColor: LABEL_COLOR,
-                },
-                scale: {
-                    paddingInner: 0.8,
-                    paddingOuter: 0.8,
-                },
-                sort: '-x',
+        var vlSpec = {
+            $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
+            width: WIDTH,
+            height: HEIGHT,
+            autosize: {
+                type: 'fit',
+                contains: 'padding',
             },
-            x: {
-                field: 'count',
-                type: 'quantitative',
-                title: 'Nº of Flights',
-                axis: {
-                    format: '~s',
-                    titleColor: LABEL_COLOR,
-                    gridColor: GRID_COLOR,
-                    domainColor: GRID_COLOR,
-                    tickColor: GRID_COLOR,
-                    labelColor: LABEL_COLOR,
+            data: { name: 'data', values: data },
+            mark: {
+                type: 'bar',
+                cornerRadiusEnd: { expr: 1 },
+            },
+            background: BACKGROUND_COLOR,
+            config: { view: { stroke: GRID_COLOR } },
+            selection: {
+                highlight: { type: 'single', empty: 'none', on: 'mouseover' },
+                select: { type: 'single' },
+            },
+            encoding: {
+                y: {
+                    field: 'airline',
+                    type: 'nominal',
+                    title: null,
+                    axis: {
+                        labelAngle: 0,
+                        labelColor: LABEL_COLOR,
+                    },
+                    scale: {
+                        paddingInner: 0.8,
+                        paddingOuter: 0.8,
+                    },
+                    sort: '-x',
+                },
+                x: {
+                    field: 'count',
+                    type: 'quantitative',
+                    title: 'Nº of Flights',
+                    axis: {
+                        format: '~s',
+                        titleColor: LABEL_COLOR,
+                        gridColor: GRID_COLOR,
+                        domainColor: GRID_COLOR,
+                        tickColor: GRID_COLOR,
+                        labelColor: LABEL_COLOR,
+                    },
+                },
+                tooltip: { field: 'name', type: 'nominal' },
+                color: { value: BARS_COLOR },
+                fillOpacity: {
+                    condition: [
+                        { selection: 'highlight', value: 1 },
+                        { selection: 'select', value: 0.75 },
+                    ],
+                    value: 0.3,
                 },
             },
-            tooltip: { field: 'name', type: 'nominal' },
-            color: { value: BARS_COLOR },
-            fillOpacity: {
-                condition: [
-                    { selection: 'highlight', value: 1 },
-                    { selection: 'select', value: 0.75 },
-                ],
-                value: 0.3,
-            },
-        },
-    }
-
-    // Create element
-    sliderG = d3.select('#plots').append('g').attr('id', 'companies')
-    var vlOpts = { actions: false }
-    vegaEmbed('#plots #companies', vlSpec, vlOpts).then(({ _, view }) => {
-        configureAirlinesSignalListener(view)
-
-        ctx.updateAirlines = () => {
-            const request = ctx.bigquery.jobs.query({
-                projectId: ctx.projectId,
-                query: airlinesQuery(),
-                useLegacySql: false,
-            })
-            request.execute(response => {
-                const data = response.rows.map(({ f: row }) => ({
-                    airline: row[0].v,
-                    count: parseInt(row[1].v),
-                    name: ctx.airlinesMap.get(row[0].v).name,
-                }))
-
-                updateVegaSlider(view, data)
-            })
         }
 
-        ctx.updateAirlines()
+        // Create element
+        var vlOpts = { actions: false }
+        vegaEmbed('#plots #companies', vlSpec, vlOpts).then(({ _, view }) => {
+            configureAirlinesSignalListener(view)
+
+            ctx.updateAirlines = () => {
+                getAirlinesData(data => {
+                    updateVegaSlider(view, data)
+                })
+            }
+        })
     })
 }
 
@@ -105,6 +94,34 @@ const configureAirlinesSignalListener = view => {
         updateMap()
         ctx.updateSlider()
         ctx.updateTypes()
+    })
+}
+
+const getAirlinesData = callback => {
+    const request = ctx.bigquery.jobs.query({
+        projectId: ctx.projectId,
+        query: airlinesQuery(),
+        useLegacySql: false,
+    })
+    request.execute(response => {
+        const data = response.rows.map(({ f: row }) => ({
+            airline: row[0].v,
+            count: parseInt(row[1].v),
+            name: ctx.airlinesMap.get(row[0].v).name,
+        }))
+
+        // Fix vgsig indices to be used later
+        if (!ctx.airlinesVgSidCnt) {
+            ctx.airlinesVgSidCnt = 0
+            ctx.airlinesVgSid = new Map(
+                data.map(({ airline }) => {
+                    ctx.airlinesVgSidCnt += 1
+                    return [airline, ctx.airlinesVgSidCnt]
+                })
+            )
+        }
+
+        callback(data)
     })
 }
 
@@ -129,20 +146,10 @@ const updateVegaSlider = (view, newData) => {
     })
 
     // Fix vgsig indices to be used later
-    if (!ctx.airlinesVgSidCnt) {
-        ctx.airlinesVgSidCnt = 1
-        ctx.airlinesVgSid = new Map(
-            insert.map(({ airline }) => {
-                ctx.airlinesVgSidCnt += 1
-                return [airline, ctx.airlinesVgSidCnt]
-            })
-        )
-    } else {
-        insert.forEach(({ airline }) => {
-            ctx.airlinesVgSidCnt += 1
-            ctx.airlinesVgSid.set(airline, ctx.airlinesVgSidCnt)
-        })
-    }
+    insert.forEach(({ airline }) => {
+        ctx.airlinesVgSidCnt += 1
+        ctx.airlinesVgSid.set(airline, ctx.airlinesVgSidCnt)
+    })
 
     // Modify airlines that are already in the plot
     const changeSet = vega.changeset().remove(remove).insert(insert)
