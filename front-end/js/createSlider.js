@@ -66,6 +66,11 @@ const makeSlider = () => {
                 })
             }
         })
+
+        ctx.sectionsLoaded += 1
+        if (ctx.sectionsLoaded == 4) {
+            d3.select('#main').attr('class', 'main')
+        }
     })
 }
 

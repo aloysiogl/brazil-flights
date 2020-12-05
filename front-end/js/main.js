@@ -13,6 +13,7 @@ var ctx = {
     drawAirports: true,
     drawPlanes: true,
     serverUrl: '/query',
+    sectionsLoaded: 0,
 }
 
 var createViz = () => {

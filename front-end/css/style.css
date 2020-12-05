@@ -108,3 +108,7 @@ g#slider {
     flex-direction: column;
     align-items: center;
 }
+
+.hidden {
+    display: none;
+}
