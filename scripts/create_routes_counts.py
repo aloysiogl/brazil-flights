@@ -94,9 +94,9 @@ for y in range(2000, 2021):
         'str') + ' ' + date.astype('str') + ' ' + df['type'].astype('str') + ' ' + df['airline'].astype('str')
     df = df[['key', 'duration', 'delay']]
     df = df.astype({ 'key': str, 'duration': 'Int64', 'delay': 'Int64' })
-    durations = df.groupby('key').duration.agg(['count', 'mean'])
+    durations = df.groupby('key').duration.agg(['count', 'sum'])
     durations.columns = ['count', 'duration']
-    delays = df.groupby('key').delay.mean()
+    delays = df.groupby('key').delay.sum()
     delays.columns = ['delay']
     durations['delay'] = delays
     df = durations.reset_index()

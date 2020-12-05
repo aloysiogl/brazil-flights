@@ -13,16 +13,10 @@ const flightsQuery = () => {
 
     return `SELECT
                 r.origin_airport,
-                r.origin_state,
-                r.origin_latitude,
-                r.origin_longitude,
                 r.destination_airport,
-                r.destination_state,
-                r.destination_latitude,
-                r.destination_longitude,
                 SUM(r.count) as count,
-                SUM(r.count * r.duration) / SUM(r.count) as duration,
-                SUM(r.count * r.delay) / SUM(r.count) as delay
+                SUM(r.duration) / SUM(r.count) as avg_duration,
+                SUM(r.delay) / SUM(r.count) as avg_delay
             FROM
                 \`inf552-project.routes.routes\` r
             WHERE
@@ -60,13 +54,7 @@ const flightsQuery = () => {
                 }
             GROUP BY
                 r.origin_airport,
-                r.origin_state,
-                r.origin_latitude,
-                r.origin_longitude,
-                r.destination_airport,
-                r.destination_state,
-                r.destination_latitude,
-                r.destination_longitude`
+                r.destination_airport`
 }
 
 const updateMap = () => {
@@ -81,21 +69,25 @@ const updateMap = () => {
         })
         request.execute(response => {
             const traj = response.rows.map(({ f: row }) => {
-                var route = {}
-                response.schema.fields.forEach(({ name, type }, i) => {
-                    switch (type) {
-                        case 'FLOAT':
-                            route[name] = row[i].v ? parseFloat(row[i].v) : null
-                            break
-                        case 'INTEGER':
-                            route[name] = row[i].v ? parseInt(row[i].v) : null
-                            break
-                        default:
-                            route[name] = row[i].v
-                            break
-                    }
-                })
-                return route
+                const originAirport = ctx.airportsMap.get(row[0].v)
+                const destinationAirport = ctx.airportsMap.get(row[1].v)
+                return {
+                    origin_airport: row[0].v,
+                    origin_coordinates: [
+                        originAirport.longitude,
+                        originAirport.latitude,
+                    ],
+                    origin_state: originAirport.state,
+                    destination_airport: row[1].v,
+                    destination_coordinates: [
+                        destinationAirport.longitude,
+                        destinationAirport.latitude,
+                    ],
+                    destination_state: destinationAirport.state,
+                    count: parseInt(row[2].v),
+                    avg_duration: parseFloat(row[3].v),
+                    avg_delay: parseFloat(row[4].v),
+                }
             })
 
             if (ctx.drawRoutes) {

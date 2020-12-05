@@ -3,18 +3,9 @@ const drawTrajectories = routesCountsList => {
 
     // Transform a list of origina and destinations in a listt of LineString
     const linesStrings = routesCountsList.map(route => {
-        const originCoordinates = [
-            route.origin_longitude,
-            route.origin_latitude,
-        ]
-        const destinationCoordinates = [
-            route.destination_longitude,
-            route.destination_latitude,
-        ]
-
         return {
             type: 'LineString',
-            coordinates: [originCoordinates, destinationCoordinates],
+            coordinates: [route.origin_coordinates, route.destination_coordinates],
             id: route.origin_airport + route.destination_airport,
             strokeIntensity: (route.count / maxTraffic) * 0.85,
         }
@@ -46,7 +37,7 @@ const drawAirportDensity = routesCountsList => {
         } else {
             airportDensities[route.origin_airport] = { 
                 count: route.count,
-                coordinates: ctx.projection([route.origin_longitude, route.origin_latitude]),
+                coordinates: ctx.projection(route.origin_coordinates),
                 state: route.origin_state,
             }
         }
@@ -55,7 +46,7 @@ const drawAirportDensity = routesCountsList => {
         } else {
             airportDensities[route.destination_airport] = { 
                 count: route.count,
-                coordinates: ctx.projection([route.destination_longitude, route.destination_latitude]),
+                coordinates: ctx.projection(route.destination_coordinates),
                 state: route.destination_state
             }
         }
