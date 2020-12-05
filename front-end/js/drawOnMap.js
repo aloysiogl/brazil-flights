@@ -2,18 +2,14 @@ const drawTrajectories = routesCountsList => {
     const maxTraffic = d3.max(routesCountsList.map(r => r.count))
 
     // Transform a list of origina and destinations in a listt of LineString
-    linesStrings = routesCountsList.map(route => {
-        const originAirport = ctx.airportsMap.get(route.origin_airport)
-        const destinationAirport = ctx.airportsMap.get(
-            route.destination_airport
-        )
+    const linesStrings = routesCountsList.map(route => {
         const originCoordinates = [
-            originAirport.longitude,
-            originAirport.latitude,
+            route.origin_longitude,
+            route.origin_latitude,
         ]
         const destinationCoordinates = [
-            destinationAirport.longitude,
-            destinationAirport.latitude,
+            route.destination_longitude,
+            route.destination_latitude,
         ]
 
         return {
@@ -45,20 +41,25 @@ const drawAirportDensity = routesCountsList => {
 
     // Getting count for each airport
     routesCountsList.forEach(route => {
-        if (airportDensities[route.origin_airport])
+        if (airportDensities[route.origin_airport]) {
             airportDensities[route.origin_airport].count += route.count
-        else airportDensities[route.origin_airport] = { count: route.count }
-        if (airportDensities[route.destination_airport])
+        } else {
+            airportDensities[route.origin_airport] = { 
+                count: route.count,
+                coordinates: ctx.projection([route.origin_longitude, route.origin_latitude]),
+                state: route.origin_state,
+            }
+        }
+        if (airportDensities[route.destination_airport]) {
             airportDensities[route.destination_airport].count += route.count
-        else airportDensities[route.destination_airport] = { count: route.count }
+        } else {
+            airportDensities[route.destination_airport] = { 
+                count: route.count,
+                coordinates: ctx.projection([route.destination_longitude, route.destination_latitude]),
+                state: route.destination_state
+            }
+        }
     })
-
-    // Getting coordinates for each airports
-    for (var key in airportDensities) {
-        const airport = ctx.airportsMap.get(key)
-        airportDensities[key].coordinates = ctx.projection([airport.longitude, airport.latitude])
-        airportDensities[key].airport = airport
-    }
 
     // Gettin an array as needed for D3
     airportDensities = Object.keys(airportDensities).map(k => { return { code: k, data: airportDensities[k] } })
@@ -82,11 +83,11 @@ const drawAirportDensity = routesCountsList => {
         .attr("cx", d => d.data.coordinates[0])
         .attr("cy", d => d.data.coordinates[1])
         .attr("r", d => calcRadius(d.data.count))
-        .on("click",(e, d) => clickOnState(d.data.airport.state))
+        .on("click",(e, d) => clickOnState(d.data.state))
         .append('title').text(d => {
             var output = `Airport code: ${d.code}\n`
-            if (d.data.airport.brazilian == "1")
-                output += `Airport State: ${d.data.airport.state}\n`
+            if (d.data.state != null)
+                output += `Airport State: ${d.data.state}\n`
             output += `Fligths: ${d.data.count}`
             return output
         })

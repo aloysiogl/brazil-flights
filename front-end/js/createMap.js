@@ -76,7 +76,6 @@ const addStates = (generator) => {
 }
 
 const clickOnState = (state) => {
-    console.log(state)
     // Adding or removing it from the list
     if (ctx.filter.states.has(state)){
         ctx.filter.states.delete(state)

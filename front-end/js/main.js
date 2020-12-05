@@ -10,10 +10,10 @@ var ctx = {
         airlines: new Set(),
         types: new Set(),
     },
-    selectionMode: "world",
+    selectionMode: 'world',
     drawRoutes: true,
     drawAirports: true,
-    drawPlanes: true
+    drawPlanes: true,
 }
 
 var createViz = () => {
@@ -35,11 +35,34 @@ var loadData = svgEl => {
         // 'routes_counts.csv',
         'routes_counts_small.csv',
     ]
-    const loaders = files.map(f => {
+    var loaders = files.map(f => {
         if (f.substring(f.length - 3, f.length) == 'csv')
             return d3.csv(path + f)
         else return d3.json(path + f)
     })
+
+    loaders = [
+        ...loaders,
+
+        // Google API authentication
+        new Promise((resolve, _) => {
+            gapi.load('auth2', () => {
+                gapi.client
+                    .init({
+                        client_id:
+                            '870126430098-7f54u9u9slslr732v5i6enppueaa94gf.apps.googleusercontent.com',
+                        scope:
+                            'https://www.googleapis.com/auth/bigquery.readonly',
+                    })
+                    .then(() => {
+                        gapi.client.load('bigquery', 'v2', () => {
+                            ctx.projectId = 'my-project-1501985873141'
+                            resolve(gapi.client.bigquery)
+                        })
+                    })
+            })
+        }),
+    ]
 
     // Executing loads and then calling makeMap
     Promise.all(loaders).then(values => {
@@ -54,6 +77,7 @@ var loadData = svgEl => {
         ctx.airlinesMap = new Map(
             ctx.airlines.map(airline => [airline.code, airline])
         )
+        ctx.bigquery = values[5]
 
         // Drawing screen elements
         makeMap(svgEl)
