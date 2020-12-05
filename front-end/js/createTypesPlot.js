@@ -44,6 +44,7 @@ const makeTypesPlot = () => {
                 field: 'count',
                 type: 'quantitative',
                 title: 'Nº of Flights',
+                scale: { type: 'log' },
                 axis: {
                     format: '~s',
                     titleColor: LABEL_COLOR,
