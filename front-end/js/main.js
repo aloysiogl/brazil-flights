@@ -12,7 +12,7 @@ var ctx = {
     drawRoutes: true,
     drawAirports: true,
     drawPlanes: true,
-    serverUrl: 'http://localhost:8080',
+    serverUrl: '/query',
 }
 
 var createViz = () => {
