@@ -130,7 +130,7 @@ const updateVegaSlider = (view, newData) => {
 
     // Fix vgsig indices to be used later
     if (!ctx.airlinesVgSidCnt) {
-        ctx.airlinesVgSidCnt = 0
+        ctx.airlinesVgSidCnt = 1
         ctx.airlinesVgSid = new Map(
             insert.map(({ airline }) => {
                 ctx.airlinesVgSidCnt += 1

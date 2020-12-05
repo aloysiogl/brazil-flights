@@ -14,7 +14,7 @@ const makeTypesPlot = () => {
             type: 'fit',
             contains: 'padding',
         },
-        data: { name: 'data', values: getTypesData() },
+        data: { name: 'data', values: { name: ['', ''], count: 100000 } },
         mark: {
             type: 'bar',
             cornerRadiusEnd: { expr: 1 },
@@ -71,47 +71,36 @@ const makeTypesPlot = () => {
     vegaEmbed('#plots #types', vlSpec, vlOpts).then(({ _, view }) => {
         configureTypesSignalListener(view)
 
-        ctx.updateTypes = () => {
-            const newData = getTypesData()
-            const newDataMap = new Map(newData.map(data => [data.type, data]))
-            const curData = view.data('data')
-            const curDataMap = new Map(curData.map(data => [data.type, data]))
-
-            // Types that weren't showing before
-            const insert = newData.filter(({ type }) => !curDataMap.has(type))
-
-            // Types that won't show anymore
-            const remove = curData.filter(({ type }) => {
-                if (!newDataMap.has(type)) {
-                    // Remove from filter
-                    if (ctx.filter.types.has(type)) {
-                        ctx.filter.types.delete(type)
-                    }
-                    return true
-                }
-                return false
-            })
-
-            // Fix vgsig indices to be used later
-            insert.forEach(({ type }) => {
-                ctx.typesVgSidCnt += 1
-                ctx.typesVgSid.set(type, ctx.typesVgSidCnt)
-            })
-
-            // Modify types that are already in the plot
-            const changeSet = vega.changeset().remove(remove).insert(insert)
-            curData
-                .filter(({ type }) => newDataMap.has(type))
-                .forEach(cur => {
-                    changeSet.modify(
-                        cur,
-                        'count',
-                        newDataMap.get(cur.type).count
-                    )
-                })
-
-            view.change('data', changeSet).run()
+        const names = {
+            1: ['Domestic', 'mixed'],
+            2: ['Domestic', 'freighter'],
+            3: ['International', 'mixed'],
+            4: ['International', 'freighter'],
+            5: ['Not', 'informed'],
+            6: ['Sub', 'regional'],
+            7: ['Postal', 'network'],
+            8: 'Regional',
+            9: 'Special',
         }
+
+        ctx.updateTypes = () => {
+            const request = ctx.bigquery.jobs.query({
+                projectId: ctx.projectId,
+                query: typesQuery(),
+                useLegacySql: false,
+            })
+            request.execute(response => {
+                const data = response.rows.map(({ f: row }) => ({
+                    type: parseInt(row[0].v),
+                    count: parseInt(row[1].v),
+                    name: names[parseInt(row[0].v)],
+                }))
+
+                updateVegaTypes(view, data)
+            })
+        }
+
+        ctx.updateTypes()
     })
 }
 
@@ -135,48 +124,96 @@ const configureTypesSignalListener = view => {
     })
 }
 
-const getTypesData = () => {
-    var routesCounts = filteredRoutes({ filterType: false })
-    var typesData = new Map()
-    routesCounts.forEach(({ type, count }) => {
-        const cur = typesData.has(type) ? typesData.get(type) : 0
-        typesData.set(type, cur + parseInt(count))
+const updateVegaTypes = (view, newData) => {
+    const newDataMap = new Map(newData.map(data => [data.type, data]))
+    const curData = view.data('data')
+    const curDataMap = new Map(curData.map(data => [data.type, data]))
+
+    // Types that weren't showing before
+    const insert = newData.filter(({ type }) => !curDataMap.has(type))
+
+    // Types that won't show anymore
+    const remove = curData.filter(({ type }) => {
+        if (!newDataMap.has(type)) {
+            // Remove from filter
+            if (ctx.filter.types.has(type)) {
+                ctx.filter.types.delete(type)
+            }
+            return true
+        }
+        return false
     })
 
-    const names = {
-        1: ['Domestic', 'mixed'],
-        2: ['Domestic', 'freighter'],
-        3: ['International', 'mixed'],
-        4: ['International', 'freighter'],
-        5: ['Not', 'informed'],
-        6: ['Sub', 'regional'],
-        7: ['Postal', 'network'],
-        8: 'Regional',
-        9: 'Special',
-    }
-
-    typesData = Array.from(typesData.entries()).map(([key, value]) => ({
-        type: key,
-        count: value,
-        name: names[key],
-    }))
-    typesData.sort(({ count: count1 }, { count: count2 }) =>
-        count1 < count2 ? 1 : -1
-    )
-
-    // Limit number of bars in graph
-    typesData = typesData.slice(0, 6)
-
-    // Build this to use on selection later
+    // Fix vgsig indices to be used later
     if (!ctx.typesVgSidCnt) {
-        ctx.typesVgSidCnt = 0
+        ctx.typesVgSidCnt = 1
         ctx.typesVgSid = new Map(
-            typesData.map(({ type }) => {
+            insert.map(({ type }) => {
                 ctx.typesVgSidCnt += 1
                 return [type, ctx.typesVgSidCnt]
             })
         )
+    } else {
+        insert.forEach(({ type }) => {
+            ctx.typesVgSidCnt += 1
+            ctx.typesVgSid.set(type, ctx.typesVgSidCnt)
+        })
     }
+    
 
-    return typesData
+    // Modify types that are already in the plot
+    const changeSet = vega.changeset().remove(remove).insert(insert)
+    curData
+        .filter(({ type }) => newDataMap.has(type))
+        .forEach(cur => {
+            changeSet.modify(cur, 'count', newDataMap.get(cur.type).count)
+        })
+
+    view.change('data', changeSet).run()
+}
+
+const typesQuery = () => {
+    const { startDate: start, endDate: end, states, airlines } = ctx.filter
+    filterDate = start || end
+    filterState = states.size > 0
+    filterAirline = airlines.size > 0
+
+    return `SELECT
+                r.type,
+                SUM(r.count) as count,
+            FROM
+                \`inf552-project.routes.routes\` r
+            WHERE
+                1 = 1
+                ${
+                    filterDate
+                        ? `AND "${start}" <= r.date AND r.date <= "${end}"`
+                        : ''
+                }
+                ${
+                    filterAirline
+                        ? `AND r.airline IN ("${Array.from(airlines).join(
+                              '","'
+                          )}")`
+                        : ''
+                }
+                ${
+                    filterState
+                        ? `AND r.origin_state IN ("${Array.from(states).join(
+                              '","'
+                          )}")`
+                        : ''
+                }
+                ${
+                    filterState
+                        ? `AND r.destination_state IN ("${Array.from(
+                              states
+                          ).join('","')}")`
+                        : ''
+                }
+            GROUP BY
+                r.type
+            ORDER BY
+                count DESC
+            LIMIT 6`
 }
