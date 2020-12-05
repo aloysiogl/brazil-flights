@@ -1,7 +1,8 @@
 const updateMap = () => {
-    if (!ctx.drawRoutes && !ctx.drawAirports) {
+    if (!ctx.drawRoutes && !ctx.drawAirports && !ctx.drawPlanes) {
         drawTrajectories([])
         drawAirportDensity([])
+        drawPlanes([])
     } else {
         jQuery.get(
             ctx.serverUrl,
@@ -46,6 +47,12 @@ const updateMap = () => {
                     drawAirportDensity(traj)
                 } else {
                     drawAirportDensity([])
+                }
+
+                if (ctx.drawPlanes) {
+                    drawPlanes(traj)
+                } else {
+                    drawPlanes([])
                 }
             }
         )
