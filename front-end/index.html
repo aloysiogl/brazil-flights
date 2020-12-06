@@ -88,7 +88,7 @@
             January 2000 to October 2020, it's part of a school project at École Polytechnique and was made by
             the students Aloysio Galvão Lopes and Igor Albuquerque Silva.</p>
 
-        <p> You have access to four main windows that interact with each other to show
+        <p> You have access to three main windows that interact with each other to show
             different aspects of flights data. The main idea is that in each window you can select some specific aspects
             of the flights that you want to visualize.</p>
 
@@ -142,7 +142,24 @@
             inteded to provide accurate information but rather to facilitate the navigation in this view and conveya
             qualitative comparison.</p>
 
+        <h2> The histograms window </h2>
+
         <img src="data/types.png" alt="Types" width=940>
+
+        <p>This window, situated at the bottom, consists of two plots, one that provides information about airlines and
+            other that provides information about airlines
+            avout flights types.
+        </p>
+        <h3>The flights types plot</h3>
+        <p>This is the bottom left plot. It's a veritcal bar plot that show information about the number of flights
+            which belong to the six most important categories in the current seelction. A flight category is a
+            classification given by ANAC, some examples are: domestic, regional, internaticonal etc.</p>
+        <p>The vertical axis show the number of flights, that information is in logarithmic scale (in simple terms this means that the axis varies in powers of 10). We made this choice because the number of
+            flights by category varies considerably based on the flight type. </p>
+        <p>As in all of the other windows, this plot is interective. If you click in any bar you will select only
+            flights that belong to the type that correspond to the selected bar. You can select multiple bars. It's
+            important to note that all of the other windows will be updated when you change the selection in this window.
+        This this plot also changes if you change the selections in other windows. </p>
     </div>
     <div id="main_spinner" class="loader loader-large modal"></div>
 </body>
