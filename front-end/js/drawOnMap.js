@@ -23,6 +23,11 @@ const drawTrajectories = routesCountsList => {
         .attr('d', ctx.geoPathGenerator)
         .attr('opacity', d => 0.15 + d.strokeIntensity)
 
+    routes
+        .transition()
+        .duration(800)
+        .attr('opacity', d => 0.15 + d.strokeIntensity)
+
     routes.exit().transition().duration(800).attr('opacity', 0).remove()
 }
 
@@ -102,8 +107,10 @@ const drawAirportDensity = routesCountsList => {
         })
 
     // Adding animation for circles to show
-    ctx.circlesGroup.selectAll('circle').transition()
+    ctx.circlesGroup.selectAll('circle')
+        .transition()
         .duration(800)
+        .attr("r", d => calcRadius(d.data.count))
         .attr("opacity", 0.3)
 
     // Removing and animatig the circles

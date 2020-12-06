@@ -3,7 +3,7 @@ const path = require('path')
 const url = require('url')
 
 // Getting the correct port
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3000;
 
 // Create app and assign the files to be returned in the front end
 const app = express();
