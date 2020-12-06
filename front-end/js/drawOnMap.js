@@ -80,7 +80,10 @@ const drawAirportDensity = routesCountsList => {
         .attr("cx", d => d.data.coordinates[0])
         .attr("cy", d => d.data.coordinates[1])
         .attr("r", d => calcRadius(d.data.count))
-        .on("click",(e, d) => clickOnState(d.data.state))
+        .on("click", (_, d) => {
+            if (d.data.state !== '')
+                clickOnState(d.data.state)
+        })
         .append('title').text(d => {
             var output = `Airport code: ${d.code}\n`
             // Extra information
