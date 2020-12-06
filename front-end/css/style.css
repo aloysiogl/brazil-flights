@@ -123,8 +123,10 @@ g#slider {
     border-radius: 3px;
     border-color: #D3D3D3;
     padding: 4px;
-    margin-left: 630px;
-    margin-top: 255px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translate(320px, 340px);
     width: 300px;
     height: 130px;
     font-family: 'Helvetica Neue';
