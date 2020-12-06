@@ -14,6 +14,7 @@ var ctx = {
     drawPlanes: false,
     serverUrl: '/query',
     sectionsLoaded: 0,
+    font: 'sans-serif',
 }
 
 var createViz = () => {

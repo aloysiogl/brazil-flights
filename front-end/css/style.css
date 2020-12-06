@@ -85,7 +85,7 @@ g#slider {
     margin-left: auto;
     margin-right: auto;
     z-index: 2;
-    width: 85px;
+    width: 87px;
     background-color: rgb(71, 69, 67);
     border: 1px solid;
     border-radius: 3px;
@@ -109,7 +109,7 @@ g#slider {
 .checkboxLabel {
     color: #D3D3D3;
     font-size: 15px;
-    font-family: 'Helvetica Neue';
+    font-family: sans-serif;
 }
 
 /* Plane information styles */
@@ -129,7 +129,7 @@ g#slider {
     transform: translate(320px, 340px);
     width: 300px;
     height: 130px;
-    font-family: 'Helvetica Neue';
+    font-family: sans-serif;
     pointer-events: none;
 }
 .about_plane_line {
@@ -178,5 +178,5 @@ g#slider {
     border: 1px solid;
     border-radius: 3px;
     border-color: #D3D3D3;
-    font-family: 'Helvetica Neue';
+    font-family: sans-serif;
 }

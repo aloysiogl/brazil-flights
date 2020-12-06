@@ -36,6 +36,7 @@ const makeTypesPlot = () => {
                     axis: {
                         labelAngle: 0,
                         labelColor: LABEL_COLOR,
+                        labelFont: ctx.font,
                     },
                     scale: {
                         paddingInner: 0.6,
@@ -54,6 +55,9 @@ const makeTypesPlot = () => {
                         domainColor: GRID_COLOR,
                         tickColor: GRID_COLOR,
                         labelColor: LABEL_COLOR,
+                        labelFont: ctx.font,
+                        titleFont: ctx.font,
+                        titleFontWeight: 1,
                     },
                 },
                 color: { value: BARS_COLOR },

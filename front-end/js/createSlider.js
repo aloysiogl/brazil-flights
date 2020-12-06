@@ -33,6 +33,7 @@ const makeSlider = () => {
                         domainColor: GRID_COLOR,
                         tickColor: GRID_COLOR,
                         labelColor: LABEL_COLOR,
+                        labelFont: ctx.font,
                     },
                 },
                 y: {

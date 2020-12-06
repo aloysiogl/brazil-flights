@@ -35,6 +35,7 @@ const makeCompaniesPlot = () => {
                     axis: {
                         labelAngle: 0,
                         labelColor: LABEL_COLOR,
+                        labelFont: ctx.font,
                     },
                     scale: {
                         paddingInner: 0.8,
@@ -53,6 +54,9 @@ const makeCompaniesPlot = () => {
                         domainColor: GRID_COLOR,
                         tickColor: GRID_COLOR,
                         labelColor: LABEL_COLOR,
+                        labelFont: ctx.font,
+                        titleFont: ctx.font,
+                        titleFontWeight: 1,
                     },
                 },
                 tooltip: { field: 'name', type: 'nominal' },
