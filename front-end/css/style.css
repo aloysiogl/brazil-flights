@@ -84,8 +84,10 @@ g#slider {
     position: absolute;
     margin-left: auto;
     margin-right: auto;
-    z-index: 2;
+    transform: translate(426px, 5px);
+    height: 60px;
     width: 87px;
+    z-index: 2;
     background-color: rgb(71, 69, 67);
     border: 1px solid;
     border-radius: 3px;
@@ -94,16 +96,6 @@ g#slider {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.helpCheckboxContainer {
-    transform: translate(426px, 5px);
-    height: 14px;
-}
-
-.modesCheckboxContainer {
-    transform: translate(426px, 36px);
-    height: 60px;
 }
 
 .checkboxLabel {
