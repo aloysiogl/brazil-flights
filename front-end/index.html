@@ -82,8 +82,33 @@
             <div id="spinner_airlines" class="hidden"></div>
         </div>
         <div id="instructions" class="instructions">
-            <h1 class="instructions-text">Instructions</h1>
-            <p class="instructions-text">Lorem ipsum dolor sit amet, consectetur adipis</p>
+            <h1>Instructions</h1>
+            <p>This is an interactive vizualization of Brazilian flights ranging from
+                January 2000 to October 2020, it's part of a school project at École Polytechnique and was made by
+                the students Aloysio Galvão Lopes and Igor Albuquerque Silva.</p>
+
+            <p> You have access to four main windows that interact with each other to show
+                different aspects of flights data. The main idea is that in each window you can select some specific aspects
+                of the flights that you want to visualize.</p>
+            <h2> The main window </h2>
+            <p> In the main window you can visualize the flights in a graph that shows the origins 
+                and destinations in a map. Thre are three different modes of visualization in this window: routes, airports and planes.
+                All of the modes can be superposed so and you can even visualize all of them at the same time.</p>
+
+            <p> In that same window you can also select Brazil and individual states in Brazil. If you click in Brazil it'll appear highlighted and
+                only flights with origin and destination in Brazil will be considerd. If you click outside Brazil international flights will again be considered and Brazil will no 
+                longer be highlighted. In the same way if Brazil is hightlighted and you click in an individual state only flights that involve that state will be considered, you can select
+                multiple sates in Brazil to see the routes considering just those states. Again yo should deselect all the selected states or click outside Brazil to reset the selection.
+            </p>
+
+            <p> The first mode is routes, in this mode you can visualize the planes routes. Their relative importance is shown by the color intensity.</p>
+            <p> The second mode is airports, in that mode you can visualize the airports. Their relative importance is show as the area of the circle that is over a given airport.
+                If you place your mouse over an airport you can see other inforation, such as the name and the number of flights in the current selection.
+            </p>
+            <p> The last mode is planes, in that mode you can visualize individual planes. The planes shown in this mode are not real, they are simulated based on the data of the current selection.
+                In this mode you can see the relative speed of given routes as well as if the routes are delayed. A delayed plane appear in red so if a route has lots of red planes you know that the planes are delayed very often in that route.
+            If you hover over an idividual plane it'll become yeallow meaning that this plane is selected. When a plane is selected additional information about that plane and it's route are shown in the bottom right corner of the map. </p>
+
         </div>
         <div id="main_spinner" class="loader loader-large modal"></div>
     </body>
