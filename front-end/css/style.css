@@ -81,11 +81,11 @@ g#slider {
 /* Checkbox styles */
 
 .checkboxContainer {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
     z-index: 2;
-    margin-top: -835px;
-    margin-left: 860px;
-    width: 70px;
-    height: 60px;
+    width: 85px;
     background-color: rgb(71, 69, 67);
     border: 1px solid;
     border-radius: 3px;
@@ -94,6 +94,16 @@ g#slider {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.helpCheckboxContainer {
+    transform: translate(426px, 5px);
+    height: 14px;
+}
+
+.modesCheckboxContainer {
+    transform: translate(426px, 36px);
+    height: 60px;
 }
 
 .checkboxLabel {
@@ -156,11 +166,16 @@ g#slider {
 
 .instructions {
     display: none;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    width: 960px;
+    width: 940px;
+    padding-left: 10px;
+    padding-right: 10px;
     color: lightgray;
+    border: 1px solid;
+    border-radius: 3px;
+    border-color: #D3D3D3;
 }
 
 .instruction-text {
