@@ -72,7 +72,9 @@ const makeSlider = () => {
 
         ctx.sectionsLoaded += 1
         if (ctx.sectionsLoaded == 4) {
+            d3.select('#main_spinner').attr('class', 'hidden')
             d3.select('#main').attr('class', 'main')
+            d3.select('#instructions').attr('style', 'display: block')
         }
     })
 }
