@@ -77,9 +77,17 @@ const drawAirportDensity = routesCountsList => {
         .on("click",(e, d) => clickOnState(d.data.state))
         .append('title').text(d => {
             var output = `Airport code: ${d.code}\n`
+            // Extra information
+            const airport = ctx.airportsMap.get(d.code)
+
+            output += `Name: ${airport.name}\n`
+            output += `Longitude: ${airport.longitude.toFixed(2)}\n`
+            output += `Latitude: ${airport.latitude.toFixed(2)}\n`
+
             if (d.data.state != null)
                 output += `Airport State: ${d.data.state}\n`
             output += `Fligths: ${d.data.count}`
+
             return output
         })
 
@@ -203,11 +211,14 @@ const drawPlanes = routesCountsList => {
                 ctx.selectedPlane.attr("class", d => getPlaneClass(d))
             plane.attr("class", "selected_plane")
 
+            const originName = ctx.airportsMap.get(d.route.origin_airport).name
+            const destinationName = ctx.airportsMap.get(d.route.destination_airport).name
+
             // Information in the dialog
             d3.select("#about_plane").html(
-                    `Origin: ${d.route.origin_airport}\n`+
-                    `Destination: ${d.route.destination_airport}\n`+
-                    `Duration: ${d.route.avg_duration}`
+                    `Origin: ${originName}\n`+
+                    `Destination: ${destinationName}\n`+
+                    `Duration: ${Math.trunc(d.route.avg_duration)}mins`
                 )
             ctx.selectedPlane = plane
         })
