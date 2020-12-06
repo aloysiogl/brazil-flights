@@ -93,13 +93,14 @@ g#slider {
 
 /* Plane information styles */
 .about_plane {
-    color: white;
+    color:  #D3D3D3;
     margin-left: 700px;
-    margin-top: 350px;
+    margin-top: 320px;
     width: 200px;
     height: 100px;
     pointer-events: none;
     white-space:pre-wrap;
+    font-family: 'Helvetica Neue';
 }
 
 /* Main div style */

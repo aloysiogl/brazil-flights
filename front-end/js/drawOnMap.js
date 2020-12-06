@@ -93,17 +93,42 @@ const drawAirportDensity = routesCountsList => {
 }
 
 const drawPlanes = routesCountsList => {
+    const SPEED_FACTOR = 100
+    const SIZE_FACTOR = 0.02
+    const SPAWN_INTERVAL = 500
+    console.log(routesCountsList)
+
+    var π = Math.PI, τ = 2 * π, halfπ = π / 2, ε = 1e-6, ε2 = ε * ε, d3_radians = π / 180, d3_degrees = 180 / π;
+
+    function d3_haversin(x) {
+        return (x = Math.sin(x / 2)) * x;
+    }
+
+    function d3_geo_interpolate(x0, y0, x1, y1) {
+        var cy0 = Math.cos(y0), sy0 = Math.sin(y0), cy1 = Math.cos(y1), sy1 = Math.sin(y1), kx0 = cy0 * Math.cos(x0), ky0 = cy0 * Math.sin(x0), kx1 = cy1 * Math.cos(x1), ky1 = cy1 * Math.sin(x1), d = 2 * Math.asin(Math.sqrt(d3_haversin(y1 - y0) + cy0 * cy1 * d3_haversin(x1 - x0))), k = 1 / Math.sin(d);
+        var interpolate = d ? function(t) {
+            var B = Math.sin(t *= d) * k, A = Math.sin(d - t) * k, x = A * kx0 + B * kx1, y = A * ky0 + B * ky1, z = A * sy0 + B * sy1;
+            return [ Math.atan2(y, x) * d3_degrees, Math.atan2(z, Math.sqrt(x * x + y * y)) * d3_degrees ];
+        } : function() {
+            return [ x0 * d3_degrees, y0 * d3_degrees ];
+        };
+        interpolate.distance = d;
+        return interpolate;
+    }
+
     // Interpolate trajectories in the map
-    const interpolate = (origin, destination, t) => {
-        const oX = parseFloat(origin[0])
-        const dX = parseFloat(destination[0])
-        const oY = parseFloat(origin[1])
-        const dY = parseFloat(destination[1])
+    const interpolate = (source, target, t) => {
+        // const oX = parseFloat(origin[0])
+        // const dX = parseFloat(destination[0])
+        // const oY = parseFloat(origin[1])
+        // const dY = parseFloat(destination[1])
 
-        const iX = oX + t * (dX - oX)
-        const iY = oY + t * (dY - oY)
+        // console.log(d3_geo_interpolate(oX, oY, dX, dY)(0.5))
 
-        return ctx.projection([iX, iY])
+        // const iX = oX + t * (dX - oX)
+        // const iY = oY + t * (dY - oY)
+
+        return ctx.projection(d3_geo_interpolate(source[0] * d3_radians, source[1] * d3_radians, target[0] * d3_radians, target[1] * d3_radians)(t))
     }
 
     // Define the motion of the plane
@@ -120,7 +145,7 @@ const drawPlanes = routesCountsList => {
             const r = - Math.atan2(-y, x) * 180 / Math.PI;
 
             // Gettin scale
-            const s = Math.min(Math.sin(Math.PI * t) * 0.07, 0.01);
+            const s = Math.min(Math.sin(Math.PI * t) * 0.07, SIZE_FACTOR);
 
             return `translate(${p[0]-288*s},${p[1]-256*s}) rotate(${r}, ${288*s}, ${256*s}) scale(${s})`
         }
@@ -142,6 +167,15 @@ const drawPlanes = routesCountsList => {
         return routesCountsList[value];
     }
 
+    // Gaussion distrubution
+    function randomG(u, s, v){ 
+        var r = 0;
+        for(var i = v; i > 0; i --){
+            r += Math.random();
+        }
+        return u+s*(r / v);
+    }
+
     // Defines how to spawn new planes
     const spawnPlane = () => {
         const route = randomTrajectorySample()
@@ -154,8 +188,10 @@ const drawPlanes = routesCountsList => {
             [dest.longitude, dest.latitude]
         ]
 
+        const delay = randomG(route.avg_delay, route.avg_delay/2, 5)
+
         var plane = ctx.planesGroup
-            .data([{traj: traj, route: route}])
+            .data([{traj: traj, route: route, delay: delay}])
             .append("path")
             // Code for the svg plane
             .attr("d", "M480 192H365.71L260.61 8.06A16.014 16.014 0 0 0 246.71 0h-65.5c-10.63 0-18.3 10.17-15.38"+
@@ -164,6 +200,11 @@ const drawPlanes = routesCountsList => {
                        "112 320h102.86l-49.03 171.6c-2.92 10.22 4.75 20.4 15.38 20.4h65.5c5.74 0 11.04-3.08 13.8"+
                        "9-8.06L365.71 320H480c35.35 0 96-28.65 96-64s-60.65-64-96-64z")
             .attr("class", "base_plane")
+            .style("fill", d => {
+                console.log(d.delay)
+                if (d.delay > 10) return "red"
+                return "white"
+            })
 
         // Show plane information after mouse hover
         plane.on("mouseover", (e, d) => {
@@ -174,8 +215,8 @@ const drawPlanes = routesCountsList => {
             // Information in the dialog
             d3.select("#about_plane").html(
                     `Origin: ${d.route.origin_airport}\n`+
-                    `Destination: ${d.route.destination_airport}\n`
-
+                    `Destination: ${d.route.destination_airport}\n`+
+                    `Duration: ${d.route.avg_duration}`
                 )
             ctx.selectedPlane = plane
         })
@@ -183,7 +224,7 @@ const drawPlanes = routesCountsList => {
         // Plane movement
         plane
             .transition()
-            .duration(10000)
+            .duration(d => d.route.avg_duration*SPEED_FACTOR)
             .attrTween("transform", t => tween(t.traj[0], t.traj[1])())
             .on("end", d => {
                 // If the plane was the selected plane clear the selection
@@ -196,7 +237,7 @@ const drawPlanes = routesCountsList => {
     // Conditions for spawning new planes
     if (routesCountsList.length > 0){
         clearInterval(ctx.intervalSpawnPlanesId)
-        ctx.intervalSpawnPlanesId = setInterval(spawnPlane, 100)
+        ctx.intervalSpawnPlanesId = setInterval(spawnPlane, SPAWN_INTERVAL)
     }
     else {
         clearInterval(ctx.intervalSpawnPlanesId)
