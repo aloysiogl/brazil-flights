@@ -96,10 +96,13 @@ const drawPlanes = routesCountsList => {
     const SPEED_FACTOR = 100
     const SIZE_FACTOR = 0.02
     const SPAWN_INTERVAL = 500
-    console.log(routesCountsList)
+    const DELAYED_THRESHOLD = 15
 
+    // Variable used to simplify math during interpolation
     var π = Math.PI, τ = 2 * π, halfπ = π / 2, ε = 1e-6, ε2 = ε * ε, d3_radians = π / 180, d3_degrees = 180 / π;
 
+
+    // D3 original interpolate functions
     function d3_haversin(x) {
         return (x = Math.sin(x / 2)) * x;
     }
@@ -117,19 +120,7 @@ const drawPlanes = routesCountsList => {
     }
 
     // Interpolate trajectories in the map
-    const interpolate = (source, target, t) => {
-        // const oX = parseFloat(origin[0])
-        // const dX = parseFloat(destination[0])
-        // const oY = parseFloat(origin[1])
-        // const dY = parseFloat(destination[1])
-
-        // console.log(d3_geo_interpolate(oX, oY, dX, dY)(0.5))
-
-        // const iX = oX + t * (dX - oX)
-        // const iY = oY + t * (dY - oY)
-
-        return ctx.projection(d3_geo_interpolate(source[0] * d3_radians, source[1] * d3_radians, target[0] * d3_radians, target[1] * d3_radians)(t))
-    }
+    const interpolate = (source, target, t) => ctx.projection(d3_geo_interpolate(source[0] * d3_radians, source[1] * d3_radians, target[0] * d3_radians, target[1] * d3_radians)(t))
 
     // Define the motion of the plane
     const tween = (origin, destination) => {
@@ -190,6 +181,11 @@ const drawPlanes = routesCountsList => {
 
         const delay = randomG(route.avg_delay, route.avg_delay/2, 5)
 
+        const getPlaneClass = d => {
+            if (d.delay > DELAYED_THRESHOLD) return "delayed_plane"
+                return "base_plane"
+        }
+
         var plane = ctx.planesGroup
             .data([{traj: traj, route: route, delay: delay}])
             .append("path")
@@ -199,17 +195,12 @@ const drawPlanes = routesCountsList => {
                        "49 147.88L32 256 .49 364.12C-2.04 374.22 5.6 384 16.01 384H56c5.04 0 9.78-2.37 12.8-6.4L"+
                        "112 320h102.86l-49.03 171.6c-2.92 10.22 4.75 20.4 15.38 20.4h65.5c5.74 0 11.04-3.08 13.8"+
                        "9-8.06L365.71 320H480c35.35 0 96-28.65 96-64s-60.65-64-96-64z")
-            .attr("class", "base_plane")
-            .style("fill", d => {
-                console.log(d.delay)
-                if (d.delay > 10) return "red"
-                return "white"
-            })
+            .attr("class", d => getPlaneClass(d))
 
         // Show plane information after mouse hover
         plane.on("mouseover", (e, d) => {
             if (ctx.selectedPlane)
-                ctx.selectedPlane.attr("class", "base_plane")
+                ctx.selectedPlane.attr("class", d => getPlaneClass(d))
             plane.attr("class", "selected_plane")
 
             // Information in the dialog
