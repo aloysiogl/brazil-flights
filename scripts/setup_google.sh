@@ -1,0 +1,1 @@
+echo 'export GOOGLE_APPLICATION_CREDENTIALS='$(pwd)/../$(basename "service_account.json") >> ~/.bashrc
