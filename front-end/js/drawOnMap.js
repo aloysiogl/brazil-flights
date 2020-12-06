@@ -39,6 +39,9 @@ const drawAirportDensity = routesCountsList => {
                 count: route.count,
                 coordinates: ctx.projection(route.origin_coordinates),
                 state: route.origin_state,
+                city: route.origin_city,
+                country: route.origin_country,
+                name: route.origin_name
             }
         }
         if (airportDensities[route.destination_airport]) {
@@ -47,7 +50,10 @@ const drawAirportDensity = routesCountsList => {
             airportDensities[route.destination_airport] = { 
                 count: route.count,
                 coordinates: ctx.projection(route.destination_coordinates),
-                state: route.destination_state
+                state: route.destination_state,
+                city: route.destination_city,
+                country: route.destination_country,
+                name: route.destination_name,
             }
         }
     })
@@ -78,14 +84,15 @@ const drawAirportDensity = routesCountsList => {
         .append('title').text(d => {
             var output = `Airport code: ${d.code}\n`
             // Extra information
-            const airport = ctx.airportsMap.get(d.code)
+            output += `Name: ${d.data.name}\n`
+            output += `City: ${d.data.city}\n`
+            if (d.data.state != '')
+                output += `State: ${d.data.state}\n`
+            if (d.data.country != 'BRAZIL')
+                output += `Country: ${d.data.country}\n`
+            output += `Longitude: ${d.data.coordinates[0].toFixed(2)}\n`
+            output += `Latitude: ${d.data.coordinates[1].toFixed(2)}\n`
 
-            output += `Name: ${airport.name}\n`
-            output += `Longitude: ${airport.longitude.toFixed(2)}\n`
-            output += `Latitude: ${airport.latitude.toFixed(2)}\n`
-
-            if (d.data.state != null)
-                output += `Airport State: ${d.data.state}\n`
             output += `Fligths: ${d.data.count}`
 
             return output
@@ -206,20 +213,30 @@ const drawPlanes = routesCountsList => {
             .attr("class", d => getPlaneClass(d))
 
         // Show plane information after mouse hover
-        plane.on("mouseover", (e, d) => {
+        plane.on("mouseover", (_, d) => {
             if (ctx.selectedPlane)
                 ctx.selectedPlane.attr("class", d => getPlaneClass(d))
             plane.attr("class", "selected_plane")
 
-            const originName = ctx.airportsMap.get(d.route.origin_airport).name
-            const destinationName = ctx.airportsMap.get(d.route.destination_airport).name
-
             // Information in the dialog
-            d3.select("#about_plane").html(
-                    `Origin: ${originName}\n`+
-                    `Destination: ${destinationName}\n`+
-                    `Duration: ${Math.trunc(d.route.avg_duration)}mins`
-                )
+            const div = d3.select("#about_plane")
+            div.selectAll("*").remove()
+            div.style('display', 'flex')
+            div.append("div")
+               .attr('class', 'about_plane_line')
+               .html(`Route: ${d.route.origin_airport} -> ${d.route.destination_airport}`)
+            div.append("div")
+               .attr('class', 'about_plane_line')
+               .html(`Origin: ${d.route.origin_name}`)
+            div.append("div")
+               .attr('class', 'about_plane_line')
+               .html(`Destination: ${d.route.destination_name}`)
+            div.append("div")
+               .attr('class', 'about_plane_line')
+               .html(`Average duration: ${parseInt(d.route.avg_duration)} min`)
+            div.append("div")
+               .attr('class', 'about_plane_line')
+               .html(`Average delay: ${parseInt(d.route.avg_delay)} min`)
             ctx.selectedPlane = plane
         })
 
@@ -231,7 +248,7 @@ const drawPlanes = routesCountsList => {
             .on("end", d => {
                 // If the plane was the selected plane clear the selection
                 if (plane == ctx.selectedPlane)
-                    d3.select("#about_plane").html("")
+                    d3.select("#about_plane").style('display', 'none')
             })
             .remove()
     }

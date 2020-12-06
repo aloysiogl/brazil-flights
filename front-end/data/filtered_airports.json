@@ -17,7 +17,7 @@
     "longitude": 8.570556,
     "name": "FRANKFURT INTERNATIONAL AIRPORT",
     "city": "FRANKFURT",
-    "country": "ALEMANHA"
+    "country": "GERMANY"
   },
   {
     "code": "EDDM",
@@ -25,9 +25,9 @@
     "state": "",
     "latitude": 48.353802,
     "longitude": 11.7861,
-    "name": "MUNICH INTERNATIONAL AIRPORT (FRANZ JOSEF STRAUÃŸ INTERNATIONAL AIRPORT)",
+    "name": "MUNICH INTERNATIONAL AIRPORT",
     "city": "MUNCHEN",
-    "country": "ALEMANHA"
+    "country": "GERMANY"
   },
   {
     "code": "EGKK",
@@ -37,7 +37,7 @@
     "longitude": -0.190278,
     "name": "LONDON GATWICK AIRPORT",
     "city": "LONDRES",
-    "country": "REINO UNIDO"
+    "country": "UNITED KINGDOM"
   },
   {
     "code": "EGLL",
@@ -47,7 +47,7 @@
     "longitude": -0.461941,
     "name": "LONDON HEATHROW AIRPORT",
     "city": "LONDRES",
-    "country": "REINO UNIDO"
+    "country": "UNITED KINGDOM"
   },
   {
     "code": "EHAM",
@@ -57,7 +57,7 @@
     "longitude": 4.76389,
     "name": "AMSTERDAM AIRPORT SCHIPHOL",
     "city": "AMSTERDAM",
-    "country": "HOLANDA"
+    "country": "NETHERLANDS"
   },
   {
     "code": "ELLX",
@@ -66,8 +66,8 @@
     "latitude": 49.6233333,
     "longitude": 6.2044444000000025,
     "name": "LUXEMBOURG FINDEL AIRPORT",
-    "city": "LUXEMBURGO",
-    "country": "LUXEMBURGO"
+    "city": "LUXEMBOURG",
+    "country": "LUXEMBOURG"
   },
   {
     "code": "FAJS",
@@ -77,7 +77,7 @@
     "longitude": 28.25,
     "name": "OR TAMBO INTERNATIONAL AIRPORT",
     "city": "JOHANNESBURG",
-    "country": "AFRICA DO SUL"
+    "country": "SOUTH AFRICA"
   },
   {
     "code": "FAOR",
@@ -87,7 +87,7 @@
     "longitude": 28.246,
     "name": "OR TAMBO INTERNATIONAL AIRPORT",
     "city": "KEMPTON PARK",
-    "country": "AFRICA DO SUL"
+    "country": "SOUTH AFRICA"
   },
   {
     "code": "FNLU",
@@ -107,7 +107,7 @@
     "longitude": -16.57250023,
     "name": "TENERIFE SOUTH AIRPORT",
     "city": "TENERIFE",
-    "country": "ESPANHA"
+    "country": "SPAIN"
   },
   {
     "code": "GMMN",
@@ -145,7 +145,7 @@
     "state": "",
     "latitude": 16.7414,
     "longitude": -22.9494,
-    "name": "AEROPORTO INTERNACIONAL AMÃLCAR CABRAL",
+    "name": "AEROPORTO INTERNACIONAL AMAILCAR CABRAL",
     "city": "ILHA DO SAL",
     "country": "CABO VERDE"
   },
@@ -167,7 +167,7 @@
     "longitude": 38.79930115,
     "name": "BOLE INTERNATIONAL AIRPORT",
     "city": "ADDIS ABABA",
-    "country": "ETIOPIA"
+    "country": "ETHIOPIA"
   },
   {
     "code": "KATL",
@@ -176,8 +176,8 @@
     "latitude": 33.6367,
     "longitude": -84.428101,
     "name": "HARTSFIELD JACKSON ATLANTA INTERNATIONAL AIRPORT",
-    "city": "ATLANTA/INTL",
-    "country": "ESTADOS UNIDOS DA AMERICA"
+    "city": "ATLANTA",
+    "country": "UNITED STATES"
   },
   {
     "code": "KCLT",
@@ -187,7 +187,7 @@
     "longitude": -80.94309998,
     "name": "CHARLOTTE/DOUGLAS INTERNATIONAL AIRPORT",
     "city": "CHARLOTTE DOUGLAS INTL",
-    "country": "ESTADOS UNIDOS DA AMERICA"
+    "country": "UNITED STATES"
   },
   {
     "code": "KDFW",
@@ -197,7 +197,7 @@
     "longitude": -97.038002,
     "name": "DALLAS-FORT WORTH INTERNATIONAL AIRPORT",
     "city": "DALLAS/FORT WORTH",
-    "country": "ESTADOS UNIDOS DA AMERICA"
+    "country": "UNITED STATES"
   },
   {
     "code": "KDTW",
@@ -207,7 +207,7 @@
     "longitude": -83.35340118,
     "name": "DETROIT METROPOLITAN WAYNE COUNTY AIRPORT",
     "city": "DETROIT",
-    "country": "ESTADOS UNIDOS DA AMERICA"
+    "country": "UNITED STATES"
   },
   {
     "code": "KEWR",
@@ -217,7 +217,7 @@
     "longitude": -74.16870117,
     "name": "NEWARK LIBERTY INTERNATIONAL AIRPORT",
     "city": "NEWARK / INTL NJ",
-    "country": "ESTADOS UNIDOS DA AMERICA"
+    "country": "UNITED STATES"
   },
   {
     "code": "KFLL",
@@ -227,7 +227,7 @@
     "longitude": -80.152702,
     "name": "FORT LAUDERDALE-HOLLYWOOD INTERNATIONAL AIRPORT",
     "city": "FORT LAUDERDALE",
-    "country": "ESTADOS UNIDOS DA AMERICA"
+    "country": "UNITED STATES"
   },
   {
     "code": "KIAD",
@@ -236,8 +236,8 @@
     "latitude": 38.94449997,
     "longitude": -77.45580292,
     "name": "WASHINGTON DULLES INTERNATIONAL AIRPORT",
-    "city": "WASHINGTON/DULLES INTL",
-    "country": "ESTADOS UNIDOS DA AMERICA"
+    "city": "WASHINGTON/DULLES",
+    "country": "UNITED STATES"
   },
   {
     "code": "KIAH",
@@ -247,7 +247,7 @@
     "longitude": -95.34140015,
     "name": "GEORGE BUSH INTERCONTINENTAL AIRPORT",
     "city": "HOUSTON",
-    "country": "ESTADOS UNIDOS DA AMERICA"
+    "country": "UNITED STATES"
   },
   {
     "code": "KJFK",
@@ -257,7 +257,7 @@
     "longitude": -73.77890015,
     "name": "JOHN F. KENNEDY INTERNATIONAL AIRPORT",
     "city": "NEW YORK",
-    "country": "ESTADOS UNIDOS DA AMERICA"
+    "country": "UNITED STATES"
   },
   {
     "code": "KLAX",
@@ -267,7 +267,7 @@
     "longitude": -118.40799709999999,
     "name": "LOS ANGELES INTERNATIONAL AIRPORT",
     "city": "LOS ANGELES",
-    "country": "ESTADOS UNIDOS DA AMERICA"
+    "country": "UNITED STATES"
   },
   {
     "code": "KMCO",
@@ -277,7 +277,7 @@
     "longitude": -81.30899811,
     "name": "ORLANDO INTERNATIONAL AIRPORT",
     "city": "ORLANDO",
-    "country": "ESTADOS UNIDOS DA AMERICA"
+    "country": "UNITED STATES"
   },
   {
     "code": "KMEM",
@@ -287,7 +287,7 @@
     "longitude": -89.97669983,
     "name": "MEMPHIS INTERNATIONAL AIRPORT",
     "city": "MENPHIS",
-    "country": "ESTADOS UNIDOS DA AMERICA"
+    "country": "UNITED STATES"
   },
   {
     "code": "KMIA",
@@ -297,7 +297,7 @@
     "longitude": -80.29060364,
     "name": "MIAMI INTERNATIONAL AIRPORT",
     "city": "MIAMI",
-    "country": "ESTADOS UNIDOS DA AMERICA"
+    "country": "UNITED STATES"
   },
   {
     "code": "KORD",
@@ -305,9 +305,9 @@
     "state": "",
     "latitude": 41.9786,
     "longitude": -87.9048,
-    "name": "OÂ´HARE INTERNATIONAL AIRPORT",
+    "name": "O'HARE INTERNATIONAL AIRPORT",
     "city": "CHICAGO",
-    "country": "ESTADOS UNIDOS DA AMERICA"
+    "country": "UNITED STATES"
   },
   {
     "code": "LEBL",
@@ -317,7 +317,7 @@
     "longitude": 2.0784599999999998,
     "name": "BARCELONA-EL PRAT AIRPORT",
     "city": "BARCELONA",
-    "country": "ESPANHA"
+    "country": "SPAIN"
   },
   {
     "code": "LEMD",
@@ -325,9 +325,9 @@
     "state": "",
     "latitude": 40.471926,
     "longitude": -3.56264,
-    "name": "ADOLFO SUÃREZ MADRID-BARAJAS AIRPORT",
+    "name": "ADOLFO SUAREZ MADRID-BARAJAS AIRPORT",
     "city": "MADRID",
-    "country": "ESPANHA"
+    "country": "SPAIN"
   },
   {
     "code": "LFPG",
@@ -337,7 +337,7 @@
     "longitude": 2.55,
     "name": "PARIS-CHARLES DE GAULLE AIRPORT (ROISSY AIRPORT)",
     "city": "PARIS",
-    "country": "FRANCA"
+    "country": "FRANCE"
   },
   {
     "code": "LIMC",
@@ -346,8 +346,8 @@
     "latitude": 45.6306,
     "longitude": 8.728110000000001,
     "name": "MALPENSA INTERNATIONAL AIRPORT",
-    "city": "MILAO",
-    "country": "ITALIA"
+    "city": "MILAN",
+    "country": "ITALY"
   },
   {
     "code": "LIRF",
@@ -355,9 +355,9 @@
     "state": "",
     "latitude": 41.800277799999996,
     "longitude": 12.238888900000001,
-    "name": "LEONARDO DA VINCI INTERNATIONAL AIRPORT (FIUMICINO INTERNATIONAL AIRPORT)",
-    "city": "ROMA",
-    "country": "ITALIA"
+    "name": "LEONARDO DA VINCI INTERNATIONAL AIRPORT",
+    "city": "ROME",
+    "country": "ITALY"
   },
   {
     "code": "LLBG",
@@ -395,9 +395,9 @@
     "state": "",
     "latitude": 47.464698999999996,
     "longitude": 8.54917,
-    "name": "ZÃœRICH AIRPORT (KLOTEN AIRPORT)",
-    "city": "ZURIQUE",
-    "country": "SUÃÃ‡A"
+    "name": "ZURICH AIRPORT (KLOTEN AIRPORT)",
+    "city": "ZURICH",
+    "country": "SWITZERLAND"
   },
   {
     "code": "LTBA",
@@ -405,9 +405,9 @@
     "state": "",
     "latitude": 40.976898,
     "longitude": 28.8146,
-    "name": "ATATÃœRK INTERNATIONAL AIRPORT",
+    "name": "ATATURK INTERNATIONAL AIRPORT",
     "city": "ISTANBUL/ATATURK",
-    "country": "TURQUIA"
+    "country": "TURKEY"
   },
   {
     "code": "MDPC",
@@ -415,9 +415,9 @@
     "state": "",
     "latitude": 18.56739998,
     "longitude": -68.36340332,
-    "name": "PUNTA CANA",
+    "name": "PUNTA CANA INTERNATIONAL AIRPORT",
     "city": "PUNTA CANA",
-    "country": "REPUBLICA DOMINICANA"
+    "country": "DOMINICAN REPUBLIC"
   },
   {
     "code": "MDSD",
@@ -425,9 +425,9 @@
     "state": "",
     "latitude": 18.42970085,
     "longitude": -69.66889954,
-    "name": "SAO DOMINGO/DE LAS AMERICAS",
-    "city": "SAO DOMINGO/DE LAS AMÉRICAS",
-    "country": "REPUBLICA DOMINICANA"
+    "name": "LAS AMERICAS INTERNATIONAL AIRPORT",
+    "city": "SAO DOMINGO DE LAS AMERICAS",
+    "country": "DOMINICAN REPUBLIC"
   },
   {
     "code": "MMMD",
@@ -475,7 +475,7 @@
     "state": "",
     "latitude": 22.98920059,
     "longitude": -82.40910339,
-    "name": "HAVANA",
+    "name": "HABANA AIRPORT",
     "city": "HAVANA",
     "country": "CUBA"
   },
@@ -486,8 +486,8 @@
     "latitude": 24.43300056,
     "longitude": 54.65110016,
     "name": "AB DHABI INTERNATIONAL",
-    "city": "AB DHABI INTERNATIONAL",
-    "country": "EMIRADOSARABES UNIDOS"
+    "city": "AB DHABI",
+    "country": "UNITED ARAB EMIRATES"
   },
   {
     "code": "OMDB",
@@ -495,9 +495,9 @@
     "state": "",
     "latitude": 25.25279999,
     "longitude": 55.36439896,
-    "name": "DUBAI",
-    "city": "DUBAI INTERNATIONAL",
-    "country": "EMIRADOSARABES UNIDOS"
+    "name": "DUBAI INTERNATIONAL AIRPORT",
+    "city": "DUBAI",
+    "country": "UNITED ARAB EMIRATES"
   },
   {
     "code": "OTBD",
@@ -516,7 +516,7 @@
     "latitude": 25.273056,
     "longitude": 51.608056,
     "name": "HAMAD INTERNATIONAL AIRPORT",
-    "city": "",
+    "city": "DOHA",
     "country": "QATAR"
   },
   {
@@ -526,7 +526,7 @@
     "latitude": -32.9036,
     "longitude": -60.785,
     "name": "ROSARIO - ISLAS MALVINAS INTERNATIONAL AIRPORT",
-    "city": "ROSÁRIO",
+    "city": "ROSARIO",
     "country": "ARGENTINA"
   },
   {
@@ -555,7 +555,7 @@
     "state": "",
     "latitude": -34.8222,
     "longitude": -58.5358,
-    "name": "MINISTRO PISTARINI INTERNATIONAL AIRPORT (EZEIZA INTERNATIONAL AIRPORT)",
+    "name": "MINISTRO PISTARINI INTERNATIONAL AIRPORT",
     "city": "BUENOS AIRES",
     "country": "ARGENTINA"
   },
@@ -565,7 +565,7 @@
     "state": "",
     "latitude": -32.83169937,
     "longitude": -68.79290009,
-    "name": "GOVERNOR FRANCISCO GABRIELLI INTERNATIONAL AIRPORT (EL PLUMERILLO INTÂ´L)",
+    "name": "GOVERNOR FRANCISCO GABRIELLI INTERNATIONAL AIRPORT ",
     "city": "MENDOZA",
     "country": "ARGENTINA"
   },
@@ -575,7 +575,7 @@
     "state": "",
     "latitude": -25.737301000000002,
     "longitude": -54.4734,
-    "name": "CATARATAS DEL IGUAZÃš INTERNATIONAL AIRPORT (IGUAZÃš FALLS)",
+    "name": "CATARATAS DEL IGUAZAs INTERNATIONAL AIRPORT",
     "city": "IGUAZU",
     "country": "ARGENTINA"
   },
@@ -595,9 +595,9 @@
     "state": "PA",
     "latitude": -8.34835,
     "longitude": -49.301498,
-    "name": "CONCEIÇÃO DO ARAGUAIA",
-    "city": "CONCEIÇÃO DO ARAGUAIA",
-    "country": "BRASIL"
+    "name": "CONCEICAO DO ARAGUAIA",
+    "city": "CONCEICAO DO ARAGUAIA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBAE",
@@ -607,7 +607,7 @@
     "longitude": -49.06833,
     "name": "BAURU/AREALVA",
     "city": "AREALVA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBAQ",
@@ -615,9 +615,9 @@
     "state": "SP",
     "latitude": -21.812,
     "longitude": -48.132999,
-    "name": "BARTOLOMEU DE GUSMÃO",
+    "name": "BARTOLOMEU DE GUSMAO",
     "city": "ARARAQUARA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBAR",
@@ -627,7 +627,7 @@
     "longitude": -37.070301,
     "name": "SANTA MARIA",
     "city": "ARACAJU",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBAS",
@@ -637,7 +637,7 @@
     "longitude": -50.453056,
     "name": "MARCELO PIRES HALZHAUSEN",
     "city": "ASSIS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBAT",
@@ -647,7 +647,7 @@
     "longitude": -56.106298,
     "name": "DEPUTADO BENEDITO SANTIAGO",
     "city": "ALTA FLORESTA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBAU",
@@ -656,8 +656,8 @@
     "latitude": -21.141479,
     "longitude": -50.424575,
     "name": "ESTADUAL DARIO GUARITA",
-    "city": "ARAÇATUBA",
-    "country": "BRASIL"
+    "city": "ARACATUBA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBAX",
@@ -666,8 +666,8 @@
     "latitude": -19.563199996948,
     "longitude": -46.960399627686,
     "name": "ROMEU ZEMA",
-    "city": "ARAXÁ",
-    "country": "BRASIL"
+    "city": "ARAXA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBBE",
@@ -676,8 +676,8 @@
     "latitude": -1.3792500495900002,
     "longitude": -48.47629928590001,
     "name": "VAL DE CANS",
-    "city": "BELÉM",
-    "country": "BRASIL"
+    "city": "BELEM",
+    "country": "BRAZIL"
   },
   {
     "code": "SBBH",
@@ -687,7 +687,7 @@
     "longitude": -43.950599670410156,
     "name": "PAMPULHA - CARLOS DRUMMOND DE ANDRADE",
     "city": "BELO HORIZONTE",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBBQ",
@@ -697,7 +697,7 @@
     "longitude": -43.761101,
     "name": "MAJOR BRIGADEIRO DO AR DOORGAL GOMES",
     "city": "BARBACENA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBBR",
@@ -706,8 +706,8 @@
     "latitude": -15.869167,
     "longitude": -47.920834,
     "name": "PRESIDENTE JUSCELINO KUBITSCHEK",
-    "city": "BRASÍLIA",
-    "country": "BRASIL"
+    "city": "BRAZILIA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBBT",
@@ -717,7 +717,7 @@
     "longitude": -48.594100952148,
     "name": "CHAFEI AMSEI",
     "city": "BARRETOS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBBU",
@@ -727,7 +727,7 @@
     "longitude": -49.05379867550001,
     "name": "BAURU",
     "city": "BAURU",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBBV",
@@ -735,9 +735,9 @@
     "state": "RR",
     "latitude": 2.8413889408099995,
     "longitude": -60.69222259520001,
-    "name": "ATLAS BRASIL CANTANHEDE",
+    "name": "ATLAS BRAZIL CANTANHEDE",
     "city": "BOA VISTA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBBW",
@@ -745,9 +745,9 @@
     "state": "MT",
     "latitude": -15.8613004684,
     "longitude": -52.388900756800005,
-    "name": "BARRA DO GARÇAS",
-    "city": "BARRA DO GARÇAS",
-    "country": "BRASIL"
+    "name": "BARRA DO GARCAS",
+    "city": "BARRA DO GARCAS",
+    "country": "BRAZIL"
   },
   {
     "code": "SBCA",
@@ -757,7 +757,7 @@
     "longitude": -53.5008010864,
     "name": "ADALBERTO MENDES DA SILVA",
     "city": "CASCAVEL",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBCB",
@@ -767,7 +767,7 @@
     "longitude": -42.0742988586,
     "name": "CABO FRIO",
     "city": "CABO FRIO",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBCD",
@@ -776,8 +776,8 @@
     "latitude": -26.78840065,
     "longitude": -50.9398002625,
     "name": "CARLOS ALBERTO DA COSTA NEVES",
-    "city": "CAÇADOR",
-    "country": "BRASIL"
+    "city": "CACADOR",
+    "country": "BRAZIL"
   },
   {
     "code": "SBCF",
@@ -787,7 +787,7 @@
     "longitude": -43.97194290161133,
     "name": "TANCREDO NEVES",
     "city": "CONFINS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBCG",
@@ -797,7 +797,7 @@
     "longitude": -54.6725006104,
     "name": "CAMPO GRANDE",
     "city": "CAMPO GRANDE",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBCH",
@@ -806,8 +806,8 @@
     "latitude": -27.134199142456,
     "longitude": -52.656600952148,
     "name": "SERAFIN ENOSS BERTASO",
-    "city": "CHAPECÓ",
-    "country": "BRASIL"
+    "city": "CHAPECO",
+    "country": "BRAZIL"
   },
   {
     "code": "SBCJ",
@@ -815,9 +815,9 @@
     "state": "PA",
     "latitude": -6.11527776718,
     "longitude": -50.0013885498,
-    "name": "CARAJÁS",
+    "name": "CARAJAS",
     "city": "PARAUAPEBAS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBCM",
@@ -825,9 +825,9 @@
     "state": "SC",
     "latitude": -28.724443435700003,
     "longitude": -49.4213905334,
-    "name": "DIOMÍCIO FREITAS",
+    "name": "DIOMICIO FREITAS",
     "city": "FORQUILHINHA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBCN",
@@ -835,9 +835,9 @@
     "state": "GO",
     "latitude": -17.725299835205,
     "longitude": -48.607498168945,
-    "name": "NELSON RODRIGUES GUIMARÃES",
+    "name": "NELSON RODRIGUES GUIMARAES",
     "city": "CALDAS NOVAS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBCP",
@@ -847,7 +847,7 @@
     "longitude": -41.301700591999996,
     "name": "BARTOLOMEU LISANDRO",
     "city": "CAMPOS DOS GOYTACAZES",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBCR",
@@ -855,9 +855,9 @@
     "state": "MS",
     "latitude": -19.0119438171,
     "longitude": -57.6713905334,
-    "name": "CORUMBÁ",
-    "city": "CORUMBÁ",
-    "country": "BRASIL"
+    "name": "CORUMBA",
+    "city": "CORUMBA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBCT",
@@ -866,8 +866,8 @@
     "latitude": -25.5284996033,
     "longitude": -49.175800323500006,
     "name": "AFONSO PENA",
-    "city": "SÃO JOSÉ DOS PINHAIS",
-    "country": "BRASIL"
+    "city": "SAO JOSE DOS PINHAIS",
+    "country": "BRAZIL"
   },
   {
     "code": "SBCX",
@@ -877,7 +877,7 @@
     "longitude": -51.1875,
     "name": "REGIONAL HUGO CANTERGIANI",
     "city": "CAXIAS DO SUL",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBCY",
@@ -886,8 +886,8 @@
     "latitude": -15.6528997421,
     "longitude": -56.1166992188,
     "name": "MARECHAL RONDON",
-    "city": "VÁRZEA GRANDE",
-    "country": "BRASIL"
+    "city": "VARZEA GRANDE",
+    "country": "BRAZIL"
   },
   {
     "code": "SBCZ",
@@ -897,7 +897,7 @@
     "longitude": -72.769501,
     "name": "CRUZEIRO DO SUL",
     "city": "CRUZEIRO DO SUL",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBDB",
@@ -907,7 +907,7 @@
     "longitude": -56.4525,
     "name": "BONITO",
     "city": "BONITO",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBDN",
@@ -917,7 +917,7 @@
     "longitude": -51.4245986938,
     "name": "PRESIDENTE PRUDENTE",
     "city": "PRESIDENTE PRUDENTE",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBDO",
@@ -927,7 +927,7 @@
     "longitude": -54.926601,
     "name": "AEROPORTO MUNCIPAL DE DOURADOS",
     "city": "DOURADOS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBEG",
@@ -937,7 +937,7 @@
     "longitude": -60.049702,
     "name": "EDUARDO GOMES",
     "city": "MANAUS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBFC",
@@ -946,8 +946,8 @@
     "latitude": -20.592222,
     "longitude": -47.383056,
     "name": "TENENTE LUND PRESETTO",
-    "city": "FRANCA",
-    "country": "BRASIL"
+    "city": "FRANCE",
+    "country": "BRAZIL"
   },
   {
     "code": "SBFI",
@@ -956,8 +956,8 @@
     "latitude": -25.60027885437012,
     "longitude": -54.48500061035156,
     "name": "CATARATAS",
-    "city": "FOZ DO IGUAÇU",
-    "country": "BRASIL"
+    "city": "FOZ DO IGUACU",
+    "country": "BRAZIL"
   },
   {
     "code": "SBFL",
@@ -965,9 +965,9 @@
     "state": "SC",
     "latitude": -27.670278549194336,
     "longitude": -48.5525016784668,
-    "name": "HERCÍLIO LUZ",
-    "city": "FLORIANÓPOLIS",
-    "country": "BRASIL"
+    "name": "HERCILIO LUZ",
+    "city": "FLORIANOPOLIS",
+    "country": "BRAZIL"
   },
   {
     "code": "SBFN",
@@ -977,7 +977,7 @@
     "longitude": -32.423302,
     "name": "FERNANDO DE NORONHA",
     "city": "FERNANDO DE NORONHA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBFZ",
@@ -987,7 +987,7 @@
     "longitude": -38.53260040283203,
     "name": "PINTO MARTINS",
     "city": "FORTALEZA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBGL",
@@ -995,9 +995,9 @@
     "state": "RJ",
     "latitude": -22.809999465900002,
     "longitude": -43.2505569458,
-    "name": "AEROPORTO INTERNACIONAL DO RIO DE JANEIRO/GALEÃO – ANTONIO CARLOS JOBIM",
+    "name": "AEROPORTO INTERNACIONAL DO RIO DE JANEIRO/GALEAO – ANTONIO CARLOS JOBIM",
     "city": "RIO DE JANEIRO",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBGM",
@@ -1005,9 +1005,9 @@
     "state": "RO",
     "latitude": -10.786399841308594,
     "longitude": -65.28479766845703,
-    "name": "GUAJARÁ-MIRIM",
-    "city": "GUAJARÁ-MIRIM",
-    "country": "BRASIL"
+    "name": "GUAJARA-MIRIM",
+    "city": "GUAJARA-MIRIM",
+    "country": "BRAZIL"
   },
   {
     "code": "SBGO",
@@ -1016,8 +1016,8 @@
     "latitude": -16.631999969482422,
     "longitude": -49.22069931030274,
     "name": "SANTA GENOVEVA",
-    "city": "GOIÂNIA",
-    "country": "BRASIL"
+    "city": "GOIANIA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBGR",
@@ -1025,9 +1025,9 @@
     "state": "SP",
     "latitude": -23.435556411743164,
     "longitude": -46.47305679321289,
-    "name": "GUARULHOS - GOVERNADOR ANDRÉ FRANCO MONTORO",
+    "name": "GUARULHOS - GOVERNADOR ANDRE FRANCO MONTORO",
     "city": "GUARULHOS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBGV",
@@ -1037,7 +1037,7 @@
     "longitude": -41.982200622559,
     "name": "CORONEL ALTINO MACHADO",
     "city": "GOVERNADOR VALADARES",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBHT",
@@ -1047,7 +1047,7 @@
     "longitude": -52.254001617432,
     "name": "ALTAMIRA",
     "city": "ALTAMIRA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBIH",
@@ -1057,7 +1057,7 @@
     "longitude": -56.000701904296996,
     "name": "ITAITUBA",
     "city": "ITAITUBA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBIL",
@@ -1066,8 +1066,8 @@
     "latitude": -14.815999984741001,
     "longitude": -39.033199310303004,
     "name": "BAHIA - JORGE AMADO",
-    "city": "ILHÉUS",
-    "country": "BRASIL"
+    "city": "ILHEUS",
+    "country": "BRAZIL"
   },
   {
     "code": "SBIP",
@@ -1076,8 +1076,8 @@
     "latitude": -19.470699310302997,
     "longitude": -42.487598419189,
     "name": "USIMINAS",
-    "city": "SANTANA DO PARAÍSO",
-    "country": "BRASIL"
+    "city": "SANTANA DO PARAISO",
+    "country": "BRAZIL"
   },
   {
     "code": "SBIZ",
@@ -1087,7 +1087,7 @@
     "longitude": -47.459999,
     "name": "PREFEITO RENATO MOREIRA",
     "city": "IMPERATRIZ",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBJA",
@@ -1097,7 +1097,7 @@
     "longitude": -49.0596,
     "name": "REGIONAL SUL",
     "city": "JAGUARUNA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBJE",
@@ -1107,7 +1107,7 @@
     "longitude": -40.357338,
     "name": "COMTE. ARISTON PESSOA REGIONAL AIRPORT",
     "city": "CRUZ",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBJF",
@@ -1117,7 +1117,7 @@
     "longitude": -43.38679885864258,
     "name": "FRANCISCO DE ASSIS",
     "city": "JUIZ DE FORA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBJI",
@@ -1125,9 +1125,9 @@
     "state": "RO",
     "latitude": -10.870800018299999,
     "longitude": -61.8465003967,
-    "name": "JI-PARANÁ",
-    "city": "JI-PARANÁ",
-    "country": "BRASIL"
+    "name": "JI-PARANA",
+    "city": "JI-PARANA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBJP",
@@ -1137,7 +1137,7 @@
     "longitude": -34.9486122131,
     "name": "PRESIDENTE CASTRO PINTO",
     "city": "BAYEUX",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBJR",
@@ -1145,9 +1145,9 @@
     "state": "RJ",
     "latitude": -22.986773,
     "longitude": -43.372194,
-    "name": "JACAREPAGUÁ/RJ - ROBERTO MARINHO",
+    "name": "JACAREPAGUA/RJ - ROBERTO MARINHO",
     "city": "RIO DE JANEIRO",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBJU",
@@ -1157,7 +1157,7 @@
     "longitude": -39.270099639899996,
     "name": "ORLANDO BEZERRA DE MENEZES",
     "city": "JUAZEIRO DO NORTE",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBJV",
@@ -1167,7 +1167,7 @@
     "longitude": -48.797401428222656,
     "name": "LAURO CARNEIRO DE LOYOLA",
     "city": "JOINVILLE",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBKG",
@@ -1175,9 +1175,9 @@
     "state": "PB",
     "latitude": -7.26992,
     "longitude": -35.8964,
-    "name": "PRESIDENTE JOÃO SUASSUNA",
+    "name": "PRESIDENTE JOAO SUASSUNA",
     "city": "CAMPINA GRANDE",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBKP",
@@ -1187,7 +1187,7 @@
     "longitude": -47.1344985962,
     "name": "VIRACOPOS",
     "city": "CAMPINAS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBLE",
@@ -1195,9 +1195,9 @@
     "state": "BA",
     "latitude": -12.4822998047,
     "longitude": -41.2770004272,
-    "name": "HORÁCIO DE MATTOS",
-    "city": "LENÇÓIS",
-    "country": "BRASIL"
+    "name": "HORACIO DE MATTOS",
+    "city": "LENCOIS",
+    "country": "BRAZIL"
   },
   {
     "code": "SBLJ",
@@ -1207,7 +1207,7 @@
     "longitude": -50.28150177,
     "name": "CORREIA PINTO",
     "city": "LAGES",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBLO",
@@ -1215,9 +1215,9 @@
     "state": "PR",
     "latitude": -23.3335990906,
     "longitude": -51.1301002502,
-    "name": "GOVERNADOR JOSÉ RICHA",
+    "name": "GOVERNADOR JOSE RICHA",
     "city": "LONDRINA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBLP",
@@ -1227,7 +1227,7 @@
     "longitude": -43.4081001282,
     "name": "BOM JESUS DA LAPA",
     "city": "BOM JESUS DA LAPA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBMA",
@@ -1235,9 +1235,9 @@
     "state": "PA",
     "latitude": -5.36858987808,
     "longitude": -49.1380004883,
-    "name": "MARABÁ",
-    "city": "MARABÁ",
-    "country": "BRASIL"
+    "name": "MARABA",
+    "city": "MARABA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBMC",
@@ -1245,9 +1245,9 @@
     "state": "GO",
     "latitude": -13.5491,
     "longitude": -48.195301,
-    "name": "MINAÇU",
-    "city": "MINAÇU",
-    "country": "BRASIL"
+    "name": "MINACU",
+    "city": "MINACU",
+    "country": "BRAZIL"
   },
   {
     "code": "SBMD",
@@ -1257,7 +1257,7 @@
     "longitude": -52.6022,
     "name": "MONTE DOURADO",
     "city": "ALMEIRIM",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBME",
@@ -1265,9 +1265,9 @@
     "state": "RJ",
     "latitude": -22.343000412,
     "longitude": -41.7659988403,
-    "name": "MACAÉ",
-    "city": "MACAÉ",
-    "country": "BRASIL"
+    "name": "MACAE",
+    "city": "MACAE",
+    "country": "BRAZIL"
   },
   {
     "code": "SBMG",
@@ -1275,9 +1275,9 @@
     "state": "PR",
     "latitude": -23.479444,
     "longitude": -52.012222,
-    "name": "REGIONAL DE MARINGÁ - SÍLVIO NAME JÚNIOR",
-    "city": "MARINGÁ",
-    "country": "BRASIL"
+    "name": "REGIONAL DE MARINGA - SILVIO NAME JUNIOR",
+    "city": "MARINGA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBMG",
@@ -1285,9 +1285,9 @@
     "state": "PR",
     "latitude": -23.47606,
     "longitude": -52.016187,
-    "name": "REGIONAL DE MARINGÁ - SÍLVIO NAME JÚNIOR",
-    "city": "MARINGÁ",
-    "country": "BRASIL"
+    "name": "REGIONAL DE MARINGA - SILVIO NAME JUNIOR",
+    "city": "MARINGA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBMH",
@@ -1295,9 +1295,9 @@
     "state": "PR",
     "latitude": -23.479444,
     "longitude": -52.012222,
-    "name": "MARINGÁ",
-    "city": "MARINGÁ",
-    "country": "BRASIL"
+    "name": "MARINGA",
+    "city": "MARINGA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBMK",
@@ -1305,9 +1305,9 @@
     "state": "MG",
     "latitude": -16.706899642899998,
     "longitude": -43.818901061999995,
-    "name": "MÁRIO RIBEIRO",
+    "name": "MARIO RIBEIRO",
     "city": "MONTES CLAROS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBML",
@@ -1316,8 +1316,8 @@
     "latitude": -22.1968994141,
     "longitude": -49.926399231000005,
     "name": "FRANK MILOYE MILENKOVICH",
-    "city": "MARÍLIA",
-    "country": "BRASIL"
+    "city": "MARILIA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBMO",
@@ -1327,7 +1327,7 @@
     "longitude": -35.79169845581055,
     "name": "ZUMBI DOS PALMARES",
     "city": "RIO LARGO",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBMQ",
@@ -1335,9 +1335,9 @@
     "state": "AP",
     "latitude": 0.0506640002131,
     "longitude": -51.0722007751,
-    "name": "MACAPÁ",
-    "city": "MACAPÁ",
-    "country": "BRASIL"
+    "name": "MACAPA",
+    "city": "MACAPA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBMS",
@@ -1346,8 +1346,8 @@
     "latitude": -5.2019200325,
     "longitude": -37.3642997742,
     "name": "DIX-SEPT ROSADO",
-    "city": "MOSSORÓ",
-    "country": "BRASIL"
+    "city": "MOSSORO",
+    "country": "BRAZIL"
   },
   {
     "code": "SBMY",
@@ -1355,9 +1355,9 @@
     "state": "AM",
     "latitude": -5.8113799095154,
     "longitude": -61.278301239014,
-    "name": "MANICORÉ",
-    "city": "MANICORÉ",
-    "country": "BRASIL"
+    "name": "MANICORE",
+    "city": "MANICORE",
+    "country": "BRAZIL"
   },
   {
     "code": "SBNF",
@@ -1367,7 +1367,7 @@
     "longitude": -48.651402,
     "name": "MINISTRO VICTOR KONDER",
     "city": "NAVEGANTES",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBNM",
@@ -1375,9 +1375,9 @@
     "state": "RS",
     "latitude": -28.2817,
     "longitude": -54.169102,
-    "name": "SANTO ÂNGELO",
-    "city": "SANTO ÂNGELO",
-    "country": "BRASIL"
+    "name": "SANTO ANGELO",
+    "city": "SANTO ANGELO",
+    "country": "BRAZIL"
   },
   {
     "code": "SBNT",
@@ -1387,7 +1387,7 @@
     "longitude": -35.2477,
     "name": "AUGUSTO SEVERO",
     "city": "PARNAMIRIM",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBOI",
@@ -1397,7 +1397,7 @@
     "longitude": -51.79690170288086,
     "name": "OIAPOQUE",
     "city": "OIAPOQUE",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBPA",
@@ -1407,7 +1407,7 @@
     "longitude": -51.1713981628418,
     "name": "SALGADO FILHO",
     "city": "PORTO ALEGRE",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBPB",
@@ -1415,9 +1415,9 @@
     "state": "PI",
     "latitude": -2.89374995232,
     "longitude": -41.73199844359999,
-    "name": "PREFEITO DOUTOR JOÃO SILVA FILHO",
-    "city": "PARNAÍBA",
-    "country": "BRASIL"
+    "name": "PREFEITO DOUTOR JOAO SILVA FILHO",
+    "city": "PARNAIBA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBPF",
@@ -1427,7 +1427,7 @@
     "longitude": -52.326599,
     "name": "LAURO KURTZ",
     "city": "PASSO FUNDO",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBPJ",
@@ -1437,7 +1437,7 @@
     "longitude": -48.3569984436,
     "name": "BRIGADEIRO LYSIAS RODRIGUES",
     "city": "PALMAS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBPK",
@@ -1447,7 +1447,7 @@
     "longitude": -52.327702,
     "name": "PELOTAS",
     "city": "PELOTAS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBPL",
@@ -1457,7 +1457,7 @@
     "longitude": -40.56909942626953,
     "name": "SENADOR NILO COELHO",
     "city": "PETROLINA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBPM",
@@ -1467,7 +1467,7 @@
     "longitude": -48.357778,
     "name": "PALMAS",
     "city": "PALMAS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBPP",
@@ -1475,9 +1475,9 @@
     "state": "MS",
     "latitude": -22.54960060119629,
     "longitude": -55.702598571777344,
-    "name": "PONTA PORÃ",
-    "city": "PONTA PORÃ",
-    "country": "BRASIL"
+    "name": "PONTA PORA",
+    "city": "PONTA PORA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBPS",
@@ -1487,7 +1487,7 @@
     "longitude": -39.080898,
     "name": "PORTO SEGURO",
     "city": "PORTO SEGURO",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBPV",
@@ -1497,7 +1497,7 @@
     "longitude": -63.90230178833008,
     "name": "GOVERNADOR JORGE TEIXEIRA DE OLIVEIRA",
     "city": "PORTO VELHO",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBQV",
@@ -1505,9 +1505,9 @@
     "state": "BA",
     "latitude": -14.8628,
     "longitude": -40.863098,
-    "name": "VITÓRIA DA CONQUISTA",
-    "city": "VITÓRIA DA CONQUISTA",
-    "country": "BRASIL"
+    "name": "VITORIA DA CONQUISTA",
+    "city": "VITORIA DA CONQUISTA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBRB",
@@ -1515,9 +1515,9 @@
     "state": "AC",
     "latitude": -9.869031,
     "longitude": -67.893984,
-    "name": "PLÁCIDO DE CASTRO",
+    "name": "PLACIDO DE CASTRO",
     "city": "SENA MADUREIRA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBRD",
@@ -1525,9 +1525,9 @@
     "state": "MT",
     "latitude": -16.586,
     "longitude": -54.7248,
-    "name": "RONDONÓPOLIS",
-    "city": "RONDONÓPOLIS",
-    "country": "BRASIL"
+    "name": "RONDONOPOLIS",
+    "city": "RONDONOPOLIS",
+    "country": "BRAZIL"
   },
   {
     "code": "SBRF",
@@ -1537,7 +1537,7 @@
     "longitude": -34.923599243164055,
     "name": "GUARARAPES - GILBERTO FREYRE",
     "city": "RECIFE",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBRG",
@@ -1547,7 +1547,7 @@
     "longitude": -52.163333,
     "name": "RIO GRANDE",
     "city": "RIO GRANDE",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBRJ",
@@ -1557,7 +1557,7 @@
     "longitude": -43.1631011963,
     "name": "SANTOS DUMONT",
     "city": "RIO DE JANEIRO",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBRP",
@@ -1566,8 +1566,8 @@
     "latitude": -21.136388778686523,
     "longitude": -47.77666854858398,
     "name": "LEITE LOPES",
-    "city": "RIBEIRÃO PRETO",
-    "country": "BRASIL"
+    "city": "RIBEIRAO PRETO",
+    "country": "BRAZIL"
   },
   {
     "code": "SBSG",
@@ -1575,9 +1575,9 @@
     "state": "RN",
     "latitude": -5.768056,
     "longitude": -35.376111,
-    "name": "SÃO GONÇALO DO AMARANTE",
-    "city": "SÃO GONÇALO DO AMARANTE",
-    "country": "BRASIL"
+    "name": "SAO GONCALO DO AMARANTE",
+    "city": "SAO GONCALO DO AMARANTE",
+    "country": "BRAZIL"
   },
   {
     "code": "SBSI",
@@ -1587,7 +1587,7 @@
     "longitude": -55.58610899999999,
     "name": "PRESIDENTE JOAO FIGUEIREDO AIRPORT",
     "city": "SINOP",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBSJ",
@@ -1596,8 +1596,8 @@
     "latitude": -23.22920036315918,
     "longitude": -45.86149978637695,
     "name": "PROFESSOR URBANO ERNESTO STUMPF",
-    "city": "SÃO JOSÉ DOS CAMPOS",
-    "country": "BRASIL"
+    "city": "SAO JOSE DOS CAMPOS",
+    "country": "BRAZIL"
   },
   {
     "code": "SBSL",
@@ -1606,8 +1606,8 @@
     "latitude": -2.585360050201416,
     "longitude": -44.23410034179688,
     "name": "MARECHAL CUNHA MACHADO",
-    "city": "SÃO LUÍS",
-    "country": "BRASIL"
+    "city": "SAO LUIS",
+    "country": "BRAZIL"
   },
   {
     "code": "SBSM",
@@ -1617,7 +1617,7 @@
     "longitude": -53.688202,
     "name": "SANTA MARIA",
     "city": "SANTA MARIA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBSN",
@@ -1626,8 +1626,8 @@
     "latitude": -2.4247219562530518,
     "longitude": -54.78583145141602,
     "name": "MAESTRO WILSON FONSECA",
-    "city": "SANTARÉM",
-    "country": "BRASIL"
+    "city": "SANTAREM",
+    "country": "BRAZIL"
   },
   {
     "code": "SBSO",
@@ -1637,7 +1637,7 @@
     "longitude": -55.672341,
     "name": "SORRISO AIRPORT",
     "city": "SORRISO",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBSP",
@@ -1646,8 +1646,8 @@
     "latitude": -23.626110076904297,
     "longitude": -46.65638732910156,
     "name": "CONGONHAS",
-    "city": "SÃO PAULO",
-    "country": "BRASIL"
+    "city": "SAO PAULO",
+    "country": "BRAZIL"
   },
   {
     "code": "SBSR",
@@ -1656,8 +1656,8 @@
     "latitude": -20.8166007996,
     "longitude": -49.40650177,
     "name": "PROFESSOR ERIBERTO MANOEL REINO",
-    "city": "SÃO JOSÉ DO RIO PRETO",
-    "country": "BRASIL"
+    "city": "SAO JOSE DO RIO PRETO",
+    "country": "BRAZIL"
   },
   {
     "code": "SBSV",
@@ -1665,9 +1665,9 @@
     "state": "BA",
     "latitude": -12.9086112976,
     "longitude": -38.3224983215,
-    "name": "DEPUTADO LUÍS EDUARDO MAGALHÃES",
+    "name": "DEPUTADO LUIS EDUARDO MAGALHAES",
     "city": "SALVADOR",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBTB",
@@ -1676,8 +1676,8 @@
     "latitude": -1.489599943161,
     "longitude": -56.396800994873,
     "name": "TROMBETAS",
-    "city": "ORIXIMINÁ",
-    "country": "BRASIL"
+    "city": "ORIXIMINA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBTC",
@@ -1685,9 +1685,9 @@
     "state": "BA",
     "latitude": -15.3551998138,
     "longitude": -38.9990005493,
-    "name": "HOTEL TRANSAMÉRICA",
+    "name": "HOTEL TRANSAMERICA",
     "city": "UNA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBTD",
@@ -1695,9 +1695,9 @@
     "state": "PR",
     "latitude": -24.6863,
     "longitude": -53.697498,
-    "name": "LUÍS DAL CANALLE FILHO",
+    "name": "LUIS DAL CANALLE FILHO",
     "city": "TOLEDO",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBTE",
@@ -1705,9 +1705,9 @@
     "state": "PI",
     "latitude": -5.0599398613,
     "longitude": -42.8235015869,
-    "name": "SENADOR PETRÔNIO PORTELLA",
+    "name": "SENADOR PETRONIO PORTELLA",
     "city": "TERESINA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBTF",
@@ -1715,9 +1715,9 @@
     "state": "AM",
     "latitude": -3.38294005394,
     "longitude": -64.7240982056,
-    "name": "TEFÉ",
-    "city": "TEFÉ",
-    "country": "BRASIL"
+    "name": "TEFE",
+    "city": "TEFE",
+    "country": "BRAZIL"
   },
   {
     "code": "SBTG",
@@ -1725,9 +1725,9 @@
     "state": "MS",
     "latitude": -20.754199981689,
     "longitude": -51.68420028686499,
-    "name": "AEROPORTO REGIONAL PLÍNIO ALARCON",
-    "city": "TRÊS LAGOAS",
-    "country": "BRASIL"
+    "name": "AEROPORTO REGIONAL PLINIO ALARCON",
+    "city": "TRES LAGOAS",
+    "country": "BRAZIL"
   },
   {
     "code": "SBTK",
@@ -1735,9 +1735,9 @@
     "state": "AC",
     "latitude": -8.1552600860596,
     "longitude": -70.783302307129,
-    "name": "TARAUACÁ",
-    "city": "TARAUACÁ",
-    "country": "BRASIL"
+    "name": "TARAUACA",
+    "city": "TARAUACA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBTT",
@@ -1747,7 +1747,7 @@
     "longitude": -69.93579864502,
     "name": "TABATINGA",
     "city": "TABATINGA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBTU",
@@ -1755,9 +1755,9 @@
     "state": "PA",
     "latitude": -3.7860100269318,
     "longitude": -49.72029876709001,
-    "name": "TUCURUÍ",
-    "city": "TUCURUÍ",
-    "country": "BRASIL"
+    "name": "TUCURUI",
+    "city": "TUCURUI",
+    "country": "BRAZIL"
   },
   {
     "code": "SBUA",
@@ -1765,9 +1765,9 @@
     "state": "AM",
     "latitude": -0.14835,
     "longitude": -66.9855,
-    "name": "SÃO GABRIEL DA CACHOEIRA",
-    "city": "SÃO GABRIEL DA CACHOEIRA",
-    "country": "BRASIL"
+    "name": "SAO GABRIEL DA CACHOEIRA",
+    "city": "SAO GABRIEL DA CACHOEIRA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBUF",
@@ -1777,7 +1777,7 @@
     "longitude": -38.250598907471,
     "name": "PAULO AFONSO",
     "city": "PAULO AFONSO",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBUG",
@@ -1787,7 +1787,7 @@
     "longitude": -57.0382003784,
     "name": "RUBEM BERTA",
     "city": "URUGUAIANA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBUL",
@@ -1795,9 +1795,9 @@
     "state": "MG",
     "latitude": -18.883612,
     "longitude": -48.225277,
-    "name": "TENENTE-CORONEL AVIADOR CÉSAR BOMBONATO",
-    "city": "UBERLÂNDIA",
-    "country": "BRASIL"
+    "name": "TENENTE-CORONEL AVIADOR CESAR BOMBONATO",
+    "city": "UBERLANDIA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBUR",
@@ -1805,9 +1805,9 @@
     "state": "MG",
     "latitude": -19.764722824097,
     "longitude": -47.966110229491996,
-    "name": "MÁRIO DE ALMEIDA FRANCO",
+    "name": "MARIO DE ALMEIDA FRANCO",
     "city": "UBERABA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBUY",
@@ -1817,7 +1817,7 @@
     "longitude": -65.3554000854,
     "name": "URUCU",
     "city": "COARI",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBVC",
@@ -1827,7 +1827,7 @@
     "longitude": -40.914804,
     "name": "GLAUBER ROCHA AIRPORT",
     "city": "VITORIA DA CONQUISTA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBVG",
@@ -1837,7 +1837,7 @@
     "longitude": -45.473300933800004,
     "name": "MAJOR BRIGADEIRO TROMPOWSKY",
     "city": "VARGINHA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBVH",
@@ -1845,9 +1845,9 @@
     "state": "RO",
     "latitude": -12.694399833678998,
     "longitude": -60.098300933838,
-    "name": "BRIGADEIRO CAMARÃO",
+    "name": "BRIGADEIRO CAMARAO",
     "city": "VILHENA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SBVT",
@@ -1856,8 +1856,8 @@
     "latitude": -20.258057,
     "longitude": -40.286388,
     "name": "EURICO DE AGUIAR SALLES",
-    "city": "VITÓRIA",
-    "country": "BRASIL"
+    "city": "VITORIA",
+    "country": "BRAZIL"
   },
   {
     "code": "SBZM",
@@ -1866,8 +1866,8 @@
     "latitude": -21.513086,
     "longitude": -43.173069,
     "name": "REGIONAL DA ZONA DA MATA",
-    "city": "GOIANÁ",
-    "country": "BRASIL"
+    "city": "GOIANA",
+    "country": "BRAZIL"
   },
   {
     "code": "SCDA",
@@ -1885,7 +1885,7 @@
     "state": "",
     "latitude": -33.39300156,
     "longitude": -70.78579712,
-    "name": "COMODORO ARTURO MERINO BENÃTEZ INTERNATIONAL AIRPORT",
+    "name": "COMODORO ARTURO MERINO BENATEZ INTERNATIONAL AIRPORT",
     "city": "SANTIAGO DO CHILE",
     "country": "CHILE"
   },
@@ -1897,7 +1897,7 @@
     "longitude": -47.10820007324219,
     "name": "AMARAIS",
     "city": "CAMPINAS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SDCG",
@@ -1906,8 +1906,8 @@
     "latitude": -3.46792950765,
     "longitude": -68.9204120636,
     "name": "SENADORA EUNICE MICHILES",
-    "city": "SÃO PAULO DE OLIVENÇA",
-    "country": "BRASIL"
+    "city": "SAO PAULO DE OLIVENCA",
+    "country": "BRAZIL"
   },
   {
     "code": "SDCO",
@@ -1917,7 +1917,7 @@
     "longitude": -47.490002,
     "name": "SOROCABA",
     "city": "SOROCABA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SDOW",
@@ -1925,9 +1925,9 @@
     "state": "PA",
     "latitude": -6.763100147250001,
     "longitude": -51.0499000549,
-    "name": "OURILÂNDIA DO NORTE",
-    "city": "OURILÂNDIA DO NORTE",
-    "country": "BRASIL"
+    "name": "OURILANDIA DO NORTE",
+    "city": "OURILANDIA DO NORTE",
+    "country": "BRAZIL"
   },
   {
     "code": "SDRS",
@@ -1937,7 +1937,7 @@
     "longitude": -44.4803009033,
     "name": "RESENDE",
     "city": "RESENDE",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SDSC",
@@ -1945,9 +1945,9 @@
     "state": "SP",
     "latitude": -21.875401,
     "longitude": -47.903703,
-    "name": "MÁRIO PEREIRA LOPES",
-    "city": "SÃO CARLOS",
-    "country": "BRASIL"
+    "name": "MARIO PEREIRA LOPES",
+    "city": "SAO CARLOS",
+    "country": "BRAZIL"
   },
   {
     "code": "SEGU",
@@ -2007,7 +2007,7 @@
     "longitude": -55.95025,
     "name": "LUCAS DO RIO VERDE",
     "city": "LUCAS DO RIO VERDE",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SIMK",
@@ -2016,8 +2016,8 @@
     "latitude": -20.592199,
     "longitude": -47.3829,
     "name": "TENENTE LUND PRESETTO",
-    "city": "FRANCA",
-    "country": "BRASIL"
+    "city": "FRANCE",
+    "country": "BRAZIL"
   },
   {
     "code": "SIZX",
@@ -2027,7 +2027,7 @@
     "longitude": -57.5495,
     "name": "JUARA SUL",
     "city": "JUARA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SJHG",
@@ -2037,7 +2037,7 @@
     "longitude": -51.5635986328125,
     "name": "CONFRESA",
     "city": "CONFRESA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SJNP",
@@ -2047,7 +2047,7 @@
     "longitude": -55.400833,
     "name": "NOVO PROGRESSO",
     "city": "NOVO PROGRESSO",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SJRG",
@@ -2057,7 +2057,7 @@
     "longitude": -52.167184000000006,
     "name": "RIO GRANDE",
     "city": "RIO GRANDE",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SJTC",
@@ -2067,7 +2067,7 @@
     "longitude": -49.0502866745,
     "name": "MOUSSA NAKHL TOBIAS",
     "city": "AREALVA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SKBO",
@@ -2085,7 +2085,7 @@
     "state": "",
     "latitude": 6.1645400000000015,
     "longitude": -75.4231,
-    "name": "JOSÃ‰ MARÃA CÃ“RDOVA INTERNATIONAL AIRPORT",
+    "name": "JOSA‰ MARAA CA“RDOVA INTERNATIONAL AIRPORT",
     "city": "RIO NEGRO/JOSE MARIA CORDOV",
     "country": "COLOMBIA"
   },
@@ -2115,7 +2115,7 @@
     "state": "",
     "latitude": 5.4528298379999995,
     "longitude": -55.18780136,
-    "name": "JOHAN ADOLF PENGEL INTERNATIONAL AIRPORT (ZANDERIJ INTÂ´L)",
+    "name": "JOHAN ADOLF PENGEL INTERNATIONAL AIRPORT (ZANDERIJ INTA´L)",
     "city": "ZANDERY",
     "country": "SURINAME"
   },
@@ -2127,7 +2127,7 @@
     "longitude": -44.81999969482422,
     "name": "BACABAL",
     "city": "BACABAL",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SNBR",
@@ -2137,7 +2137,7 @@
     "longitude": -45.00899887084961,
     "name": "BARREIRAS",
     "city": "BARREIRAS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SNBS",
@@ -2147,7 +2147,7 @@
     "longitude": -46.05329895019531,
     "name": "BALSAS",
     "city": "BALSAS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SNDB",
@@ -2155,9 +2155,9 @@
     "state": "PA",
     "latitude": -4.0855560302734375,
     "longitude": -54.91083145141602,
-    "name": "RURÓPOLIS",
-    "city": "RURÓPOLIS",
-    "country": "BRASIL"
+    "name": "RUROPOLIS",
+    "city": "RUROPOLIS",
+    "country": "BRAZIL"
   },
   {
     "code": "SNDC",
@@ -2165,9 +2165,9 @@
     "state": "PA",
     "latitude": -8.033289909362793,
     "longitude": -49.97990036010742,
-    "name": "REDENÇÃO",
-    "city": "REDENÇÃO",
-    "country": "BRASIL"
+    "name": "REDENCAO",
+    "city": "REDENCAO",
+    "country": "BRAZIL"
   },
   {
     "code": "SNDM",
@@ -2176,8 +2176,8 @@
     "latitude": -23.4404,
     "longitude": -46.4352,
     "name": "CHAPADA DIAMANTINA",
-    "city": "LENÇÓIS",
-    "country": "BRASIL"
+    "city": "LENCOIS",
+    "country": "BRAZIL"
   },
   {
     "code": "SNDT",
@@ -2187,7 +2187,7 @@
     "longitude": -43.650398254399995,
     "name": "DIAMANTINA",
     "city": "DIAMANTINA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SNDV",
@@ -2196,8 +2196,8 @@
     "latitude": -20.180700302124,
     "longitude": -44.870899200439,
     "name": "BRIGADEIRO CABRAL",
-    "city": "DIVINÓPOLIS",
-    "country": "BRASIL"
+    "city": "DIVINOPOLIS",
+    "country": "BRAZIL"
   },
   {
     "code": "SNFX",
@@ -2205,9 +2205,9 @@
     "state": "PA",
     "latitude": -6.6413,
     "longitude": -51.9523,
-    "name": "SÃO FÉLIX DO XINGU",
-    "city": "SÃO FÉLIX DO XINGU",
-    "country": "BRASIL"
+    "name": "SAO FELIX DO XINGU",
+    "city": "SAO FELIX DO XINGU",
+    "country": "BRAZIL"
   },
   {
     "code": "SNGI",
@@ -2217,7 +2217,7 @@
     "longitude": -42.74610137939453,
     "name": "GUANAMBI",
     "city": "GUANAMBI",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SNGV",
@@ -2227,7 +2227,7 @@
     "longitude": -52.38028,
     "name": "GOVERNADOR VALADARES",
     "city": "GOVERNADOR VALADARES",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SNIG",
@@ -2237,7 +2237,7 @@
     "longitude": -39.293800354003906,
     "name": "IGUATU",
     "city": "IGUATU",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SNJR",
@@ -2245,9 +2245,9 @@
     "state": "MG",
     "latitude": -21.0849990845,
     "longitude": -44.2247238159,
-    "name": "SÃO JOÃO DEL REI",
-    "city": "SÃO JOÃO DEL REI",
-    "country": "BRASIL"
+    "name": "SAO JOAO DEL REI",
+    "city": "SAO JOAO DEL REI",
+    "country": "BRAZIL"
   },
   {
     "code": "SNKE",
@@ -2257,7 +2257,7 @@
     "longitude": -50.32849884033203,
     "name": "SANTANA DO ARAGUAIA",
     "city": "SANTANA DO ARAGUAIA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SNMA",
@@ -2267,7 +2267,7 @@
     "longitude": -54.07419967651367,
     "name": "MONTE ALEGRE",
     "city": "MONTE ALEGRE",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SNMU",
@@ -2277,7 +2277,7 @@
     "longitude": -39.864200592041016,
     "name": "MUCURI",
     "city": "MUCURI",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SNMZ",
@@ -2287,7 +2287,7 @@
     "longitude": -52.23609924316406,
     "name": "PORTO DE MOZ",
     "city": "PORTO DE MOZ",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SNNG",
@@ -2297,7 +2297,7 @@
     "longitude": -55.400833,
     "name": "PROGRESSO",
     "city": "NOVO PROGRESSO",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SNOX",
@@ -2305,9 +2305,9 @@
     "state": "PA",
     "latitude": -1.7140799760818481,
     "longitude": -55.83620071411133,
-    "name": "ORIXIMINÁ",
-    "city": "ORIXIMINÁ",
-    "country": "BRASIL"
+    "name": "ORIXIMINA",
+    "city": "ORIXIMINA",
+    "country": "BRAZIL"
   },
   {
     "code": "SNPD",
@@ -2317,7 +2317,7 @@
     "longitude": -46.4911994934082,
     "name": "PATOS DE MINAS",
     "city": "PATOS DE MINAS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SNQD",
@@ -2327,7 +2327,7 @@
     "longitude": -38.2333984375,
     "name": "SOUSA",
     "city": "SOUSA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SNTF",
@@ -2337,7 +2337,7 @@
     "longitude": -39.66849899292,
     "name": "TEIXEIRA DE FREITAS",
     "city": "TEIXEIRA DE FREITAS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SNTI",
@@ -2345,9 +2345,9 @@
     "state": "PA",
     "latitude": -1.867169976234436,
     "longitude": -55.51440048217773,
-    "name": "ÓBIDOS",
-    "city": "ÓBIDOS",
-    "country": "BRASIL"
+    "name": "OBIDOS",
+    "city": "OBIDOS",
+    "country": "BRAZIL"
   },
   {
     "code": "SNTO",
@@ -2356,8 +2356,8 @@
     "latitude": -17.89229965209961,
     "longitude": -41.51359939575195,
     "name": "JUSCELINO KUBITSCHECK",
-    "city": "TEÓFILO OTONI",
-    "country": "BRASIL"
+    "city": "TEOFILO OTONI",
+    "country": "BRAZIL"
   },
   {
     "code": "SNTS",
@@ -2367,7 +2367,7 @@
     "longitude": -37.2515983581543,
     "name": "PEREGRINO FILHO",
     "city": "PATOS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SNVB",
@@ -2375,9 +2375,9 @@
     "state": "BA",
     "latitude": -13.2965,
     "longitude": -38.992401,
-    "name": "VALENÇA",
-    "city": "VALENÇA",
-    "country": "BRASIL"
+    "name": "VALENCA",
+    "city": "VALENCA",
+    "country": "BRAZIL"
   },
   {
     "code": "SNVS",
@@ -2387,7 +2387,7 @@
     "longitude": -50.44359970092773,
     "name": "BREVES",
     "city": "BREVES",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SNYA",
@@ -2397,7 +2397,7 @@
     "longitude": -52.57833480834961,
     "name": "ALMEIRIM",
     "city": "ALMEIRIM",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SOCA",
@@ -2407,7 +2407,7 @@
     "longitude": -52.36040115,
     "name": "CAYENNE-ROCHAMBEAU AIRPORT",
     "city": "CAIENA",
-    "country": "GUIANA FRANCESA"
+    "country": "FRENCH GUIANA"
   },
   {
     "code": "SPIM",
@@ -2415,7 +2415,7 @@
     "state": "",
     "latitude": -12.0219,
     "longitude": -77.114305,
-    "name": "JORGE CHÃVEZ INTERNATIONAL AIRPORT",
+    "name": "JORGE CHAVEZ INTERNATIONAL AIRPORT",
     "city": "LIMA",
     "country": "PERU"
   },
@@ -2425,7 +2425,7 @@
     "state": "",
     "latitude": -12.0219,
     "longitude": -77.114305,
-    "name": "JORGE CHÃVEZ INTERNATIONAL AIRPORT",
+    "name": "JORGE CHAVEZ INTERNATIONAL AIRPORT",
     "city": "LIMA",
     "country": "PERU"
   },
@@ -2437,7 +2437,7 @@
     "longitude": -54.926601,
     "name": "MUNICIPAL FRANCISCO DE MATOS PEREIRA",
     "city": "DOURADOS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SSER",
@@ -2447,7 +2447,7 @@
     "longitude": -52.2682991027832,
     "name": "ERECHIM",
     "city": "ERECHIM",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SSFB",
@@ -2456,8 +2456,8 @@
     "latitude": -26.059200286865234,
     "longitude": -53.0634994506836,
     "name": "AEROPORTO PAULO ABDALA",
-    "city": "FRANCISCO BELTRÃO",
-    "country": "BRASIL"
+    "city": "FRANCISCO BELTRAO",
+    "country": "BRAZIL"
   },
   {
     "code": "SSJA",
@@ -2466,8 +2466,8 @@
     "latitude": -27.1714000702,
     "longitude": -51.5532989502,
     "name": "SANTA TEREZINHA",
-    "city": "JOAÇABA",
-    "country": "BRASIL"
+    "city": "JOACABA",
+    "country": "BRAZIL"
   },
   {
     "code": "SSKW",
@@ -2477,7 +2477,7 @@
     "longitude": -61.4508,
     "name": "CACOAL",
     "city": "CACOAL",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SSNM",
@@ -2485,9 +2485,9 @@
     "state": "MT",
     "latitude": -9.965832710266113,
     "longitude": -54.8849983215332,
-    "name": "GUARANTÃ",
-    "city": "GUARANTÃ DO NORTE",
-    "country": "BRASIL"
+    "name": "GUARANTA",
+    "city": "GUARANTA DO NORTE",
+    "country": "BRAZIL"
   },
   {
     "code": "SSPB",
@@ -2497,7 +2497,7 @@
     "longitude": -52.694463,
     "name": "JUVENAL LOUREIRO CARDOSO",
     "city": "PATO BRANCO",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SSTD",
@@ -2507,7 +2507,7 @@
     "longitude": -51.59611129760742,
     "name": "TOLEDO",
     "city": "TOLEDO",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SSTL",
@@ -2515,9 +2515,9 @@
     "state": "MS",
     "latitude": -20.754199981689,
     "longitude": -51.68420028686499,
-    "name": "AEROPORTO REGIONAL PLÍNIO ALARCON",
-    "city": "TRÊS LAGOAS",
-    "country": "BRASIL"
+    "name": "AEROPORTO REGIONAL PLINIO ALARCON",
+    "city": "TRES LAGOAS",
+    "country": "BRAZIL"
   },
   {
     "code": "SSUM",
@@ -2527,7 +2527,7 @@
     "longitude": -53.31380081176758,
     "name": "ORLANDO DE CARVALHO",
     "city": "UMUARAMA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SSUW",
@@ -2537,7 +2537,7 @@
     "longitude": -51.505539,
     "name": "GUARAPUAVA",
     "city": "GUARAPUAVA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SSVI",
@@ -2545,9 +2545,9 @@
     "state": "SC",
     "latitude": -26.99970054626465,
     "longitude": -51.14189910888672,
-    "name": "ÂNGELO PONZONI",
+    "name": "ANGELO PONZONI",
     "city": "VIDEIRA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SSZR",
@@ -2557,7 +2557,7 @@
     "longitude": -54.520401,
     "name": "SANTA ROSA",
     "city": "SANTA ROSA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SULS",
@@ -2575,7 +2575,7 @@
     "state": "",
     "latitude": -34.838402,
     "longitude": -56.0308,
-    "name": "CARRASCO GRAL. CESÃREO L. BERISSO INTERNATIONAL AIRPORT",
+    "name": "CARRASCO GRAL. CESAREO L. BERISSO INTERNATIONAL AIRPORT",
     "city": "MONTEVIDEU",
     "country": "URUGUAI"
   },
@@ -2585,7 +2585,7 @@
     "state": "",
     "latitude": -34.91699982,
     "longitude": -54.91699982,
-    "name": "EL JAGÃœEL AIRPORT",
+    "name": "EL JAGUAEL AIRPORT",
     "city": "PUNTA DEL ESTE",
     "country": "URUGUAI"
   },
@@ -2595,7 +2595,7 @@
     "state": "",
     "latitude": -30.97459984,
     "longitude": -55.47620010000001,
-    "name": "PTE. GRAL. Ã“SCAR D. GESTIDO INTERNATIONAL AIRPORT",
+    "name": "PTE. GRAL. A“SCAR D. GESTIDO INTERNATIONAL AIRPORT",
     "city": "INTL RIVERA",
     "country": "URUGUAI"
   },
@@ -2605,7 +2605,7 @@
     "state": "",
     "latitude": 10.601194,
     "longitude": -66.991222,
-    "name": "SIMON BOLIVAR INTERNATIONAL AIRPORT (MAIQUETIA INTERNATIONAL AIRPORT)",
+    "name": "SIMON BOLIVAR INTERNATIONAL AIRPORT",
     "city": "CARACAS/INTL",
     "country": "VENEZUELA"
   },
@@ -2617,7 +2617,7 @@
     "longitude": -62.919601,
     "name": "BARCELOS",
     "city": "BARCELOS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SWBR",
@@ -2627,7 +2627,7 @@
     "longitude": -59.60240173339844,
     "name": "BORBA",
     "city": "BORBA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SWCA",
@@ -2637,7 +2637,7 @@
     "longitude": -66.89749908447266,
     "name": "CARAUARI",
     "city": "CARAUARI",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SWEI",
@@ -2645,9 +2645,9 @@
     "state": "AM",
     "latitude": -6.639530181884767,
     "longitude": -69.87979888916016,
-    "name": "EIRUNEPÉ",
-    "city": "EIRUNEPÉ",
-    "country": "BRASIL"
+    "name": "EIRUNEPE",
+    "city": "EIRUNEPE",
+    "country": "BRAZIL"
   },
   {
     "code": "SWFN",
@@ -2657,7 +2657,7 @@
     "longitude": -60.02111053466797,
     "name": "FLORES",
     "city": "MANAUS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SWFX",
@@ -2665,9 +2665,9 @@
     "state": "MT",
     "latitude": -11.632399559020994,
     "longitude": -50.68960189819336,
-    "name": "SÃO FÉLIX DO ARAGUAIA",
-    "city": "SÃO FÉLIX DO ARAGUAIA",
-    "country": "BRASIL"
+    "name": "SAO FELIX DO ARAGUAIA",
+    "city": "SAO FELIX DO ARAGUAIA",
+    "country": "BRAZIL"
   },
   {
     "code": "SWGI",
@@ -2677,7 +2677,7 @@
     "longitude": -49.13219833374024,
     "name": "GURUPI",
     "city": "GURUPI",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SWGN",
@@ -2685,9 +2685,9 @@
     "state": "TO",
     "latitude": -7.2278699999999985,
     "longitude": -48.240501,
-    "name": "ARAGUAÍNA",
-    "city": "ARAGUAÍNA",
-    "country": "BRASIL"
+    "name": "ARAGUAINA",
+    "city": "ARAGUAINA",
+    "country": "BRAZIL"
   },
   {
     "code": "SWHT",
@@ -2696,8 +2696,8 @@
     "latitude": -7.532120227810001,
     "longitude": -63.072101593,
     "name": "FRANCISCO CORREA DA CRUZ",
-    "city": "HUMAITÁ",
-    "country": "BRASIL"
+    "city": "HUMAITA",
+    "country": "BRAZIL"
   },
   {
     "code": "SWIQ",
@@ -2705,9 +2705,9 @@
     "state": "GO",
     "latitude": -13.5491,
     "longitude": -48.195301,
-    "name": "MINAÇU",
-    "city": "MINAÇU",
-    "country": "BRASIL"
+    "name": "MINACU",
+    "city": "MINACU",
+    "country": "BRAZIL"
   },
   {
     "code": "SWJH",
@@ -2717,7 +2717,7 @@
     "longitude": -57.53888900000001,
     "name": "JUARA",
     "city": "JUARA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SWJI",
@@ -2725,9 +2725,9 @@
     "state": "RO",
     "latitude": -10.870800018299999,
     "longitude": -61.8465003967,
-    "name": "JI-PARANÁ",
-    "city": "JI-PARANÁ",
-    "country": "BRASIL"
+    "name": "JI-PARANA",
+    "city": "JI-PARANA",
+    "country": "BRAZIL"
   },
   {
     "code": "SWJN",
@@ -2735,9 +2735,9 @@
     "state": "MT",
     "latitude": -11.419444,
     "longitude": -58.70166800000001,
-    "name": "JUÍNA",
-    "city": "JUÍNA",
-    "country": "BRASIL"
+    "name": "JUINA",
+    "city": "JUINA",
+    "country": "BRAZIL"
   },
   {
     "code": "SWJU",
@@ -2747,7 +2747,7 @@
     "longitude": -58.48944473266602,
     "name": "JURUENA",
     "city": "JURUENA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SWKN",
@@ -2757,7 +2757,7 @@
     "longitude": -48.61,
     "name": "CALDAS NOVAS",
     "city": "CALDAS NOVAS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SWKO",
@@ -2767,7 +2767,7 @@
     "longitude": -63.13259887695313,
     "name": "COARI",
     "city": "COARI",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SWLB",
@@ -2775,9 +2775,9 @@
     "state": "AM",
     "latitude": -7.278969764709473,
     "longitude": -64.76950073242189,
-    "name": "LÁBREA",
-    "city": "LÁBREA",
-    "country": "BRASIL"
+    "name": "LABREA",
+    "city": "LABREA",
+    "country": "BRAZIL"
   },
   {
     "code": "SWLC",
@@ -2787,7 +2787,7 @@
     "longitude": -50.95611190795898,
     "name": "GENERAL LEITE DE CASTRO",
     "city": "RIO VERDE",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SWMP",
@@ -2796,8 +2796,8 @@
     "latitude": -9.78596,
     "longitude": -54.908,
     "name": "MATUPA",
-    "city": "GUARANTÃ DO NORTE",
-    "country": "BRASIL"
+    "city": "GUARANTA DO NORTE",
+    "country": "BRAZIL"
   },
   {
     "code": "SWMW",
@@ -2805,9 +2805,9 @@
     "state": "AM",
     "latitude": -3.37217,
     "longitude": -57.7248,
-    "name": "MAUÉS",
-    "city": "MAUÉS",
-    "country": "BRASIL"
+    "name": "MAUES",
+    "city": "MAUES",
+    "country": "BRAZIL"
   },
   {
     "code": "SWNA",
@@ -2815,9 +2815,9 @@
     "state": "AM",
     "latitude": -5.118030071258545,
     "longitude": -60.36489868164063,
-    "name": "NOVO ARIPUANÃ",
-    "city": "NOVO ARIPUANÃ",
-    "country": "BRASIL"
+    "name": "NOVO ARIPUANA",
+    "city": "NOVO ARIPUANA",
+    "country": "BRAZIL"
   },
   {
     "code": "SWNK",
@@ -2827,7 +2827,7 @@
     "longitude": -67.312401,
     "name": "NOVO CAMPO",
     "city": "BOCA DO ACRE",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SWOB",
@@ -2837,7 +2837,7 @@
     "longitude": -66.0831985474,
     "name": "FONTE BOA",
     "city": "FONTE BOA",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SWPI",
@@ -2845,9 +2845,9 @@
     "state": "AM",
     "latitude": -2.6730198860168457,
     "longitude": -56.777198791503906,
-    "name": "JÚLIO BÉLEM",
+    "name": "JULIO BELEM",
     "city": "PARINTINS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SWRD",
@@ -2855,9 +2855,9 @@
     "state": "MT",
     "latitude": -16.586,
     "longitude": -54.7248,
-    "name": "RONDONÓPOLIS",
-    "city": "RONDONÓPOLIS",
-    "country": "BRASIL"
+    "name": "RONDONOPOLIS",
+    "city": "RONDONOPOLIS",
+    "country": "BRAZIL"
   },
   {
     "code": "SWRP",
@@ -2866,8 +2866,8 @@
     "latitude": -10.188278,
     "longitude": -59.457273,
     "name": "ARIPUANA",
-    "city": "ARIPUANÃ",
-    "country": "BRASIL"
+    "city": "ARIPUANA",
+    "country": "BRAZIL"
   },
   {
     "code": "SWSI",
@@ -2875,9 +2875,9 @@
     "state": "MT",
     "latitude": -11.885001,
     "longitude": -55.58610899999999,
-    "name": "PRESIDENTE JOÃO BATISTA FIGUEIREDO",
+    "name": "PRESIDENTE JOAO BATISTA FIGUEIREDO",
     "city": "SINOP",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SWTP",
@@ -2887,7 +2887,7 @@
     "longitude": -64.9923,
     "name": "TAPURUQUARA",
     "city": "SANTA ISABEL DO RIO NEGRO",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SWTS",
@@ -2895,9 +2895,9 @@
     "state": "MT",
     "latitude": -14.662,
     "longitude": -57.443501,
-    "name": "TANGARÁ DA SERRA",
-    "city": "TANGARÁ DA SERRA",
-    "country": "BRASIL"
+    "name": "TANGARA DA SERRA",
+    "city": "TANGARA DA SERRA",
+    "country": "BRAZIL"
   },
   {
     "code": "SWTU",
@@ -2907,7 +2907,7 @@
     "longitude": -58.866935,
     "name": "FAZENDA TUCUNARE",
     "city": "CAMPO NOVO DO PARECIS",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SWUY",
@@ -2917,7 +2917,7 @@
     "longitude": -65.3554000854,
     "name": "URUCU",
     "city": "COARI",
-    "country": "BRASIL"
+    "country": "BRAZIL"
   },
   {
     "code": "SYCJ",

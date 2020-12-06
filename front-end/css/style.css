@@ -98,14 +98,26 @@ g#slider {
 
 /* Plane information styles */
 .about_plane {
+    display: none;
+    flex-direction: column;
     color:  #D3D3D3;
-    margin-left: 700px;
-    margin-top: 320px;
-    width: 200px;
-    height: 100px;
-    pointer-events: none;
-    white-space:pre-wrap;
+    font-size: 15px;
+    background-color: rgb(71, 69, 67);
+    border: 1px solid;
+    border-radius: 3px;
+    border-color: #D3D3D3;
+    padding: 4px;
+    margin-left: 630px;
+    margin-top: 300px;
+    width: 300px;
+    height: 85px;
     font-family: 'Helvetica Neue';
+}
+.about_plane_line {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 /* Main div style */

@@ -29,11 +29,17 @@ const updateMap = () => {
                             originAirport.latitude,
                         ],
                         origin_state: originAirport.state,
+                        origin_city: originAirport.city,
+                        origin_country: originAirport.country,
+                        origin_name: originAirport.name,
                         destination_coordinates: [
                             destinationAirport.longitude,
                             destinationAirport.latitude,
                         ],
                         destination_state: destinationAirport.state,
+                        destination_city: destinationAirport.city,
+                        destination_country: destinationAirport.country,
+                        destination_name: destinationAirport.name,
                         ...row,
                     }
                 })
