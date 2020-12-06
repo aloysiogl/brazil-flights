@@ -84,9 +84,9 @@
     </div>
     <div id="instructions" class="instructions">
         <h1>Instructions</h1>
-        <p>This is an interactive vizualization of Brazilian flights ranging from
-            January 2000 to October 2020, it's part of a school project at École Polytechnique and was made by
-            the students Aloysio Galvão Lopes and Igor Albuquerque Silva.</p>
+        <p>This is an interactive visualization of Brazilian flights ranging from
+            January 2000 to October 2020. It's a final examproject for the data visualization course at the university
+            École Polytechnique and was made by the students Aloysio Galvão Lopes and Igor Albuquerque Silva.</p>
 
         <p> You have access to three main windows that interact with each other to show
             different aspects of flights data. The main idea is that in each window you can select some specific aspects
@@ -97,84 +97,138 @@
         <p> In the map window you can visualize the flights in a graph that shows the origins
             and destinations in a map. There are three different modes of visualization in this window: routes, airports
             and planes.
-            All of the modes can be superposed so and you can even visualize all of them at the same time.</p>
+            All of the modes can be superposed so you can even visualize all of them at the same time.</p>
 
         <p> In that same window you can also select Brazil and individual states in Brazil. If you click in Brazil it'll
             appear highlighted and
             only flights with origin and destination in Brazil will be considerd. If you click outside Brazil
             international flights will again be considered and Brazil will no
-            longer be highlighted. In the same way if Brazil is hightlighted and you click in an individual state only
+            longer be highlighted. In the same way, if Brazil is hightlighted and you click in an individual state only
             flights that involve that state will be considered, you can select
-            multiple sates in Brazil to see the routes considering just those states. Again yo should deselect all the
-            selected states or click outside Brazil to reset the selection.
+            multiple sates in Brazil to see the routes considering just those states. Again you should deselect all of
+            the selected states or click outside Brazil to reset the selection. The picture above shows some examples of
+            selections.
         </p>
 
-        <p> The first mode is routes, in this mode you can visualize the planes routes. Their relative importance is
-            shown by the color intensity.</p>
-        <p> The second mode is airports, in that mode you can visualize the airports. Their relative importance is show
-            as the area of the circle that is over a given airport.
-            If you place your mouse over an airport you can see other inforation, such as the name and the number of
-            flights in the current selection.
-        </p>
-        <p> The last mode is planes, in that mode you can visualize individual planes. The planes shown in this mode are
-            not real, they are simulated based on the data of the current selection.
-            In this mode you can see the relative speed of given routes as well as if the routes are delayed. A delayed
-            plane appear in red so if a route has lots of red planes you know that the planes are delayed very often in
-            that route.
-            If you hover over an idividual plane it'll become yeallow meaning that this plane is selected. When a plane
-            is selected additional information about that plane and it's route are shown in the bottom right corner of
-            the map. </p>
+        <p> The three existing modes are explained in more detail below:</p>
 
+        <ul>
+            <li>
+                <p> The first mode is routes, in this mode you can visualize the planes routes'. Their relative
+                    importance is shown by the color intensity.</p>
+            </li>
+            <li>
+                <p> The second mode is airports, in that mode you can visualize the airports. Their relative importance
+                    is show as the area of the circle that is over a given airport. If you place your mouse over an
+                    airport you can see other inforation, such as the name and the number of flights in the current
+                    selection.
+                </p>
+            <li>
+                <p> The last mode is planes, in this mode you can visualize individual planes. The planes shown in this
+                    mode are not real, they are simulated based on the data of the current selection.
+                    In this mode you can see the relative speed of given routes as well as if the routes are delayed. A
+                    delayed plane appear in red if the daley is greater than 15 minutes. This means that if a route has
+                    lots of red planes you know that the planes are delayed very often in that route. If you hover over
+                    an inividual plane it'll become yellow meaning that this plane is selected. When
+                    a plane is selected additional information about that plane and it's route are shown in the bottom
+                    right corner of the map. </p>
+            </li>
+        </ul>
         <p> You are also able to change the zoom on the map by using the mouse scroll or the touchpad. </p>
 
         <h2> The timeline window </h2>
         <img src="data/slider.png" alt="Timeline" width=940>
-        <p> The timeline window lies just below the map window and its purpose is to select the flights based on a given
-            period.</p>
-        <p> The complete period visible is this window will act as the considered perion for all of the othe windows.
-            You can change the considered period by zooming in this window (using your mouse scroll or touchpad to zoom)
-            and
-            by clicking and draging left or right. The defaul selection will cover all of the data, form January 2000 to
-            October 2020.
-        </p>
+        <p> The timeline window lies just below the map window and its purpose is to select the flights based on a
+            given period.</p>
 
-        <p> This window also shows the flights activity in a line plot that is drawn over the period. This plot is not
-            inteded to provide accurate information but rather to facilitate the navigation in this view and conveya
-            qualitative comparison.</p>
+        <p> The complete period visible in this window will act as the considered period for all of the other
+            windows. You can change the considered period by zooming in this window (using your mouse scroll or touchpad
+            to zoom) and by clicking and draging left or right. The default selection will cover all of the data, form
+            January 2000 to October 2020.</p>
+
+        <p> This window also shows the flights activity in a line plot that is drawn over the period. This plot is
+            not intended to provide accurate information, but rather to facilitate the navigation in this view and
+            convey a qualitative comparison.</p>
 
         <h2> The histograms window </h2>
 
         <img src="data/types.png" alt="Types" width=940>
 
-        <p>This window, situated at the bottom, consists of two plots, one that provides information about airlines and
-            other that provides information about airlines
-            avout flights types.
-        </p>
+        <p>This window, situated at the bottom, consists of two plots, one that provides information about flights types
+            and other that provides information about airlines.</p>
+
         <h3>The flights types plot</h3>
+
         <p>This is the bottom left plot. It's a veritcal bar plot that shows information about the number of flights
-            which belong to the six most important categories (by number of flights) in the current selection. A flight
-            category is a
-            classification given by ANAC, some examples are: domestic, regional, internaticonal etc.</p>
-        <p>The vertical axis show the number of flights, that information is in logarithmic scale (in simple terms this
-            means that the axis varies in powers of 10). We made this choice because the number of
-            flights by category varies considerably based on the flight type. </p>
+            which belong to the six most important categories (by number of flights) in the current selection. A
+            flight category is a classification given by ANAC (the regulatory agency in Brazil), some examples are:
+            domestic, regional, internaticonal etc.</p>
+
+        <p>The vertical axis show the number of flights, that information is in logarithmic scale (in simple terms
+            this means that the axis varies in powers of 10). We made this choice because the number of flights varies
+            considerably based on the flight type. </p>
+
         <p>As in all of the other windows, this plot is interective. If you click in any bar you will select only
-            flights that belong to the type that correspond to the selected bar. You can select multiple bars. It's
-            important to note that all of the other windows will be updated when you change the selection in this
-            window. This this plot also changes if you change the selections in other windows. </p>
+            flights that belong to the type that corresponds to the selected bar. You can select multiple bars, but if
+            you want to clear the selection you must deselect every bar that you selected. It's important to note that
+            all of the other windows will be updated when you change the selection in this window. This plot also
+            changes if you change the selections in other windows. </p>
 
         <h3>The airlines plot</h3>
-        <p>This is the bottom right plot. It's a horizontal bar plot that shows information about the number of flights
-            which belong to the ten most important airlines (by number of flights) in the current selection.
-        </p>
-        <p>The vertical axis shows companies codes and if you hover over the correspondent bar you can view the name of
-            each company, the horizontal axis shows the number of flights by company that reflecst the current selection
-            on the other windows. </p>
 
-        <p>You can select only one airline at the time, by clicking in the correspondent bar to study their routes and
-            flights, if you click outside the bars the selection is cleared. As for the other cases, every other window
-            will be updated by interacting with this window and this window will also change in response to changes on
-            the other windows.</p>
+        <p>This is the bottom right plot. It's a horizontal bar plot that shows information about the number of
+            flights which belong to the ten most important airlines (by number of flights) in the current selection.</p>
+
+        <p>The vertical axis shows companies codes and if you hover over the correspondent bar you can view the name
+            of each company, the horizontal axis shows the number of flights by company that reflecst the current
+            selection on the other windows. </p>
+
+        <p>You can select only one airline at the time, by clicking in the correspondent bar to study their routes
+            and flights, if you click outside the bars the selection is cleared. As for the other cases, every other
+            window will be updated by interacting with this window and this window will also change in response to
+            changes on the other windows.</p>
+
+        <h2>Simple use case</h2>
+
+        <p>We know that this visizualisation is considerably complex and the variety of options can be a littel bit
+            overwhelming at a first glance. We suggest that initially you try to explore it and keep in mind that almost
+            everything is clickable and interacts with each other. If you make some king of selection, it'll affect all
+            of the other views.</p>
+
+        <p>Try to study the flights in given region of Brazil by selecting states on Brazil's map. After that try to
+            seelct only some companies.</p>
+
+        <p>After tht you can click on the ocean and then select only international flights, you can filter again by
+            companies and select American Airlines for example, then, activate the planes mode and hover over some plane
+            to see the dalay and the flight duration.</p>
+
+        <p>Finally, you can hover over some airports to see additional information (be sure to have the airports mode
+            activated) and change the period to, for example 2020 to see the impact of the COVID crisis on the flights.
+        </p>
+
+        <h2>Final thoughts</h2>
+        <p>This project is based on a dataset freely available at ANAC's (Brazil's National Agency of Civil Aviation)
+            <a class="reference_link"
+                href="https://www.anac.gov.br/assuntos/dados-e-estatisticas/historico-de-voos">website</a>.
+            There was a considerable proprocessing effort to cleanup the data, so if you wish to use it directly be
+            warned. We chose to do this visualization as we both are Brazilians so we decided to visualize something
+            related to Brazil, at the same time, flights data offer plenty of useful information to create rich
+            visualizations.
+        </p>
+
+        <p>This project is part of the <a class="reference_link"
+                href="https://moodle.polytechnique.fr/course/view.php?id=9329">INF552-2020</a> course at École
+            Polytechnique. The main technologies used were the central part of the course (D3 and Vega lite). This
+            project is completely open and it's avalable on git over 
+            this <a class="reference_link"
+                href="https://github.com/aloysiogl/inf552-project">link</a>.</p>
+
+        <p>If you want to contact us please use reach out to one of these emails: </p>
+
+        <ul>
+            <li>aloysio.galvao-lopes@polytechnique.edu</li>
+            <li>igor.albuquerque-silva@polytechnique.edu</li>
+        </ul>
     </div>
     <div id="main_spinner" class="loader loader-large modal"></div>
 </body>
