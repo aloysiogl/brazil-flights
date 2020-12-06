@@ -57,12 +57,14 @@ const makeSlider = () => {
             configureSliderSignalListener(view)
 
             ctx.updateSlider = () => {
+                d3.select('#spinner_slider').attr('class', 'loader loader-small spinner_slider')
                 getSliderData(data => {
                     const changeSet = vega
                         .changeset()
                         .remove(() => true)
                         .insert(data)
                     view.change('data', changeSet).run()
+                    d3.select('#spinner_slider').attr('class', 'hidden')
                 })
             }
         })
