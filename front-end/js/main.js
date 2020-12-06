@@ -61,11 +61,3 @@ var loadData = svgEl => {
         updateMap()
     })
 }
-
-const showHelp = clicked => {
-    if (clicked) {
-        d3.select("#instructions").style('display', 'block')
-    } else {
-        d3.select("#instructions").style('display', 'none')
-    }
-}
