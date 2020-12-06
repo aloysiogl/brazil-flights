@@ -73,8 +73,10 @@ const makeTypesPlot = () => {
             configureTypesSignalListener(view)
 
             ctx.updateTypes = () => {
+                d3.select('#spinner_types').attr('class', 'loader loader-small spinner_types')
                 getTypesData(data => {
                     updateVegaTypes(view, data)
+                    d3.select('#spinner_types').attr('class', 'hidden')
                 })
             }
         })

@@ -73,8 +73,10 @@ const makeCompaniesPlot = () => {
             configureAirlinesSignalListener(view)
 
             ctx.updateAirlines = () => {
+                d3.select('#spinner_airlines').attr('class', 'loader loader-small spinner_airlines')
                 getAirlinesData(data => {
                     updateVegaSlider(view, data)
+                    d3.select('#spinner_airlines').attr('class', 'hidden')
                 })
             }
         })

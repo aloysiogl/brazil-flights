@@ -4,6 +4,7 @@ const updateMap = () => {
         drawAirportDensity([])
         drawPlanes([])
     } else {
+        d3.select('#spinner_map').attr('class', 'loader loader-small spinner_map')
         jQuery.get(
             ctx.serverUrl,
             {
@@ -60,6 +61,7 @@ const updateMap = () => {
                     d3.select('#main_spinner').attr('class', 'hidden')
                     d3.select('#main').attr('class', 'main')
                 }
+                d3.select('#spinner_map').attr('class', 'hidden')
             }
         )
     }
