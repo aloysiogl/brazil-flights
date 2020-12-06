@@ -35,16 +35,22 @@
 }
 
 /* Planes styles */
+.planes_group {
+    pointer-events: none;
+}
 .base_plane {
-    fill: rgba(205, 248, 246, 0.904)
+    fill: rgba(205, 248, 246, 0.904);
+    pointer-events: auto;
 }
 
 .delayed_plane {
-    fill: rgba(245, 74, 68, 0.904)
+    fill: rgba(245, 74, 68, 0.904);
+    pointer-events: auto;
 }
 
 .selected_plane {
-    fill: rgba(250, 247, 60, 0.904)
+    fill: rgba(250, 247, 60, 0.904);
+    pointer-events: auto;
 }
 
 .interactiveMap {
@@ -108,10 +114,11 @@ g#slider {
     border-color: #D3D3D3;
     padding: 4px;
     margin-left: 630px;
-    margin-top: 285px;
+    margin-top: 255px;
     width: 300px;
-    height: 100px;
+    height: 130px;
     font-family: 'Helvetica Neue';
+    pointer-events: none;
 }
 .about_plane_line {
     width: 100%;
@@ -145,4 +152,17 @@ g#slider {
 
 .black-background {
     background-color: rgb(24, 26, 27);
+}
+
+.instructions {
+    display: none;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+    color: lightgray;
+}
+
+.instruction-text {
+    font-family: 'Helvetica Neue';
 }

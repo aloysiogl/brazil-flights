@@ -195,6 +195,7 @@ const drawPlanes = routesCountsList => {
         ]
 
         const delay = randomG(route.avg_delay, route.avg_delay/2, 5)
+        const duration = randomG(route.avg_duration, route.avg_duration / 10, 5)
 
         const getPlaneClass = d => {
             if (d.delay > DELAYED_THRESHOLD) return "delayed_plane"
@@ -202,7 +203,7 @@ const drawPlanes = routesCountsList => {
         }
 
         var plane = ctx.planesGroup
-            .data([{traj: traj, route: route, delay: delay}])
+            .data([{traj: traj, route: route, delay: delay, duration: duration}])
             .append("path")
             // Code for the svg plane
             .attr("d", "M480 192H365.71L260.61 8.06A16.014 16.014 0 0 0 246.71 0h-65.5c-10.63 0-18.3 10.17-15.38"+
@@ -210,6 +211,7 @@ const drawPlanes = routesCountsList => {
                        "49 147.88L32 256 .49 364.12C-2.04 374.22 5.6 384 16.01 384H56c5.04 0 9.78-2.37 12.8-6.4L"+
                        "112 320h102.86l-49.03 171.6c-2.92 10.22 4.75 20.4 15.38 20.4h65.5c5.74 0 11.04-3.08 13.8"+
                        "9-8.06L365.71 320H480c35.35 0 96-28.65 96-64s-60.65-64-96-64z")
+            .attr('transform', 'scale(0)')
             .attr("class", d => getPlaneClass(d))
 
         // Show plane information after mouse hover
@@ -240,13 +242,19 @@ const drawPlanes = routesCountsList => {
             div.append("div")
                .attr('class', 'about_plane_line')
                .html(`Average delay: ${parseInt(d.route.avg_delay)} min`)
+            div.append("div")
+               .attr('class', 'about_plane_line')
+               .html(`Simulated duration: ${parseInt(d.duration)} min`)
+            div.append("div")
+               .attr('class', 'about_plane_line')
+               .html(`Simulated delay: ${parseInt(d.delay)} min`)
             ctx.selectedPlane = plane
         })
 
         // Plane movement
         plane
             .transition()
-            .duration(d => d.route.avg_duration*SPEED_FACTOR)
+            .duration(d => d.duration * SPEED_FACTOR)
             .attrTween("transform", t => tween(t.traj[0], t.traj[1])())
             .on("end", d => {
                 // If the plane was the selected plane clear the selection

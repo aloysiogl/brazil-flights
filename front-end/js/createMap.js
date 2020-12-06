@@ -77,7 +77,7 @@ const addStates = (generator) => {
     ctx.circlesGroup = ctx.mapG.append("g").attr("id", "circles")
 
     // Adding group for the planes
-    ctx.planesGroup = ctx.mapG.append("g").attr("id", "planes")
+    ctx.planesGroup = ctx.mapG.append("g").attr("id", "planes").attr('class', 'planes_group')
 }
 
 const clickOnState = (state) => {
