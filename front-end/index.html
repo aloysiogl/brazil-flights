@@ -151,15 +151,30 @@
             avout flights types.
         </p>
         <h3>The flights types plot</h3>
-        <p>This is the bottom left plot. It's a veritcal bar plot that show information about the number of flights
-            which belong to the six most important categories in the current seelction. A flight category is a
+        <p>This is the bottom left plot. It's a veritcal bar plot that shows information about the number of flights
+            which belong to the six most important categories (by number of flights) in the current selection. A flight
+            category is a
             classification given by ANAC, some examples are: domestic, regional, internaticonal etc.</p>
-        <p>The vertical axis show the number of flights, that information is in logarithmic scale (in simple terms this means that the axis varies in powers of 10). We made this choice because the number of
+        <p>The vertical axis show the number of flights, that information is in logarithmic scale (in simple terms this
+            means that the axis varies in powers of 10). We made this choice because the number of
             flights by category varies considerably based on the flight type. </p>
         <p>As in all of the other windows, this plot is interective. If you click in any bar you will select only
             flights that belong to the type that correspond to the selected bar. You can select multiple bars. It's
-            important to note that all of the other windows will be updated when you change the selection in this window.
-        This this plot also changes if you change the selections in other windows. </p>
+            important to note that all of the other windows will be updated when you change the selection in this
+            window. This this plot also changes if you change the selections in other windows. </p>
+
+        <h3>The airlines plot</h3>
+        <p>This is the bottom right plot. It's a horizontal bar plot that shows information about the number of flights
+            which belong to the ten most important airlines (by number of flights) in the current selection.
+        </p>
+        <p>The vertical axis shows companies codes and if you hover over the correspondent bar you can view the name of
+            each company, the horizontal axis shows the number of flights by company that reflecst the current selection
+            on the other windows. </p>
+
+        <p>You can select only one airline at the time, by clicking in the correspondent bar to study their routes and
+            flights, if you click outside the bars the selection is cleared. As for the other cases, every other window
+            will be updated by interacting with this window and this window will also change in response to changes on
+            the other windows.</p>
     </div>
     <div id="main_spinner" class="loader loader-large modal"></div>
 </body>
