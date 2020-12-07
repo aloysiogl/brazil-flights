@@ -77,7 +77,7 @@
     <div id="instructions" class="instructions">
         <h1>Instructions</h1>
         <p>This is an interactive visualization of Brazilian flights ranging from
-            January 2000 to October 2020. It's a final examproject for the data visualization course at the university
+            January 2000 to October 2020. It's a final exam project for the data visualization course at the university
             École Polytechnique and was made by the students Aloysio Galvão Lopes and Igor Albuquerque Silva.</p>
 
         <p> You have access to three main windows that interact with each other to show
@@ -95,8 +95,8 @@
             appear highlighted and
             only flights with origin and destination in Brazil will be considerd. If you click outside Brazil
             international flights will again be considered and Brazil will no
-            longer be highlighted. In the same way, if Brazil is hightlighted and you click in an individual state only
-            flights that involve that state will be considered, you can select
+            longer be highlighted. In the same way, if Brazil is hightlighted and you click in an individual state, only
+            flights that involve that state will be considered. You can select
             multiple sates in Brazil to see the routes considering just those states. Again you should deselect all of
             the selected states or click outside Brazil to reset the selection. The picture above shows some examples of
             selections.
@@ -106,8 +106,8 @@
 
         <ul>
             <li>
-                <p> The first mode is routes, in this mode you can visualize the planes routes'. Their relative
-                    importance is shown by the color intensity.</p>
+                <p> The first mode is routes, in this mode you can visualize the planes routes. Their relative
+                    importance is represented by the color intensity.</p>
             </li>
             <li>
                 <p> The second mode is airports, in that mode you can visualize the airports. Their relative importance
@@ -122,7 +122,7 @@
                     delayed plane appear in red if the daley is greater than 15 minutes. This means that if a route has
                     lots of red planes you know that the planes are delayed very often in that route. If you hover over
                     an inividual plane it'll become yellow meaning that this plane is selected. When
-                    a plane is selected additional information about that plane and it's route are shown in the bottom
+                    a plane is selected additional information about that plane and its route are shown in the bottom
                     right corner of the map. </p>
             </li>
         </ul>
@@ -135,7 +135,7 @@
 
         <p> The complete period visible in this window will act as the considered period for all of the other
             windows. You can change the considered period by zooming in this window (using your mouse scroll or touchpad
-            to zoom) and by clicking and draging left or right. The default selection will cover all of the data, form
+            to zoom) and by clicking and dragging left or right. The default selection will cover all of the data, from
             January 2000 to October 2020.</p>
 
         <p> This window also shows the flights activity in a line plot that is drawn over the period. This plot is
@@ -156,7 +156,7 @@
             flight category is a classification given by ANAC (the regulatory agency in Brazil), some examples are:
             domestic, regional, internaticonal etc.</p>
 
-        <p>The vertical axis show the number of flights, that information is in logarithmic scale (in simple terms
+        <p>The vertical axis shows the number of flights, that information is in logarithmic scale (in simple terms
             this means that the axis varies in powers of 10). We made this choice because the number of flights varies
             considerably based on the flight type. </p>
 
@@ -172,30 +172,30 @@
             flights which belong to the ten most important airlines (by number of flights) in the current selection.</p>
 
         <p>The vertical axis shows companies codes and if you hover over the correspondent bar you can view the name
-            of each company, the horizontal axis shows the number of flights by company that reflecst the current
+            of each company. The horizontal axis shows the number of flights by company that reflect the current
             selection on the other windows. </p>
 
-        <p>You can select only one airline at the time, by clicking in the correspondent bar to study their routes
+        <p>You can select only one airline at a time, by clicking in the correspondent bar to study their routes
             and flights, if you click outside the bars the selection is cleared. As for the other cases, every other
             window will be updated by interacting with this window and this window will also change in response to
             changes on the other windows.</p>
 
         <h2>Simple use case</h2>
 
-        <p>We know that this visizualisation is considerably complex and the variety of options can be a littel bit
+        <p>We know that this visizualization is considerably complex and the variety of options can be a little bit
             overwhelming at a first glance. We suggest that initially you try to explore it and keep in mind that almost
-            everything is clickable and interacts with each other. If you make some king of selection, it'll affect all
+            everything is clickable and interacts with each other. If you make some kind of selection, it'll affect all
             of the other views.</p>
 
         <p>Try to study the flights in given region of Brazil by selecting states on Brazil's map. After that try to
-            seelct only some companies.</p>
+            select only some companies.</p>
 
-        <p>After tht you can click on the ocean and then select only international flights, you can filter again by
+        <p>After that you can click on the ocean and then select only international flights, you can filter again by
             companies and select American Airlines for example, then, activate the planes mode and hover over some plane
             to see the dalay and the flight duration.</p>
 
         <p>Finally, you can hover over some airports to see additional information (be sure to have the airports mode
-            activated) and change the period to, for example 2020 to see the impact of the COVID crisis on the flights.
+            activated) and change the period to, for example 2020 to see the impact of the COVID-19 crisis on the flights.
         </p>
 
         <h2>Final thoughts</h2>
@@ -210,7 +210,7 @@
 
         <p>This project is part of the <a class="reference_link"
                 href="https://moodle.polytechnique.fr/course/view.php?id=9329">INF552-2020</a> course at École
-            Polytechnique. The main technologies used were the central part of the course (D3 and Vega lite). This
+            Polytechnique. The main technologies used were the central part of the course (D3 and Vega-Lite). This
             project is completely open and it's avalable on git over 
             this <a class="reference_link"
                 href="https://github.com/aloysiogl/inf552-project">link</a>.</p>
