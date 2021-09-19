@@ -25,11 +25,13 @@ def read_preprocessed(data_path, year):
 
 data_path = os.path.dirname(os.path.abspath(__file__)) + '/../data/'
 airlines_counts = []
-for y in range(2000, 2021):
+for y in range(2000, 2022):
     df = read_preprocessed(data_path, y)
     airlines_counts.append(df['airline'].value_counts().rename('count'))
 airlines_counts = pd.concat(airlines_counts, axis=1).sum(
     axis=1).rename('count').astype(int).sort_values(ascending=False)
 airlines_counts = airlines_counts[airlines_counts > 1000]
+airlines_counts = airlines_counts.reset_index()
+airlines_counts.columns = ['code', 'count']
 
-airlines_counts.to_csv(data_path + 'filtered_airlines.csv')
+airlines_counts.to_csv(data_path + 'filtered_airlines.csv', index=False)

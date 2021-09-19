@@ -25,7 +25,7 @@ def read_preprocessed(data_path, year):
 
 data_path = os.path.dirname(os.path.abspath(__file__)) + '/../data/'
 airport_counts = []
-for y in range(2000, 2021):
+for y in range(2000, 2022):
     df = read_preprocessed(data_path, y)
     airport_counts.append(df['origin_airport'].value_counts().rename('count'))
     airport_counts.append(

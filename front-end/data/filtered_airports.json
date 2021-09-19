@@ -410,6 +410,16 @@
     "country": "TURKEY"
   },
   {
+    "code": "LTFM",
+    "brazilian": 0,
+    "state": "",
+    "latitude": 41.275278,
+    "longitude": 28.751944,
+    "name": "ISTAMBUL AIRPORT",
+    "city": "ISTANBUL",
+    "country": "TURKEY"
+  },
+  {
     "code": "MDPC",
     "brazilian": 0,
     "state": "",
@@ -1100,6 +1110,16 @@
     "country": "BRAZIL"
   },
   {
+    "code": "SBJD",
+    "brazilian": 1,
+    "state": "SP",
+    "latitude": -23.180369,
+    "longitude": -46.944408,
+    "name": "COMTE ROLIM ADOLFO AMARO STATE AIRPORT",
+    "city": "JUNDIAI",
+    "country": "BRAZIL"
+  },
+  {
     "code": "SBJE",
     "brazilian": 1,
     "state": "CE",
@@ -1427,6 +1447,16 @@
     "longitude": -52.326599,
     "name": "LAURO KURTZ",
     "city": "PASSO FUNDO",
+    "country": "BRAZIL"
+  },
+  {
+    "code": "SBPG",
+    "brazilian": 1,
+    "state": "PR",
+    "latitude": -25.1847,
+    "longitude": -50.1441,
+    "name": "COMTE ANTONIO AMILTON BERALDO AIRPORT",
+    "city": "PONTA GROSSA",
     "country": "BRAZIL"
   },
   {
@@ -2330,6 +2360,16 @@
     "country": "BRAZIL"
   },
   {
+    "code": "SNRU",
+    "brazilian": 1,
+    "state": "PE",
+    "latitude": -8.282389640808105,
+    "longitude": -36.01350021362305,
+    "name": "CARUARU AIRPORT",
+    "city": "CARUARU",
+    "country": "BRAZIL"
+  },
+  {
     "code": "SNTF",
     "brazilian": 1,
     "state": "BA",
@@ -2687,6 +2727,16 @@
     "longitude": -48.240501,
     "name": "ARAGUAINA",
     "city": "ARAGUAINA",
+    "country": "BRAZIL"
+  },
+  {
+    "code": "SWHP",
+    "brazilian": 1,
+    "state": "MT",
+    "latitude": -14.019444,
+    "longitude": -52.152221999999995,
+    "name": "ÁGUA BOA AIRPORT",
+    "city": "ÁGUA BOA",
     "country": "BRAZIL"
   },
   {

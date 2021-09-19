@@ -76,6 +76,6 @@ def print_info(df):
 
 
 if __name__ == '__main__':
-    for y in range(2000, 2021):
+    for y in range(2000, 2022):
         df = read_preprocessed(y)
         print_info(df)

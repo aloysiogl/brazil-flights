@@ -15,6 +15,7 @@ def rename_columns(df):
                        'Chegada Real': 'real_arrival',
                        'Situacao Voo': 'status',
                        'Codigo Justificativa': 'reason'}, inplace=True)
+    df['reason'] = df['reason'].astype(str)
 
 
 def fix_column_orders(df):
@@ -39,7 +40,8 @@ def encode_values(df):
     not_complete = ['NAO REALIZADO', 'NÃO REALIZADO', 'Nao Realizado']
     canceled = ['CANCELADO', 'Cancelado']
     not_informed = ['NAO INFORMADO', 'NíO INFORMADO',
-                    'NÕO INFORMADO', 'NÃO INFORMADO', 'NaN']
+                    'NÕO INFORMADO', 'NÃO INFORMADO',
+                    'NÌO INFORMADO', 'NÃO INFORMADO', 'NaN']
     df['status'].replace(complete, 1, inplace=True)
     df['status'].replace(not_complete, 2, inplace=True)
     df['status'].replace(canceled, 3, inplace=True)
@@ -199,4 +201,4 @@ def preprocess(years):
 
 
 if __name__ == '__main__':
-    preprocess(range(2000, 2021))
+    preprocess(range(2000, 2022))

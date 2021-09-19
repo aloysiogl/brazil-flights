@@ -28,7 +28,7 @@ airlines = pd.read_csv(data_path + 'filtered_airlines.csv')
 airports = pd.read_csv(data_path + 'filtered_airports.csv')
 
 routes = []
-for y in range(2000, 2021):
+for y in range(2000, 2022):
     print(y)
 
     df = read_preprocessed(data_path, y)

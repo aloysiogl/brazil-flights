@@ -63,7 +63,7 @@ columns_mapping = {
 drop_columns = ['Unnamed 0', 'Grupo DI', 'Data Prevista',
                 'Unnamed 11', 'Unnamed 12', 'Unnamed 13', 'Unnamed 14']
 drop_first_row = set([(2015, 11), (2015, 12)])
-drop_last_rows = {(2005, 5): 24, (2002, 1): 24}
+drop_last_rows = {(2004, 9): 24, (2005, 5): 24, (2002, 1): 24}
 
 i = 1
 cur_year = 2020
@@ -78,7 +78,7 @@ for index, row in df_urls.iterrows():
         df = pd.read_csv(raw_data_dir + str(year) + str(month) + '.csv')
     else:
         if url[-4:] == 'xlsx':
-            df = pd.read_excel(url)
+            df = pd.read_excel(url, engine='openpyxl')
         else:
             df = pd.read_csv(url, sep=',|;|\t', encoding='latin1')
 
@@ -87,8 +87,8 @@ for index, row in df_urls.iterrows():
     drop_rows = []
     if (year, month) in drop_first_row:
         drop_rows = [0]
-        drop_columns += ['d1', 'd2', 'd3']
-        df.columns = ['ICAO Empresa Aerea', 'Numero Voo', 'Codigo DI', 'Codigo Tipo Linha',
+        drop_columns += ['d0', 'd1', 'd2', 'd3']
+        df.columns = ['d0', 'ICAO Empresa Aerea', 'Numero Voo', 'Codigo DI', 'Codigo Tipo Linha',
                       'ICAO Aerodromo Origem', 'ICAO Aerodromo Destino', 'Partida Prevista',
                       'Partida Real', 'Chegada Prevista', 'Chegada Real', 'Situacao Voo',
                       'Codigo Justificativa', 'd1', 'd2', 'd3']
@@ -100,6 +100,8 @@ for index, row in df_urls.iterrows():
     df.drop(drop_rows, inplace=True)
     df = df.rename(columns=columns_mapping).drop(
         drop_columns, axis=1, errors='ignore')
+    if len(df.columns) == 11:
+        df['Codigo Justificativa'] = ''
 
     if cur_year != year:
         df_final.to_csv(divided_data_dir + 'flights' +
