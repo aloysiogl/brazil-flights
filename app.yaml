@@ -1,0 +1,4 @@
+runtime: nodejs16
+
+env_variables:
+  GOOGLE_APPLICATION_CREDENTIALS: "google-credentials.json"

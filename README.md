@@ -2,7 +2,7 @@
 
 This repository contains the implementation of an interactive visualization of Brazilian flights ranging from January 2000 to October 2020. It's a final exam project for the data visualization course at the university École Polytechnique and was made by the students Aloysio Galvão Lopes and Igor Albuquerque Silva.
 
- The visualization is available at the following link: <http://brazil-flights.herokuapp.com/>.
+ The visualization is available at the following link: <https://brazil-flights.ew.r.appspot.com>.
 
 ![](doc/overview.png)
 
