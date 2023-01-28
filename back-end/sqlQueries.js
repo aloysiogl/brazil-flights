@@ -34,7 +34,7 @@ const fromWhereExp = ({ start, end, airlines, types, states }) => {
     filterType = types !== ''
 
     return `FROM
-                \`inf552-project.routes.routes\` r
+                \`my-project-1501985873141.routes.routes\` r
             WHERE
                 1 = 1
                 ${
